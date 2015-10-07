@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:card_view="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+
+	>
+
+	<android.support.v7.widget.CardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/cv"
+		card_view:cardElevation="2dp"
+		android:paddingTop="1px"
+
+
+		>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp"
+			android:id="@+id/rlCard"
+			android:background="#ffffff"
+			>
+
+
+			<ImageView
+				android:layout_width="85dp"
+				android:layout_height="85dp"
+				android:id="@+id/imgProductPhoto"
+				android:layout_alignParentTop="true"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentStart="true"
+
+				android:src="@drawable/tomato"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text=" Tomato "
+				android:textSize="20dp"
+				android:textStyle="normal"
+				android:paddingLeft="10dp"
+                android:paddingBottom="5dp"
+
+				android:id="@+id/tvProductName"
+				android:layout_alignParentTop="true"
+				android:layout_toRightOf="@+id/imgProductPhoto"
+				android:layout_toEndOf="@+id/imgProductPhoto"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="1 kgs"
+				android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+
+				android:id="@+id/tvAvailableQuantity"
+				android:layout_below="@+id/tvProductName"
+				android:layout_toRightOf="@+id/imgProductPhoto"
+				android:layout_toEndOf="@+id/imgProductPhoto" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Rs. 40"
+				android:textSize="16dp"
+				android:textStyle="bold"
+				android:paddingLeft="15dp"
+				android:id="@+id/tvPricePerUnit"
+				android:layout_alignBottom="@+id/imgProductPhoto"
+				android:layout_toRightOf="@+id/imgProductPhoto"
+				android:layout_toEndOf="@+id/imgProductPhoto" />
+
+			<TextView
+
+				android:layout_width="28dp"
+				android:layout_height="28dp"
+				android:text="-"
+                android:gravity="center"
+                android:textSize="21dp"
+				android:textColor="#21bdba"
+				android:background="@drawable/round_button"
+				android:id="@+id/btnMinusQuantity"
+				android:layout_alignBottom="@+id/imgProductPhoto"
+				android:layout_toLeftOf="@+id/tvQuantitySelected"
+				android:layout_toStartOf="@+id/tvQuantitySelected" />
+
+			<TextView
+				android:layout_width="28dp"
+				android:layout_height="28dp"
+				android:text="+"
+                android:textSize="21dp"
+				android:gravity="center"
+				android:textColor="#21bdba"
+				android:background="@drawable/round_button"
+				android:id="@+id/btnPlusQuantity"
+				android:layout_alignTop="@+id/btnMinusQuantity"
+				android:layout_alignParentRight="true"
+				android:layout_alignParentEnd="true" />
+
+			<TextView
+				android:layout_width="35dp"
+				android:layout_height="wrap_content"
+				android:text="0"
+				android:gravity="center"
+				android:textSize="16dp"
+				android:textStyle="bold"
+
+				android:id="@+id/tvQuantitySelected"
+				android:paddingTop="7dp"
+				android:layout_alignTop="@+id/btnMinusQuantity"
+				android:layout_toLeftOf="@+id/btnPlusQuantity"
+				android:layout_toStartOf="@+id/btnPlusQuantity" />
+		</RelativeLayout>
+
+	</android.support.v7.widget.CardView>
+
+</LinearLayout>

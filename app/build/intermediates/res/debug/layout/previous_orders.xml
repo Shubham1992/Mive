@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/scrollViewPreviousOrder"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/previousOrderContainer"
+    >
+
+
+</LinearLayout>
+    </ScrollView><!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/src/main/res/layout/previous_orders.xml -->

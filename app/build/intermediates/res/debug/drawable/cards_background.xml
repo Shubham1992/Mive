@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <stroke android:color="#d3d3d3"
+        android:width="1px">
+
+    </stroke>
+    </shape><!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/src/main/res/drawable/cards_background.xml -->

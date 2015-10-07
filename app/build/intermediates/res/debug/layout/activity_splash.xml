@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity"
+    android:background="#ffffff"
+    android:orientation="vertical"
+android:weightSum="3"
+    >
+
+
+
+	<ImageView
+        android:layout_weight="1"
+        android:id="@+id/img"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mive_icon"
+        android:layout_marginTop="60dp"
+></ImageView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/txt"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/tvMive"
+        android:layout_weight="1"
+
+
+         />
+
+
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/light_blue_material_design_loading"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>
+<!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/src/main/res/layout/activity_splash.xml -->

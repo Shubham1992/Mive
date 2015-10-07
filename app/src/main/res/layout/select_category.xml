@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+
+   android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
+    android:paddingTop="?android:attr/actionBarSize"
+    >
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+        android:layout_weight=".6">
+    <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_weight="1.7"
+    android:background="#21bdba"
+    android:layout_margin="5dp">
+
+   <!-- <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imgcstm"
+        android:src="@drawable/cstmbskt"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="15dp"
+
+       />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Basket"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal|bottom" />
+</FrameLayout>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight=".4"
+        android:weightSum="2"
+        >
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="#3fb658">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/fruits"
+android:padding="10dp"
+            android:id="@+id/imgfruits"
+            android:paddingTop="3dp"
+            android:paddingBottom="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fruits"
+                android:textSize="25dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:id="@+id/textView3"
+                android:layout_gravity="center_horizontal|bottom" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="#3fb658">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/vegetables"
+                android:padding="10dp"
+                android:id="@+id/imgveg"
+                android:paddingTop="3dp"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegetables"
+                android:textSize="25dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:id="@+id/textView4"
+                android:layout_gravity="center_horizontal|bottom" />
+        </FrameLayout>
+
+    </LinearLayout>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    android:layout_weight=".2"
+    android:layout_marginBottom="1dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/bottom"/>
+</LinearLayout>
+
+
+</LinearLayout>

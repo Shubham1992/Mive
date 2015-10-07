@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cv"
+        card_view:cardElevation="2sp"
+        card_view:cardUseCompatPadding="true"
+
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Id"
+                android:id="@+id/textView8"
+                android:textSize="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2344"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:padding="5dp"
+                android:id="@+id/tvOrderId"
+                android:layout_below="@+id/textView8"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Date"
+                android:textSize="15dp"
+                android:id="@+id/textView20"
+                android:layout_alignTop="@+id/textView22"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:text="22.09.2015"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:padding="5dp"
+
+                android:id="@+id/tvOrderDate"
+                android:layout_below="@+id/textView20"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Amount"
+                android:textSize="15dp"
+                android:id="@+id/textView22"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs. 1000"
+                android:textSize="16dp"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:id="@+id/tvOrderAmount"
+                android:layout_below="@+id/textView22"
+                android:layout_alignLeft="@+id/textView22"
+                android:layout_alignStart="@+id/textView22" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:paddingRight="5dp"
+                android:id="@+id/linearLayout"
+                android:layout_below="@+id/tvPaymentMode"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+              <LinearLayout
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="10dp"
+                    android:background="#d3d3d3"
+                    android:id="@+id/tvPlaced"
+                    android:layout_weight="1"/>
+
+                  <TextView
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:text="Packed"
+                      android:gravity="center"
+                      android:padding="5dp"
+                      />
+              </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    >
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="10dp"
+                        android:background="#d3d3d3"
+                        android:id="@+id/tvProcessing"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shipped"
+                        android:gravity="center"
+                        android:padding="5dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="10dp"
+                        android:background="#d3d3d3"
+                        android:id="@+id/tvdelivered"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Delivered"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#21bdba"
+                android:layout_marginRight="75dp"
+                android:id="@+id/textView21"
+
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COD"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tvPaymentMode"
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/tvOrderAmount"
+                android:layout_alignRight="@+id/tvOrderAmount"
+                android:layout_alignEnd="@+id/tvOrderAmount" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout><!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/src/main/res/layout/previous_order_tab.xml -->
