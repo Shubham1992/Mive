@@ -309,7 +309,7 @@ void hideFragments()
 
             SearchView search = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
-            menu.findItem(R.id.action_search).setIcon(R.drawable.search);
+            menu.findItem(R.id.action_search).setIcon(R.drawable.search100);
 
             search.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
 
@@ -386,7 +386,7 @@ void hideFragments()
         SearchView mSearchView = (SearchView) searchViewMenuItem.getActionView();
         int searchImgId = getResources().getIdentifier("android:id/search_button", null, null);
         ImageView v = (ImageView) mSearchView.findViewById(searchImgId);
-        v.setImageResource(R.drawable.search);
+        v.setImageResource(R.drawable.search100);
 
 
 

@@ -35,9 +35,9 @@ public final class R {
 		public static final int sb__text_size = 0x7f09008f;
 	}
 	public static final class drawable {
-		public static final int sb__bg = 0x7f02005d;
-		public static final int sb__btn_bg = 0x7f02005e;
-		public static final int sb__divider_bg = 0x7f02005f;
+		public static final int sb__bg = 0x7f02005e;
+		public static final int sb__btn_bg = 0x7f02005f;
+		public static final int sb__divider_bg = 0x7f020060;
 	}
 	public static final class id {
 		public static final int sb__action = 0x7f0e0102;

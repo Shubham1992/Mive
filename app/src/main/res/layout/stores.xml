@@ -4,7 +4,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="3"
-    >
+   android:background="#ffffff" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="horizontal"
+        android:background="#21bdba">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="Select Store"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/btnCrt"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shopping232"
+            android:layout_gravity="right|center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="0"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingBottom="9dp"
+            android:paddingLeft="3dp"
+            android:gravity="center"
+            android:textColor="#21bdba"/>
+
+    </RelativeLayout>
 <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -19,6 +55,7 @@
         android:background="@drawable/a"
         android:orientation="vertical"
         android:gravity="center"
+        android:layout_margin="3dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +75,7 @@
         android:background="@drawable/b"
         android:orientation="vertical"
         android:gravity="center"
-        >
+        android:layout_margin="3dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +105,7 @@
             android:background="@drawable/c"
             android:orientation="vertical"
             android:gravity="center"
-            >
+            android:layout_margin="3dp" >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,10 +121,10 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight=".5"
-            android:background="#ffaadd"
+            android:background="@drawable/a"
             android:orientation="vertical"
             android:gravity="center"
-            >
+            android:layout_margin="3dp" >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,10 +151,10 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight=".5"
-            android:background="#00ff88"
+            android:background="@drawable/b"
             android:orientation="vertical"
             android:gravity="center"
-            >
+            android:layout_margin="3dp"  >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -133,10 +170,10 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight=".5"
-            android:background="#0fffaa"
+            android:background="@drawable/c"
             android:orientation="vertical"
             android:gravity="center"
-            >
+            android:layout_margin="3dp"  >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

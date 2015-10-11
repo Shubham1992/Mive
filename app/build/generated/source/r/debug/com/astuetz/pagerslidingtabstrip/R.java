@@ -24,7 +24,7 @@ public final class R {
 		public static final int background_tab_pressed = 0x7f0d000a;
 	}
 	public static final class drawable {
-		public static final int background_tab = 0x7f02003f;
+		public static final int background_tab = 0x7f020041;
 	}
 	public static final class styleable {
 		public static final int[] PagerSlidingTabStrip = { 0x7f010064, 0x7f010065, 0x7f010066, 0x7f010067, 0x7f010068, 0x7f010069, 0x7f01006a, 0x7f01006b, 0x7f01006c, 0x7f01006d, 0x7f01006e };

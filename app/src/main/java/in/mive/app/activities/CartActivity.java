@@ -544,6 +544,7 @@ boolean enabledBtn= true;
             // Dismiss the progress dialog
             if (pDialog.isShowing())
                 pDialog.dismiss();
+            if(jsonObjectresult != null)
             Log.e("result", jsonObjectresult.toString());
             UpdateItemListDTO.getInstance().setItemlist(new ArrayList<HashMap>());
 
