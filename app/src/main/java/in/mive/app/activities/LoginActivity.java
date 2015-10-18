@@ -13,7 +13,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,8 +31,8 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 
-import in.mive.app.JSONParser;
-import in.mive.app.Stores;
+import in.mive.app.helperclasses.JSONParser;
+import in.mive.app.activitynew.StoreselectionActivity;
 
 
 /**
@@ -68,7 +67,7 @@ public class LoginActivity extends Activity {
 
         if(restoreduserid != 0)
         {
-            Intent intent=new Intent(LoginActivity.this, Stores.class);
+            Intent intent=new Intent(LoginActivity.this, StoreselectionActivity.class);
             intent.putExtra("id",restoreduserid);
             intent.putExtra("loggedIn", true);
 
@@ -88,7 +87,7 @@ public class LoginActivity extends Activity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(LoginActivity.this, Stores.class);
+                        Intent intent = new Intent(LoginActivity.this, StoreselectionActivity.class);
 
                         startActivity(intent);
 
@@ -205,7 +204,7 @@ public class LoginActivity extends Activity {
 
             if(strReslt.equals("true"))
             {
-                Intent intent=new Intent(LoginActivity.this, Stores.class);
+                Intent intent=new Intent(LoginActivity.this, StoreselectionActivity.class);
                 intent.putExtra("id",intUser);
                 intent.putExtra("loggedIn", true);
 

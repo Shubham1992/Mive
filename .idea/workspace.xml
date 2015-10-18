@@ -45,6 +45,11 @@
           <theme>@style/CustomActionBarTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_all_cat.xml">
+        <config>
+          <theme>@style/CustomActionBarTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/login_screen.xml">
         <config>
           <theme>@style/CustomActionBarTheme</theme>
@@ -56,6 +61,21 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/previous_orders.xml">
+        <config>
+          <theme>@style/CustomActionBarTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/store1.xml">
+        <config>
+          <theme>@style/CustomActionBarTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml">
+        <config>
+          <theme>@style/CustomActionBarTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/store_tab.xml">
         <config>
           <theme>@style/CustomActionBarTheme</theme>
         </config>
@@ -77,143 +97,150 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b48817f-8728-4a84-b77e-842a97dde38e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/search100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shopping.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shopping232.png" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\release\in\mive\app\RVAdapter$SingleTapConfirm.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\debug\drawable\bottom.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\debug\drawable\ic_shopping_cart_black_24dp.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\debug\drawable\search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\debug\drawable\splsh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\debug\drawable\splsh2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\debug\drawable\tabbck.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\release\drawable\bottom.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\release\drawable\ic_shopping_cart_black_24dp.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\release\drawable\splsh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\res\release\drawable\tabbck.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable\bottom.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable\ic_shopping_cart_black_24dp.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable\search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable\splsh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable\splsh2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable\tabbck.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/AllCategoryFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/AllCategoryFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CartActivity$GetEachProductData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CartActivity$GetEachProductData.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/app/AppController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/utils/Const.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJsonArray.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateStores.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/utils/LruBitmapCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/NewMainActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerProductsList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/Store1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/Store1Fragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/library_aar_1_0_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/store1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/store_fragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/store_tab.xml" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\ConnectionDetector.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\EndlessRecyclerOnScrollListener.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\GetCustomProductsComponentFromJson.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\GetProductsComponentFromJson.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\JSONParser.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$3$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$3$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$4$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$4$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$ProductViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter$SendDataAddToCart.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RVAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\RoundedImageView.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\classes\debug\in\mive\app\ServiceHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-015bef98920937018312ce6c313151b37a62c238.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\Stores.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\ConnectionDetector.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/ConnectionDetector.java" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\EndlessRecyclerOnScrollListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/EndlessRecyclerOnScrollListener.java" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\GetCustomProductsComponentFromJson.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetCustomProductsComponentFromJson.java" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\GetProductsComponentFromJson.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJson.java" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\JSONParser.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/JSONParser.java" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\RVAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/RVAdapterStores.java" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\RoundedImageView.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RoundedImageView.java" />
+      <change type="MOVED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\ServiceHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/ServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment$GetCategories.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetEachProductData$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetEachProductData$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetEachProductData$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetEachProductData$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetEachProductData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetEachProductData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetItemListData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$GetItemListData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$SendUpdateDataAddToCart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity$SendUpdateDataAddToCart.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/imageloader/ImageLoader.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/imageloader/ImageLoader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/JSONParser.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/JSONParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$GetData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$GetData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatActivity$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatActivity$GetCategories.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment$GetCategories.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment$GetCategories.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$GetData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity$GetData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$13.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$14$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$14$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$14$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$14$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$GetCartData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$GetCartData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$GetData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$GetData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$GetSearchedData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$GetSearchedData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/astuetz/pagerslidingtabstrip/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/astuetz/pagerslidingtabstrip/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/nispok/snackbar/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/nispok/snackbar/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/wdullaer/materialdatetimepicker/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/wdullaer/materialdatetimepicker/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/astuetz/pagerslidingtabstrip/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/astuetz/pagerslidingtabstrip/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/nispok/snackbar/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/nispok/snackbar/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/wdullaer/materialdatetimepicker/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/wdullaer/materialdatetimepicker/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$SendDataAddToCart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity$SendDataAddToCart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/PreviousOrders$GetOrderData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/PreviousOrders$GetOrderData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$integer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$interpolator.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$interpolator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$interpolator.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$interpolator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$menu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$menu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$menu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$raw.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$raw.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$styleable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$3$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$3$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$3$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$4$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$4$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$4$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$4$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$ProductViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$ProductViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$SendDataAddToCart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter$SendDataAddToCart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/RVAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment$GetCategories.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-release-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-release-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/release/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/release/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-release.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-release.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/JSONParser.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/JSONParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DescriptionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DescriptionActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/FruitsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/FruitsFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/OrderActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/OrderActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousOrders.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousOrders.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/astuetz/pagerslidingtabstrip/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/astuetz/pagerslidingtabstrip/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mive/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mive/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/nispok/snackbar/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/nispok/snackbar/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/wdullaer/materialdatetimepicker/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/wdullaer/materialdatetimepicker/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/android/support/design/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/android/support/design/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/astuetz/pagerslidingtabstrip/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/astuetz/pagerslidingtabstrip/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/mive/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/mive/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/nispok/snackbar/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/nispok/snackbar/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/wdullaer/materialdatetimepicker/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/wdullaer/materialdatetimepicker/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/release/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/release/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/Stores.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/Stores.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/cart_with_text.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/cart_with_text.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/cart_with_text.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cart_with_text.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/description.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/description.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/description.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/description.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/description.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/description.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.html" afterPath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/main.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/TabsPagerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/TabsPagerAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/VegetablesFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/VegetablesFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-release-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-release-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/release/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/select_category.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/select_category.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/select_category.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/select_category.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/select_category.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/select_category.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/stores.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/stores.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MiveApplication.iws" />
@@ -242,64 +269,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java">
+      <file leaf-file-name="StoreselectionActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/StoreselectionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1034484">
-              <caret line="385" column="29" selection-start-line="385" selection-start-column="29" selection-end-line="385" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="149" column="36" selection-start-line="149" selection-start-column="36" selection-end-line="149" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RVAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/RVAdapter.java">
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.413794">
-              <caret line="463" column="18" selection-start-line="463" selection-start-column="18" selection-end-line="463" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.3261391">
+              <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1438#1456#0" expanded="true" />
+                <element signature="n#LinearLayout#1;n#FrameLayout#0;n#android.support.v4.widget.DrawerLayout#0;n#FrameLayout#0;n#!!top" expanded="false" />
+                <element signature="n#Button#0;n#FrameLayout#0;n#android.support.v4.widget.DrawerLayout#0;n#FrameLayout#0;n#!!top" expanded="false" />
+                <element signature="n#Button#1;n#FrameLayout#0;n#android.support.v4.widget.DrawerLayout#0;n#FrameLayout#0;n#!!top" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stores.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/Stores.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="72" column="73" selection-start-line="72" selection-start-column="73" selection-end-line="72" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JSONParser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/JSONParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29657796">
-              <caret line="102" column="11" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart_with_text.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart_with_text.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.8888889">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
@@ -307,20 +297,111 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java">
+      <file leaf-file-name="InflateStores.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateStores.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.586206">
-              <caret line="546" column="11" selection-start-line="546" selection-start-column="11" selection-end-line="546" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="54" column="64" selection-start-line="54" selection-start-column="64" selection-end-line="54" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ic_phone_black_24dp.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_phone_black_24dp.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="NewMainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/NewMainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="467" column="34" selection-start-line="467" selection-start-column="26" selection-end-line="467" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#6412#6429#0" expanded="false" />
+                <element signature="e#6498#6515#0" expanded="false" />
+                <element signature="e#20781#20797#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AllCategoryFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="190" column="58" selection-start-line="190" selection-start-column="58" selection-end-line="190" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#3253#3254#0" expanded="false" />
+                <element signature="e#3304#3305#0" expanded="false" />
+                <element signature="e#3368#3369#0" expanded="false" />
+                <element signature="e#3396#3397#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetProductsComponentFromJson.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJson.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetProductsComponentFromJsonArray.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJsonArray.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SavedSellerProductsList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerProductsList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="23" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="23" />
+              <folding>
+                <element signature="e#391#392#0" expanded="false" />
+                <element signature="e#422#423#0" expanded="false" />
+                <element signature="e#625#634#0" expanded="false" />
+                <element signature="e#699#700#0" expanded="false" />
+                <element signature="e#733#734#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateItemListDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#367#368#0" expanded="false" />
+                <element signature="e#398#399#0" expanded="false" />
+                <element signature="e#601#610#0" expanded="false" />
+                <element signature="e#669#670#0" expanded="false" />
+                <element signature="e#703#704#0" expanded="false" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -779,6 +860,11 @@
                 <option name="description" value="Prepare com.github.siyamed:android-shape-imageview:0.9.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComGithubSiyamedAndroidShapeImageview092Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.mcxiaoke.volley:library-aar:1.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComMcxiaokeVolleyLibraryAar100Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.nispok:snackbar:2.11.0" />
@@ -1322,6 +1408,11 @@
                 <option name="name" value="prepareComGithubSiyamedAndroidShapeImageview092Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.mcxiaoke.volley:library-aar:1.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComMcxiaokeVolleyLibraryAar100Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Prepare com.nispok:snackbar:2.11.0" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareComNispokSnackbar2110Library" />
@@ -1455,7 +1546,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4323313805204" />
+        <entry key="$PROJECT_DIR$" value="4323822871034" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1629,6 +1720,7 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nispok/snackbar/2.11.0/6c2d0de1702eb642b9354534307878a4ca68af72/snackbar-2.11.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.wdullaer/materialdatetimepicker/1.5.1/d8b92cfab35217a49756dbdde6406d7c53c20c34/materialdatetimepicker-1.5.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/pl.droidsonroids.gif/android-gif-drawable/1.1.7/bcf0277dec2e4d36631fa49206267608e8475713/android-gif-drawable-1.1.7.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library-aar/1.0.0/cc8071e1ce2c478bc9974c1044c3f6f0b2a96bb0/library-aar-1.0.0.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.0.0/support-v4-23.0.0.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.0/appcompat-v7-22.2.0.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/22.0.0/recyclerview-v7-22.0.0.aar" />
@@ -1660,7 +1752,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedTopLayout.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DescriptionActivity.java" />
@@ -1668,29 +1759,50 @@
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousOrders.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/previous_order_tab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cards_cart.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/FruitsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/VegetablesFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cards.xml" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/values/values.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/SplashActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/RVAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/stores2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/select_category.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/description.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/stores.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cart_with_text.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/Stores.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/JSONParser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/utils/LruBitmapCache.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/TabsPagerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/VegetablesFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/StoreFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/stores.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/app/AppController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/Stores.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/RVAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/StoreActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/store1.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/Store1.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/store_fragment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/Store1Fragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/MainActivityNew.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/utils/RVAdapterStores.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/RVAdapterStores.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/store_tab.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/StoreselectionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerProductsList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/GetProductsComponentFromJsonArray.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJsonArray.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateStores.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/NewMainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
       </list>
     </option>
   </component>
@@ -1726,17 +1838,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MiveApplication" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1937,14 +2040,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="activities" />
+              <option name="myItemId" value="layouthelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MiveApplication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MiveApplication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activitynew" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MiveApplication" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1962,11 +2108,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app" />
       <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable" />
       <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="in.mive.app" />
+      <recent name="in.mive.app.utils" />
+      <recent name="in.mive.app.activities" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -2174,24 +2326,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25510204" sideWeight="0.48789713" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25510204" sideWeight="0.48487142" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09863946" sideWeight="0.5121029" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7176871" sideWeight="0.5181543" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3184569" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5527211" sideWeight="0.49092284" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22108844" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50510204" sideWeight="0.48789713" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19387755" sideWeight="0.48184568" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27836612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2225,8 +2377,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/in/mive/app/RVAdapter.java</url>
-          <line>202</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java</url>
+          <line>197</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -2243,9 +2395,9 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/in/mive/app/RVAdapter.java</url>
-          <line>121</line>
-          <properties class="in.mive.app.RVAdapter" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java</url>
+          <line>116</line>
+          <properties class="in.mive.app.helperclasses.RVAdapter" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -2254,170 +2406,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cards.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.793103">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/cartfab.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../layout-2015-10-03-184448.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layout-2015-10-06-231910.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../layout-2015-10-06-231950.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/color.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="67" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/cards_background.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="15" selection-start-line="81" selection-start-column="15" selection-end-line="81" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.724138">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/a.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ab_solid_dark_holo.9.png">
-      <provider editor-type-id="images">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="ninepatcheditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/actionbar_background.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/arrow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/b.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bckarrow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bckarrowwhite.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bckkk.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/select_category.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.448276">
-          <caret line="117" column="6" selection-start-line="117" selection-start-column="6" selection-end-line="117" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/drawericon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/fabnew.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -2431,13 +2419,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/light_blue_material_design_loading.gif">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="41" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/mive_icon.png">
@@ -2464,7 +2445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2488,25 +2468,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="49" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DescriptionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1634#1635#0" expanded="false" />
-            <element signature="e#1674#1675#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2531,28 +2496,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/stores.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.344828">
-          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart_with_text.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8888889">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2561,46 +2504,342 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/Stores.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/JSONParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37419355">
+          <caret line="95" column="24" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart_with_text.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4482758">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/utils/LruBitmapCache.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="73" selection-start-line="72" selection-start-column="73" selection-end-line="72" selection-end-column="73" />
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/TabsPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/VegetablesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/FAQFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/app/AppController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-21/android.jar!/android/app/FragmentManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_vegetables.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store_fragment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/Store1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/Store1Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/RVAdapterStores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#15168#15169#0" expanded="false" />
+            <element signature="e#15197#15198#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/stores.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.4827585">
+          <caret line="42" column="21" selection-start-line="7" selection-start-column="3" selection-end-line="42" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.068966">
+          <caret line="69" column="72" selection-start-line="69" selection-start-column="72" selection-end-line="69" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
+          <folding>
+            <element signature="e#3048#3066#0" expanded="true" />
+            <element signature="e#3987#4005#0" expanded="true" />
+            <element signature="e#4393#4411#0" expanded="true" />
+            <element signature="e#5373#5391#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_all_cat.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5172415">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="72" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6012862">
+          <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="15.793103">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="63" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store_tab.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#367#368#0" expanded="false" />
+            <element signature="e#398#399#0" expanded="false" />
+            <element signature="e#601#610#0" expanded="false" />
+            <element signature="e#669#670#0" expanded="false" />
+            <element signature="e#703#704#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerProductsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="23" />
+          <folding>
+            <element signature="e#391#392#0" expanded="false" />
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#625#634#0" expanded="false" />
+            <element signature="e#699#700#0" expanded="false" />
+            <element signature="e#733#734#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1034484">
-          <caret line="385" column="29" selection-start-line="385" selection-start-column="29" selection-end-line="385" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/RVAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.413794">
-          <caret line="463" column="18" selection-start-line="463" selection-start-column="18" selection-end-line="463" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="467" column="34" selection-start-line="467" selection-start-column="26" selection-end-line="467" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#6412#6429#0" expanded="false" />
+            <element signature="e#6498#6515#0" expanded="false" />
+            <element signature="e#20781#20797#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.586206">
-          <caret line="546" column="11" selection-start-line="546" selection-start-column="11" selection-end-line="546" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="190" column="58" selection-start-line="190" selection-start-column="58" selection-end-line="190" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3253#3254#0" expanded="false" />
+            <element signature="e#3304#3305#0" expanded="false" />
+            <element signature="e#3368#3369#0" expanded="false" />
+            <element signature="e#3396#3397#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJsonArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateStores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="64" selection-start-line="54" selection-start-column="64" selection-end-line="54" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/JSONParser.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/NewMainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29657796">
-          <caret line="102" column="11" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/StoreselectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="36" selection-start-line="149" selection-start-column="36" selection-end-line="149" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3261391">
+          <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+          <folding>
+            <element signature="e#1438#1456#0" expanded="true" />
+            <element signature="n#LinearLayout#1;n#FrameLayout#0;n#android.support.v4.widget.DrawerLayout#0;n#FrameLayout#0;n#!!top" expanded="false" />
+            <element signature="n#Button#0;n#FrameLayout#0;n#android.support.v4.widget.DrawerLayout#0;n#FrameLayout#0;n#!!top" expanded="false" />
+            <element signature="n#Button#1;n#FrameLayout#0;n#android.support.v4.widget.DrawerLayout#0;n#FrameLayout#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>

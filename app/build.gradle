@@ -32,5 +32,6 @@ dependencies {
     compile 'com.nispok:snackbar:2.11.+'
     compile 'com.wdullaer:materialdatetimepicker:1.5.1'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.+'
+    compile 'com.mcxiaoke.volley:library-aar:1.0.0'
 
 }

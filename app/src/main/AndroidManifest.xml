@@ -15,7 +15,9 @@
 
     <!-- Network State Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+        android:name="in.mive.app.app.AppController"
         android:allowBackup="true"
         android:icon="@drawable/mive_icon"
         android:label="Mive"
@@ -36,6 +38,19 @@
 
         </activity>
 
+        <activity
+            android:name="in.mive.app.activitynew.StoreselectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowContentOverlay="@drawable/ab_solid_dark_holo">
+            <intent-filter>
+                <action android:name="android.intent.action.SS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
 
         <activity
             android:name="in.mive.app.activities.PreviousOrders"
@@ -50,13 +65,13 @@
         </activity>
 
         <activity
-            android:name="in.mive.app.Stores"
-            android:label="Your Orders"
+            android:name="in.mive.app.activities.Store1"
+            android:label="Store"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowContentOverlay="@drawable/ab_solid_dark_holo">
             <intent-filter>
-                <action android:name="android.intent.action.STORES" />
+                <action android:name="android.intent.action.STORE1" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

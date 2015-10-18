@@ -20,12 +20,11 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 
-import in.mive.app.EndlessRecyclerOnScrollListener;
-import in.mive.app.GetProductsComponentFromJson;
-import in.mive.app.RVAdapter;
-import in.mive.app.ServiceHandler;
+import in.mive.app.helperclasses.EndlessRecyclerOnScrollListener;
+import in.mive.app.helperclasses.GetProductsComponentFromJson;
+import in.mive.app.helperclasses.RVAdapter;
+import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.savedstates.SavedFruits;
-import in.mive.app.savedstates.SavedVegetables;
 
 public class FruitsFragment extends Fragment {
 

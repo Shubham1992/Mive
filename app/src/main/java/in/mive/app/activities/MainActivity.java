@@ -1,8 +1,8 @@
 package in.mive.app.activities;
 
-import in.mive.app.GetProductsComponentFromJson;
-import in.mive.app.RVAdapter;
-import in.mive.app.ServiceHandler;
+import in.mive.app.helperclasses.GetProductsComponentFromJson;
+import in.mive.app.helperclasses.RVAdapter;
+import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.adapter.TabsPagerAdapter;
 import in.mive.app.imageloader.ImageLoader;
 import in.mive.app.savedstates.ButtonDTO;
@@ -495,20 +495,6 @@ void hideFragments()
             Log.d("Response User: ", "> " + jsonStrUser);
   //          Log.d("Response cart: ", "> " + jsonStrCart);
 
-//........
-            /*if (jsonStrcat1 != null) {
-				try {
-
-					jsonObjcat1 = new JSONObject(jsonStrcat1);
-                    JSONDTO.getInstance().setJsonProductscat1(jsonObjcat1);
-
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-			} else {
-				Log.e("ServiceHandler", "Couldn't get any data from the urlcat1");
-			}*/
-//...........
 
             if (jsonStrUser != null) {
                 try {
@@ -522,19 +508,6 @@ void hideFragments()
             } else {
                 Log.e("ServiceHandler", "Couldn't get any data from the user");
             }
-    /*        if (jsonStrCart != null) {
-                try {
-
-                    jsonObjcart = new JSONObject(jsonStrCart);
-                    Log.e("cart ", jsonObjcart.toString());
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Log.e("ServiceHandler", "Couldn't get any data from the urlcat1");
-            }
-*/
 
 			return null;
 		}

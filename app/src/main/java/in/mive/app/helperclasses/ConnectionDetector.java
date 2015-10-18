@@ -1,4 +1,4 @@
-package in.mive.app;
+package in.mive.app.helperclasses;
 
 /**
  * Created by Shubham on 9/9/2015.

@@ -2,9 +2,7 @@ package in.mive.app.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -17,11 +15,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mive.R;
 
@@ -39,8 +35,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import in.mive.app.JSONParser;
-import in.mive.app.ServiceHandler;
+import in.mive.app.helperclasses.JSONParser;
+import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.imageloader.ImageLoader;
 import in.mive.app.savedstates.ButtonDTO;
 import in.mive.app.savedstates.CartItemListDTO;

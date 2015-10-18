@@ -62,7 +62,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:id="@+id/vpContainer"
-              >
+             android:visibility="gone" >
 
 
 
@@ -82,6 +82,12 @@
 
           </LinearLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvProduct"
+            android:visibility="visible"
+            />
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

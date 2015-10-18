@@ -18,10 +18,8 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 
-import in.mive.app.ServiceHandler;
-import in.mive.app.adapter.TabsPagerAdapter;
+import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.imageloader.ImageLoader;
-import in.mive.app.savedstates.JSONDTO;
 
 /**
  * Created by Shubham on 9/20/2015.

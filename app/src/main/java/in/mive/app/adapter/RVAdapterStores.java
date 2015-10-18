@@ -1,6 +1,5 @@
-package in.mive.app;
+package in.mive.app.adapter;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,13 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,7 +19,6 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.mive.R;
 import com.nispok.snackbar.Snackbar;
@@ -44,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import in.mive.app.helperclasses.JSONParser;
 import in.mive.app.activities.CartActivity;
 import in.mive.app.activities.DescriptionActivity;
 import in.mive.app.imageloader.ImageLoader;
@@ -52,12 +47,11 @@ import in.mive.app.savedstates.ButtonDTO;
 import in.mive.app.savedstates.CartItemListDTO;
 import in.mive.app.savedstates.ItemListDTO;
 import in.mive.app.savedstates.JSONDTO;
-import in.mive.app.savedstates.SavedTopLayout;
 
 /**
  * Created by Admin-PC on 8/10/2015.
  */
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder> implements Filterable{
+public class RVAdapterStores extends RecyclerView.Adapter<RVAdapterStores.ProductViewHolder> implements Filterable{
 
 
     List<Map> products=new ArrayList<Map>(); // products is a list that holds the products acquired from json
@@ -68,8 +62,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
     private float dX, dY;
     ViewGroup drgbllayout;
     private int tempPosHolder;
-ViewGroup vgroup;
-    public RVAdapter(List<Map> products, final Context context)
+    ViewGroup vgroup;
+    public RVAdapterStores(List<Map> products, final Context context)
 	{   Log.e("setting", "adapter");
         this.products=products;
         Log.e("products",products.toString());
@@ -152,9 +146,9 @@ ViewGroup vgroup;
                 holder.tvproductQuantitySelected.setText("" + qnt);
                 holder.rlCard.setBackgroundColor(Color.parseColor("#caf4f3"));
 
-                ViewGroup vg = SavedTopLayout.getInstance().getSavedTopLayout();
+                /*ViewGroup vg = SavedTopLayout.getInstance().getSavedTopLayout();
                 Log.e("view ", vg.toString());
-
+*/
                 SnackbarManager.show(
                         Snackbar.with(context) // context
                                 .text(holder.tvproductName.getText().toString()+" added to cart") // text to display

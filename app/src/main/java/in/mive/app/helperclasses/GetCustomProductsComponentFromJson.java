@@ -1,4 +1,4 @@
-package in.mive.app;
+package in.mive.app.helperclasses;
 
 import android.content.Context;
 import android.util.Log;
@@ -23,19 +23,23 @@ import java.util.Map;
 "isPerishable":false,"seller":null,"coverphotourl":"media/rees52-4-wheel-robotic-platform_H0Y439P.jpg"},*/
 
 
-public class GetProductsComponentFromJson
+public class GetCustomProductsComponentFromJson
 {
 	public List<Map> getComponent(Context context, JSONObject jsonObject)
 	{List<Map> productList=new ArrayList();
 
 		JSONArray productResults = jsonObject.optJSONArray("results");
+
+		JSONObject jsonProdctList = productResults.optJSONObject(0);
+		JSONArray arrProduct = jsonProdctList.optJSONArray("product");
 		JSONObject productObj = null;
-		for (int i = 0; i < productResults.length(); i++)
+		Log.e("custom prod", arrProduct.toString());
+		for (int i = 0; i < arrProduct.length(); i++)
 		{
 
 			try
 			{
-				productObj = productResults.getJSONObject(i);
+				productObj = arrProduct.getJSONObject(i);
 			} catch (JSONException e)
 			{
 				e.printStackTrace();
@@ -55,8 +59,6 @@ public class GetProductsComponentFromJson
 			productMap.put("productId",productId);
 			productMap.put("pricePerUnit",priceperunit);
 			productMap.put("availableQty",availableQty);
-
-
 
 			productList.add(productMap);
 			//Log.e("Product map", productMap.toString());

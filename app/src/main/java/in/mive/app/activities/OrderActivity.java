@@ -2,10 +2,8 @@ package in.mive.app.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -38,7 +36,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import in.mive.app.JSONParser;
+import in.mive.app.helperclasses.JSONParser;
 import in.mive.app.savedstates.JSONDTO;
 
 /**
