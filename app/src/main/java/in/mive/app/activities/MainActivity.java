@@ -1,13 +1,16 @@
 package in.mive.app.activities;
 
 import in.mive.app.helperclasses.GetProductsComponentFromJson;
+import in.mive.app.helperclasses.GetProductsComponentFromJsonArray;
 import in.mive.app.helperclasses.RVAdapter;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.adapter.TabsPagerAdapter;
 import in.mive.app.imageloader.ImageLoader;
+import in.mive.app.layouthelper.InflateStoresintoDrawer;
 import in.mive.app.savedstates.ButtonDTO;
 import in.mive.app.savedstates.CartItemListDTO;
 import in.mive.app.savedstates.JSONDTO;
+import in.mive.app.savedstates.SavedSellerProductsMap;
 import in.mive.app.savedstates.SavedTopLayout;
 
 
@@ -96,11 +99,15 @@ public class MainActivity extends FragmentActivity implements
     private Fragment fragmenthelp = null, fragmentCstm = null, fragmentContact= null, fragmentFAQ = null;
     Button btncart;
     Intent intnt;
-    RecyclerView rvSearch;
+    RecyclerView rvSearch , rvProducts;
     String searchText;
     TextView tvNoreslt;
     private PagerSlidingTabStrip tabs;
     ViewGroup mainframe;
+    String catId;
+    private List<Map> products;
+    String sellername;
+
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 
 
@@ -113,8 +120,13 @@ public class MainActivity extends FragmentActivity implements
         setContentView(R.layout.activity_main);
 
         rvSearch = (RecyclerView) findViewById(R.id.rvsearch);
+        rvProducts = (RecyclerView) findViewById(R.id.rvProduct);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(MainActivity.this);
+
         rvSearch.setLayoutManager(layoutManager);
+        rvProducts.setLayoutManager(layoutManager2);
+
         vpContainer = (LinearLayout) findViewById(R.id.vpContainer);
         tvNoreslt = (TextView) findViewById(R.id.tvNoReslt);
         intnt = getIntent();
@@ -122,6 +134,9 @@ public class MainActivity extends FragmentActivity implements
 
 
         id = intnt.getIntExtra("id", 0);
+        catId = intnt.getStringExtra("catId");
+        sellername = intnt.getStringExtra("sellername");
+
         loggedIn = intnt.getBooleanExtra("loggedIn", false);
         pos = intnt.getIntExtra("pos", 0);
         Log.e("id= ", "" + id);
@@ -133,47 +148,55 @@ public class MainActivity extends FragmentActivity implements
         {
             Window window = getWindow();
 
-// clear FLAG_TRANSLUCENT_STATUS flag:
+            // clear FLAG_TRANSLUCENT_STATUS flag:
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+            // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-// finally change the color
+            // finally change the color
             window.setStatusBarColor(getResources().getColor(R.color.my_statusbar_color));
         }
 
-// getActivity() will hand over the context to the method
+
+
+        ActionBar ab = getActionBar();
+        ab.setTitle(sellername);
+        //ab.setSubtitle("sub-title");
+
+
+        // getActivity() will hand over the context to the method
         // if you call this inside an activity, simply replace getActivity() by "this"
         if(!isConnected(MainActivity.this)) buildDialog(MainActivity.this).show();
         else {
             // we have internet connection, so it is save to connect to the internet here
-            new GetData().execute();
+
+
+            GetProductsComponentFromJsonArray fromJsonArray = new GetProductsComponentFromJsonArray();
+          products = fromJsonArray.getComponent(MainActivity.this, SavedSellerProductsMap.getInstance().getProductMap().get(catId));
+
+
+
+            new GetCartData().execute();
+            setUserInDrawer(JSONDTO.getInstance().getJsonUser());
         }
 
-        //get background data
-        //new GetData().execute();
+
 
 
 
         //
         fl = (FrameLayout) findViewById(R.id.mainframe);
 
-        //FAB button for cart
 
-      /*  btncart = (Button) findViewById(R.id.btnCart);
-        btncart.setVisibility(View.GONE);
-        ButtonDTO.getInstance().setBtn(btncart);*/
+
+
         hideFragments();
 
         // Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
 	    //	actionBar = getActionBar();
-/*
-		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
-		viewPager.setAdapter(mAdapter);
-*/
 
 
 		mTitle = mDrawerTitle = getTitle();
@@ -181,12 +204,7 @@ public class MainActivity extends FragmentActivity implements
 		//TextView tvSlider= (TextView) findViewById(R.id.tvSlider);
 
         layoutslider = (RelativeLayout) findViewById(R.id.layoutSlider);
-        layoutslider.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
@@ -196,28 +214,16 @@ public class MainActivity extends FragmentActivity implements
         ) {
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
-                // calling onPrepareOptionsMenu() to show action bar icons
-                //getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-               // invalidateOptionsMenu();
+
             }
 
             public void onDrawerOpened(View drawerView) {
                 getActionBar().setTitle(mDrawerTitle);
-                // calling onPrepareOptionsMenu() to hide action bar icons
-                //getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-                //invalidateOptionsMenu();
+
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        //actionBar.setHomeButtonEnabled(false);
-		//actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
-		// Adding Tabs
-
-		/*for (String tab_name : tabs) {
-			actionBar.addTab(actionBar.newTab().setText(tab_name)
-					.setTabListener(this));
-		}*/
 
 		/**
 		 * on swiping the viewpager make respective tab selected
@@ -300,6 +306,7 @@ void hideFragments()
         View view = menu.findItem(R.id.action_cart).getActionView();
         btncart = (Button) view.findViewById(R.id.cart_count);
         ButtonDTO.getInstance().setBtn(btncart);
+        Log.e("setting buton", btncart.toString());
 
 
 
@@ -485,15 +492,9 @@ void hideFragments()
             String jsonStrUser = sh.makeServiceCall(urlUser + id, ServiceHandler.GET);
 
 
-          /*  sh = new ServiceHandler();
-            String jsonStrCart = sh.makeServiceCall(urlCart, ServiceHandler.GET);
-*/
-
-
-
             //Log.d("Response: ", "> " + jsonStrcat1);
             Log.d("Response User: ", "> " + jsonStrUser);
-  //          Log.d("Response cart: ", "> " + jsonStrCart);
+
 
 
             if (jsonStrUser != null) {
@@ -519,13 +520,6 @@ void hideFragments()
 			if (pDialog.isShowing())
 				pDialog.dismiss();
 
-            // class to return the json attributes in form of hashmap.
-            // The map is set in DTO from where it can be accessed at all the fragments
-
-			/*GetProductsComponentFromJson getProductsComponentFromJson =new GetProductsComponentFromJson();
-            resultListcat1 = getProductsComponentFromJson.getComponent(MainActivity.this, jsonObjcat1);
-			SavedAllCat.getobj().setList(resultListcat1);
-*/
 
 
 
@@ -542,12 +536,7 @@ void hideFragments()
             viewPager.setOffscreenPageLimit(3);
             setUserInDrawer(jsonObjuser);
             new GetCartData().execute();
-
-  /*          if(jsonObjcart.optString("count") != null) {
-                Log.e("count", jsonObjcart.optString("count"));
-                btncart.setText(jsonObjcart.optString("count"));
-            }
-  */          }
+        }
 
 	}
 
@@ -565,11 +554,7 @@ void hideFragments()
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // Showing progress dialog
-            /*pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setMessage("Getting Products...");
-            pDialog.setCancelable(false);
-            pDialog.show();*/
+
 
         }
 
@@ -612,11 +597,14 @@ void hideFragments()
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             // Dismiss the progress dialog
-            if (pDialog.isShowing())
+            if ( pDialog != null && pDialog.isShowing())
                 pDialog.dismiss();
 
             // class to return the json attributes in form of hashmap.
             // The map is set in DTO from where it can be accessed at all the fragments
+            RVAdapter adapter = new RVAdapter(products, MainActivity.this);
+            rvProducts.setAdapter(adapter);
+
 
             btncart.setVisibility(View.VISIBLE);
             Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.btncartmove);
@@ -649,7 +637,7 @@ void hideFragments()
                        //.........
 
 
-                        List<HashMap> l = new ArrayList<>(); /*= CartItemListDTO.getInstance().getItemlist();*/
+                        List<HashMap> l = new ArrayList<>(); /*= CartItemListDTO.getInstance().getProductMap();*/
                         l.add(map);
                         CartItemListDTO.getInstance().setItemlist(l);
 
@@ -784,7 +772,7 @@ void hideFragments()
    TextView tvusername;
    Button btnHome, btFruits, btVeg, btHelp, btContact, btnPrevOrders, btnCustCat, btFaq;
     ImageView imguser , userSetting;
-
+    LinearLayout layoutStoreList;
 
     //userSetting the details of user in the drawer
     void setUserInDrawer(JSONObject objuser)
@@ -799,41 +787,9 @@ void hideFragments()
 
 
 
-        btnHome= (Button) findViewById(R.id.bthome);
-		btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                rvSearch.setVisibility(View.GONE);
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentCstm !=null)
-                {
-                    Fragment fr=fragmentCstm;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-               // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-                viewPager.setCurrentItem(0);
-                vpContainer.setVisibility(View.VISIBLE);
-                mDrawerLayout.closeDrawers();
-            }
-        });
+       layoutStoreList = (LinearLayout) findViewById(R.id.storelistcontainer);
+        InflateStoresintoDrawer inflateStoresintoDrawer = new InflateStoresintoDrawer();
+        inflateStoresintoDrawer.inflateStoreTabs(MainActivity.this, layoutStoreList, JSONDTO.getInstance().getJsonUser());
 
         btnCustCat= (Button) findViewById(R.id.btCustCat);
         btnCustCat.setOnClickListener(new View.OnClickListener() {
@@ -1014,7 +970,7 @@ void hideFragments()
                 fragmenthelp = new HelpNSupport();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmenthelp).commit();
-                vpContainer.setVisibility(View.GONE);
+                rvProducts.setVisibility(View.GONE);
                 mDrawerLayout.closeDrawers();
                 //..
               //  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
@@ -1049,7 +1005,7 @@ void hideFragments()
                 fragmentContact = new ContactFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmentContact).commit();
-                vpContainer.setVisibility(View.GONE);
+                rvProducts.setVisibility(View.GONE);
                 mDrawerLayout.closeDrawers();
                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
@@ -1085,7 +1041,7 @@ void hideFragments()
                 fragmentFAQ = new FAQFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmentFAQ).commit();
-                vpContainer.setVisibility(View.GONE);
+                rvProducts.setVisibility(View.GONE);
                 mDrawerLayout.closeDrawers();
                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 

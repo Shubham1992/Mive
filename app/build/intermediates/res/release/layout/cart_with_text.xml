@@ -3,23 +3,26 @@
 			  android:orientation="vertical"
 			  android:layout_width="wrap_content"
 			  android:layout_height="wrap_content"
-android:layout_margin="7dp"
+	android:layout_margin="7dp"
+	android:paddingLeft="10dp"
+	android:paddingRight="10dp"
 
 	>
 
 	<Button
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		android:layout_width="30dp"
+		android:layout_height="33dp"
 		android:text="0"
 		android:textSize="14dp"
 		android:textColor="#21bdba"
 		android:layout_marginRight="10dp"
 		android:textStyle="bold"
 		android:gravity="center"
-		android:paddingBottom="8dp"
+		android:paddingBottom="10dp"
+		android:paddingLeft="3dp"
 		android:id="@+id/cart_count"
 		android:clickable="true"
-		android:background="@drawable/whitecart"
+		android:background="@drawable/shopping232"
 	/>
 
 </RelativeLayout><!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/src/main/res/layout/cart_with_text.xml -->

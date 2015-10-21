@@ -6,10 +6,10 @@
 
 <ImageView
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="120dp"
     android:id="@+id/storeImage"
 
-    android:background="#2aef44"/>
+   />
     <TextView
         android:id="@+id/tvStoreName"
         android:layout_width="wrap_content"
@@ -18,6 +18,6 @@
         android:layout_gravity="center"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="25dp"
         />
 </FrameLayout>

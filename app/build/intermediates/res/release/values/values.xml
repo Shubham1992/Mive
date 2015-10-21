@@ -5,7 +5,7 @@
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
-    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.github.siyamed/android-shape-imageview/0.9.2/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.github.siyamed/android-shape-imageview/0.9.3/res/values/values.xml -->
     <eat-comment/>
     <attr name="siArrowPosition">
         <enum name="left" value="0"/>

@@ -49,6 +49,7 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
     private JSONParser jsonParser;
     private String dateSelected =null;
     boolean isDatePicked = false;
+    String sellerId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
 
         Intent intent =getIntent();
         int price = intent.getIntExtra("price", 0);
+        sellerId = intent.getStringExtra("sellerId");
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -236,7 +238,7 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
             Log.e("inside", "service handler");
             // Making a request to urlMakeOrder and getting response
             // get he list fo items here and put it in json
-           // itemsList = ItemListDTO.getInstance().getItemlist();
+           // itemsList = ItemListDTO.getInstance().getProductMap();
 
             // Building Parameters
             JSONObject params= null;
@@ -251,6 +253,7 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
                 params.put("userId", restoreduserid);
                 params.put("deliveryTime", tvDateSelected.getText().toString());
                 params.put("orderMsg", "some test message");
+                params.put("sellerId",sellerId );
 
 
 

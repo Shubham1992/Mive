@@ -74,7 +74,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true" />
                 </RelativeLayout>
-                <Button
+            <Button
                     android:id="@+id/btnSubmitCart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -82,14 +82,13 @@
                     android:textColor="#ffffff"
                     android:layout_gravity="bottom"
                     android:gravity="center"
-
+                    android:visibility="gone"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:background="#21bdba"
                     android:layout_weight="1"/>
-
             </LinearLayout>
 
 
