@@ -204,7 +204,7 @@ public class PreviousOrders extends Activity {
                 return;
             }
 
-            for (int i= orderReslt.length() -1; i >= 0 ; i--)
+            for (int i= 0; i < orderReslt.length() ; i++)
             {   View prevOrderTab = inflater.inflate(R.layout.previous_order_tab, null);
 
                 TextView tvOrderId = (TextView) prevOrderTab.findViewById(R.id.tvOrderId);

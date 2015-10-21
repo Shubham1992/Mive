@@ -458,87 +458,7 @@ void hideFragments()
 
         return builder;
     }
-    private class GetData extends AsyncTask<Void, Void, Void>
-	{
 
-        private String urlUser="http://www.mive.in/api/user/";
-        //private String urlCart = "http://www.mive.in/api/cart/cartitems/"+id+"/?format=json";
-
-        private JSONObject jsonObjcat1;
-
-        private JSONObject jsonObjcart;
-
-        @Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			// Showing progress dialog
-			pDialog = new ProgressDialog(MainActivity.this);
-			pDialog.setMessage("Getting Products...");
-			pDialog.setCancelable(false);
-			pDialog.show();
-
-		}
-
-		@Override
-		protected Void doInBackground(Void... arg0) {
-			// Creating service handler class instance
-			ServiceHandler sh = new ServiceHandler();
-			Log.e("inside", "service handler");
-			// Making a request to urlcat1 and getting response
-
-			//String jsonStrcat1 = sh.makeServiceCall(urlcat1, ServiceHandler.GET);
-
-            sh = new ServiceHandler();
-            String jsonStrUser = sh.makeServiceCall(urlUser + id, ServiceHandler.GET);
-
-
-            //Log.d("Response: ", "> " + jsonStrcat1);
-            Log.d("Response User: ", "> " + jsonStrUser);
-
-
-
-            if (jsonStrUser != null) {
-                try {
-
-                    jsonObjuser = new JSONObject(jsonStrUser);
-                    JSONDTO.getInstance().setJsonUser(jsonObjuser);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Log.e("ServiceHandler", "Couldn't get any data from the user");
-            }
-
-			return null;
-		}
-		List<Map> resultListcat1;
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			// Dismiss the progress dialog
-			if (pDialog.isShowing())
-				pDialog.dismiss();
-
-
-
-
-            mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
-
-            viewPager.setAdapter(mAdapter);
-            tabs = (PagerSlidingTabStrip)findViewById(R.id.tabs);
-            tabs.setViewPager(viewPager);
-            tabs.setIndicatorColor(Color.parseColor("#21bdba"));
-            tabs.setTextColor(Color.parseColor("#21bdba"));
-            tabs.setIndicatorHeight(7);
-            tabs.setBackgroundColor(Color.WHITE);
-            viewPager.setCurrentItem(pos);
-            viewPager.setOffscreenPageLimit(3);
-            setUserInDrawer(jsonObjuser);
-            new GetCartData().execute();
-        }
-
-	}
 
     private class GetCartData extends AsyncTask<Void, Void, Void>
     {
@@ -555,6 +475,9 @@ void hideFragments()
         protected void onPreExecute() {
             super.onPreExecute();
 
+            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog.setMessage("Loading Products");
+            pDialog.show();
 
         }
 
@@ -1082,22 +1005,12 @@ void hideFragments()
     @Override
     protected void onRestart() {
         super.onRestart();
-       /* id = intnt.getIntExtra("id",0);
-        loggedIn = intnt.getBooleanExtra("loggedIn", false);
-        pos = intnt.getIntExtra("pos",0);
-        Log.e("id= ", "" + id);
-
-
-
-        //get background data
-        new GetData().execute();*/
 
       // recreate();
         new GetCartData().execute();
 
-
-
     }
+
 
     @Override
     public void onBackPressed()

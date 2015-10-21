@@ -231,7 +231,7 @@ boolean enabledBtn= true;
              jsonArrayItems = jsonObject.optJSONArray("items");
             JSONObject sellerObj = jsonObject.optJSONObject("seller");
             String nameOfSeller = sellerObj.optString("nameOfSeller");
-            final String catId = jsonObject.optString("categoryvendor_id");
+            final String sellerId = sellerObj.optString("seller_id");
 
           //  new GetItemListData().execute();
 
@@ -246,7 +246,7 @@ boolean enabledBtn= true;
                 public void onClick(View view) {
                     Intent intent = new Intent(CartActivity.this, OrderActivity.class);
                     intent.putExtra("price", totpayable);
-                    intent.putExtra("sellerId", catId);
+                    intent.putExtra("sellerId", sellerId);
                     startActivity(intent);
                 }
             });

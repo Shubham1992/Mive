@@ -153,7 +153,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                 SnackbarManager.show(
                         Snackbar.with(context) // context
                                 .text(holder.tvproductName.getText().toString()+" added to cart") // text to display
-                                .actionLabel("View Cart") // action button label
+                                .actionLabel("Save") // action button label
                                 .actionColor(Color.parseColor("#21bdba"))
                                 .eventListener(new EventListener() {
                                     @Override
@@ -258,7 +258,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                     SnackbarManager.show(
                             Snackbar.with(context) // context
                                     .text(holder.tvproductName.getText().toString() + " deleted from cart") // text to display
-                                    .actionLabel("View Cart") // action button label
+                                    .actionLabel("Save") // action button label
                                     .actionColor(Color.parseColor("#21bdba"))
                                     .eventListener(new EventListener() {
                                         @Override
