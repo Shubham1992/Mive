@@ -56,7 +56,7 @@ public class CustomCatActivity extends Activity {
         }
         else
         {
-            RVAdapter adapter = new RVAdapter(SavedCustCat.getobj().getList(),this);
+            RVAdapter adapter = new RVAdapter(SavedCustCat.getobj().getList(),this,false);
             rvCstm.setAdapter(adapter);
         }
     }
@@ -120,7 +120,7 @@ public class CustomCatActivity extends Activity {
             SavedCustCat.getobj().setList(resultList);
 
 
-            RVAdapter adapter = new RVAdapter(resultList,CustomCatActivity.this );
+            RVAdapter adapter = new RVAdapter(resultList,CustomCatActivity.this ,false);
             rvCstm.setAdapter(adapter);
 
         }

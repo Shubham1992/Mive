@@ -77,7 +77,7 @@ public class CustomCatFragment extends Fragment {
 		}
 		else
 		{
-			RVAdapter adapter = new RVAdapter(SavedCustCat.getobj().getList(),getActivity());
+			RVAdapter adapter = new RVAdapter(SavedCustCat.getobj().getList(),getActivity(), false);
 			rvcstm.setAdapter(adapter);
 		}
 		return rootView;
@@ -142,7 +142,7 @@ public class CustomCatFragment extends Fragment {
 			SavedCustCat.getobj().setList(resultList);
 
 
-			RVAdapter adapter = new RVAdapter(resultList,getActivity());
+			RVAdapter adapter = new RVAdapter(resultList,getActivity(),false);
 			rvcstm.setAdapter(adapter);
 
 		}

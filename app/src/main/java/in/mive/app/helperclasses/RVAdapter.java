@@ -64,14 +64,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
     ViewGroup drgbllayout;
     private int tempPosHolder;
     ViewGroup vgroup;
-    public RVAdapter(List<Map> products, final Context context)
+    private boolean isUrlDummy;
+    public RVAdapter(List<Map> products, final Context context, boolean isUrlDummy)
 	{   Log.e("setting", "adapter");
         this.products=products;
         Log.e("products",products.toString());
         this.context=context;
         itemsList = ItemListDTO.getInstance().getItemlist();
         btnCart = ButtonDTO.getInstance().getBtn();
-
+        this.isUrlDummy = isUrlDummy;
 
 
         //btnCart.setOnTouchListener(RVAdapter.this);
@@ -423,6 +424,8 @@ Log.e("current id", currentId);
     private class SendDataAddToCart extends AsyncTask<Void, Void, Void>
     {
         private String urladdtocart = "http://www.mive.in/api/addtocart/";
+
+
         private JSONObject jsonObj;
         private ProgressDialog pDialog;
         HttpParams myParams = new BasicHttpParams();
@@ -460,8 +463,10 @@ Log.e("current id", currentId);
                 Log.e("retrieved id", "" + restoreduserid);
 
                 String restoredcartid = JSONDTO.getInstance().getJsonUser().optJSONObject("cart").optString("cart_id");
+                String restoredDummyCartId = JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id");
 
-                params.put("cartId",restoredcartid);
+                params.put("cartId",restoredDummyCartId);
+
                 params.put("userId",restoreduserid);
                 JSONObject jsonItems = new JSONObject();
                 for (int i = 0; i < itemsList.size(); i++)
@@ -486,6 +491,8 @@ Log.e("current id", currentId);
 
 
 
+            if(isUrlDummy)
+                urladdtocart = "http://www.mive.in/api/addtodummycart/";
 			jsonObjectresult = jsonParser.makeHttpRequest(urladdtocart, "POST", params);
             return null;
         }

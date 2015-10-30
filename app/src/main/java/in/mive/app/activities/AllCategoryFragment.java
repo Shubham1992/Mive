@@ -99,7 +99,7 @@ private  RecyclerView rv;
         }
         else
         {
-            RVAdapter adapter = new RVAdapter(SavedAllCat.getobj().getList(),getActivity());
+            RVAdapter adapter = new RVAdapter(SavedAllCat.getobj().getList(),getActivity() , false);
             rv.setAdapter(adapter);
              }
                 return rootView;
@@ -200,7 +200,7 @@ private  RecyclerView rv;
 
             SavedAllCat.getobj().setList(bigList);
 
-            RVAdapter adapter = new RVAdapter(bigList,getActivity());
+            RVAdapter adapter = new RVAdapter(bigList,getActivity(), false);
             rv.setAdapter(adapter);
 
 

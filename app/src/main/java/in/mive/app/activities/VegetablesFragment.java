@@ -74,7 +74,7 @@ public class VegetablesFragment extends Fragment {
         }
         else
         {
-            RVAdapter adapter = new RVAdapter(SavedVegetables.getobj().getList(),getActivity());
+            RVAdapter adapter = new RVAdapter(SavedVegetables.getobj().getList(),getActivity(),false);
             rvVeg.setAdapter(adapter);
         }
         return rootView;
@@ -136,7 +136,7 @@ public class VegetablesFragment extends Fragment {
             SavedVegetables.getobj().setList(resultList);
 
 
-            RVAdapter adapter = new RVAdapter(resultList,getActivity());
+            RVAdapter adapter = new RVAdapter(resultList,getActivity(),false);
             rvVeg.setAdapter(adapter);
 
         }

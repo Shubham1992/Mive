@@ -6,6 +6,7 @@ import in.mive.app.helperclasses.RVAdapter;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.adapter.TabsPagerAdapter;
 import in.mive.app.imageloader.ImageLoader;
+import in.mive.app.imageupload.InvoiceUploadActivity;
 import in.mive.app.layouthelper.InflateStoresintoDrawer;
 import in.mive.app.savedstates.ButtonDTO;
 import in.mive.app.savedstates.CartItemListDTO;
@@ -107,6 +108,8 @@ public class MainActivity extends FragmentActivity implements
     String catId;
     private List<Map> products;
     String sellername;
+    private Button btnInvoiceSubmit;
+    private boolean isUrlDummy;
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 
@@ -134,6 +137,8 @@ public class MainActivity extends FragmentActivity implements
 
 
         id = intnt.getIntExtra("id", 0);
+        isUrlDummy = intnt.getBooleanExtra("urlDummy", false);
+
         catId = intnt.getStringExtra("catId");
         sellername = intnt.getStringExtra("sellername");
 
@@ -525,7 +530,7 @@ void hideFragments()
 
             // class to return the json attributes in form of hashmap.
             // The map is set in DTO from where it can be accessed at all the fragments
-            RVAdapter adapter = new RVAdapter(products, MainActivity.this);
+            RVAdapter adapter = new RVAdapter(products, MainActivity.this, isUrlDummy);
             rvProducts.setAdapter(adapter);
 
 
@@ -678,7 +683,7 @@ void hideFragments()
 
 
 
-            RVAdapter adapter = new RVAdapter(totalSearchList,MainActivity.this);
+            RVAdapter adapter = new RVAdapter(totalSearchList,MainActivity.this , isUrlDummy);
             rvSearch.setAdapter(adapter);
             rvSearch.setVisibility(View.VISIBLE);
             /*for (int i=0; i<totalSearchList.size(); i++)
@@ -706,7 +711,7 @@ void hideFragments()
 
         int loader = R.drawable.tomato;
         ImageLoader imgLoader = new ImageLoader(MainActivity.this);
-       imgLoader.DisplayImage("http://www.mive.in/"+objuser.optString("profilephotourl").toString(), loader, imguser);
+       imgLoader.DisplayImage("http://www.mive.in/" + objuser.optString("profilephotourl").toString(), loader, imguser);
 
 
 
@@ -721,32 +726,28 @@ void hideFragments()
 
                 rvSearch.setVisibility(View.GONE);
 
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
+                if (fragmentFAQ != null) {
+                    Fragment fr = fragmentFAQ;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-                if(fragmenthelp !=null)
-                {
-                    Fragment fr=fragmenthelp;
+                if (fragmenthelp != null) {
+                    Fragment fr = fragmenthelp;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-                if(fragmentCstm !=null)
-                {
-                    Fragment fr=fragmentCstm;
+                if (fragmentCstm != null) {
+                    Fragment fr = fragmentCstm;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
+                if (fragmentContact != null) {
+                    Fragment fr = fragmentContact;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
 
-               // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
                 viewPager.setCurrentItem(3);
                 vpContainer.setVisibility(View.VISIBLE);
                 mDrawerLayout.closeDrawers();
@@ -830,6 +831,41 @@ void hideFragments()
 
                 rvSearch.setVisibility(View.GONE);}
         });*/
+        btnInvoiceSubmit = (Button) findViewById(R.id.btInvoiceupload);
+        btnInvoiceSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rvSearch.setVisibility(View.GONE);
+
+                if(fragmentFAQ !=null)
+                {
+                    Fragment fr=fragmentFAQ;
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(fr).commit();
+                }
+                if(fragmentContact !=null)
+                {
+                    Fragment fr=fragmentContact;
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(fr).commit();
+                }
+                if(fragmenthelp !=null)
+                {
+                    Fragment fr=fragmenthelp;
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(fr).commit();
+                }
+                Intent intent =new Intent(MainActivity.this, InvoiceUploadActivity.class);
+                mDrawerLayout.closeDrawers();
+                SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
+                int restoreduserid = prefs.getInt("userId", 0);
+                intent.putExtra("userId", restoreduserid);
+                mDrawerLayout.closeDrawers();
+                startActivity(intent);
+
+            }
+        });
+
 
         btnPrevOrders = (Button) findViewById(R.id.btPreviousOrders);
         btnPrevOrders.setOnClickListener(new View.OnClickListener() {
