@@ -35,15 +35,15 @@ public final class R {
 		public static final int sb__text_size = 0x7f09008f;
 	}
 	public static final class drawable {
-		public static final int sb__bg = 0x7f020060;
-		public static final int sb__btn_bg = 0x7f020061;
-		public static final int sb__divider_bg = 0x7f020062;
+		public static final int sb__bg = 0x7f020061;
+		public static final int sb__btn_bg = 0x7f020062;
+		public static final int sb__divider_bg = 0x7f020063;
 	}
 	public static final class id {
-		public static final int sb__action = 0x7f0e0106;
-		public static final int sb__divider = 0x7f0e0103;
-		public static final int sb__inner = 0x7f0e0104;
-		public static final int sb__text = 0x7f0e0105;
+		public static final int sb__action = 0x7f0e010a;
+		public static final int sb__divider = 0x7f0e0107;
+		public static final int sb__inner = 0x7f0e0108;
+		public static final int sb__text = 0x7f0e0109;
 	}
 	public static final class interpolator {
 		public static final int sb__accelerate_cubic = 0x7f050000;

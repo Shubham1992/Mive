@@ -221,17 +221,20 @@ boolean enabledBtn= true;
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
+            layoutItemList.removeAllViews();
 
             if (pDialog.isShowing())
                 pDialog.cancel();
+
 
         for (int i= 0; i <jsonArraySeecrt.length(); i++)
         {
             JSONObject jsonObject = jsonArraySeecrt.optJSONObject(i);
              jsonArrayItems = jsonObject.optJSONArray("items");
             JSONObject sellerObj = jsonObject.optJSONObject("seller");
-            String nameOfSeller = sellerObj.optString("nameOfSeller");
+            final String nameOfSeller = sellerObj.optString("nameOfSeller");
             final String sellerId = sellerObj.optString("seller_id");
+
 
           //  new GetItemListData().execute();
 
@@ -239,18 +242,27 @@ boolean enabledBtn= true;
             LinearLayout linearLayoutCategryOfItems = (LinearLayout) viewCategryOfItems.findViewById(R.id.prdct_holder);
             Button buttonPlaceOrdr = (Button)viewCategryOfItems.findViewById(R.id.btnPlcOrdr);
             TextView textViewStoreTitle = (TextView) viewCategryOfItems.findViewById(R.id.storetitle);
+            TextView tvCatTotal = (TextView)viewCategryOfItems.findViewById(R.id.textViewSubtotalCat);
             textViewStoreTitle.setText(nameOfSeller);
 
+
+
+            getItemsCart(linearLayoutCategryOfItems);
+
+
+            tvCatTotal.setText("Rs "+totpayable);
+            final int totCost = totpayable;
             buttonPlaceOrdr.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(CartActivity.this, OrderActivity.class);
-                    intent.putExtra("price", totpayable);
+                    intent.putExtra("price", totCost);
                     intent.putExtra("sellerId", sellerId);
+                    intent.putExtra("nameOfSeller", nameOfSeller);
                     startActivity(intent);
                 }
             });
-            getItemsCart(linearLayoutCategryOfItems);
+            totpayable=0;
 
             layoutItemList.addView(viewCategryOfItems);
         }
@@ -401,18 +413,15 @@ boolean enabledBtn= true;
                 // If yes then just add the units else create new map and add in list
                 //Log.e("real size", ""+realS);
 
-                updateCart(itemId,""+qnt);
+                updateCart(itemId, "" + qnt);
                 int totPricePeritem = ppu * qnt;
                 tvPrice.setText("Rs. "+totPricePeritem);
                 totpayable +=ppu;
 
-                if(totpayable > 0 )
-                {
-                    btnSubmitCart.setEnabled(true);
-                    btnSubmitCart.setAlpha(1);
-                }
 
                 tvtotal.setText("Rs. " + totpayable);
+
+                new GetseeCartData().execute();
 
 
 
@@ -457,7 +466,7 @@ boolean enabledBtn= true;
                 {
                     // recreate();
                 }
-
+                new GetseeCartData().execute();
 
             }
 
@@ -466,8 +475,7 @@ boolean enabledBtn= true;
 
 
 
-        // Log.e("id in cart",productId);
-        // LinearLayout linearLayoutPrdctholder = (LinearLayout) viewCategoryCart.findViewById(R.id.prdct_holder);
+
 
         layoutCatholder.addView(cartItmView);
         loadingprdctnmbr++;

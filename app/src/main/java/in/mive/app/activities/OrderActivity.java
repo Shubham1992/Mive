@@ -50,6 +50,9 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
     private String dateSelected =null;
     boolean isDatePicked = false;
     String sellerId;
+    private String sellerName;
+    private  TextView tvsellerName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +64,12 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
         tvSomeOther = (TextView)findViewById(R.id.tvSomeOther);
         tvDateSelected = (TextView)findViewById(R.id.tvDateSelected);
         btnPlaceorder = (Button)findViewById(R.id.btnplaceOrder);
-
+        tvsellerName = (TextView)findViewById(R.id.textViewSellerName);
         Intent intent =getIntent();
         int price = intent.getIntExtra("price", 0);
         sellerId = intent.getStringExtra("sellerId");
+        sellerName = intent.getStringExtra("nameOfSeller");
+        tvsellerName.setText(sellerName);
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);

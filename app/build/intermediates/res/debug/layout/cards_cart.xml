@@ -119,7 +119,7 @@
 				android:text="unit"
 				android:paddingLeft="5dp"
 				android:id="@+id/tvUnitType"
-				android:layout_centerVertical="true"
+				android:layout_alignBottom="@+id/tvAvailableQuantity"
 				android:layout_toRightOf="@+id/tvAvailableQuantity"
 				android:layout_toEndOf="@+id/tvAvailableQuantity" />
 		</RelativeLayout>

@@ -218,13 +218,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/storelistcontainer">
 
-        </LinearLayout>
        <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="1px"
@@ -262,7 +256,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <Button
                 android:layout_width="match_parent"
@@ -287,6 +281,14 @@
 
 
         </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/storelistcontainer">
+
+        </LinearLayout>
 <TextView
     android:layout_width="match_parent"
     android:layout_height="1dp"

@@ -214,6 +214,7 @@ public class PreviousOrders extends Activity {
                 TextView tvProcessing = (TextView) prevOrderTab.findViewById(R.id.tvProcessing);
                 TextView tvDelivered = (TextView) prevOrderTab.findViewById(R.id.tvdelivered);
                 TextView tvPaymentMode = (TextView)prevOrderTab.findViewById(R.id.tvPaymentMode);
+                TextView tvSellerName = (TextView)prevOrderTab.findViewById(R.id.tvsellername);
 
                 tvPlaced.setBackgroundColor(Color.parseColor("#d3d3d3"));
                 tvProcessing.setBackgroundColor(Color.parseColor("#d3d3d3"));
@@ -232,6 +233,10 @@ public class PreviousOrders extends Activity {
                 String orderAmount = objectOrder.optString("subtotal");
                 String status = objectOrder.optString("status");
                 String paymntMode = objectOrder.optString("payment_mode");
+                JSONObject jsonObjectSeller = objectOrder.optJSONObject("seller");
+
+                String sellername = jsonObjectSeller.optString("nameOfSeller");
+                tvSellerName.setText(sellername);
 
                 tvOrderId.setText(orderId);
                 tvOrderDate.setText(orderDate);
