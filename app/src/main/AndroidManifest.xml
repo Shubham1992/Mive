@@ -65,6 +65,18 @@
 
         </activity>
 
+        <activity
+            android:name="in.mive.app.activities.DummyCartActivity"
+            android:screenOrientation="portrait"
+
+            android:windowContentOverlay="@drawable/ab_solid_dark_holo">
+            <intent-filter>
+                <action android:name="android.intent.action.DUMMYCART" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
 
         <activity
             android:name="in.mive.app.activities.PreviousOrders"

@@ -28,6 +28,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
@@ -47,6 +48,9 @@ public class UploadActivity extends Activity {
 	private VideoView vidPreview;
 	private Button btnUpload;
 	long totalSize = 0;
+    String sellerId;
+    String userId;
+    String dummyCartId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,9 @@ public class UploadActivity extends Activity {
 		// image or video path that is captured in previous activity
 		filePath = i.getStringExtra("filePath");
 
+        sellerId = i.getStringExtra("sellerId");
+        dummyCartId = i.getStringExtra("dummycartId");
+        userId = i.getStringExtra("userId");
 		// boolean flag to identify the media type, image or video
 		boolean isImage = i.getBooleanExtra("isImage", true);
 
@@ -167,11 +174,22 @@ public class UploadActivity extends Activity {
 				entity.addPart("image", new FileBody(sourceFile));
 
 				// Extra parameters if you want to pass to server
-				/*entity.addPart("website",
-						new StringBody("www.mive.in"));
-				entity.addPart("email", new StringBody("abc@gmail.com"));*/
+				entity.addPart("sellerId",
+						new StringBody(sellerId));
+				entity.addPart("dummycartId", new StringBody(dummyCartId));
+                entity.addPart("userId", new StringBody(userId));
+                entity.addPart("deliveryTime", new StringBody("2105-10-31"));
+                entity.addPart("orderMsg", new StringBody("Some message"));
 
-				totalSize = entity.getContentLength();
+				Log.e("dummycartid", dummyCartId);
+				Log.e("userId", userId);
+				Log.e("sellerId", sellerId);
+
+
+				Log.e("makedummorderparam", entity.toString());
+
+
+                totalSize = entity.getContentLength();
 				httppost.setEntity(entity);
 
 				// Making server call

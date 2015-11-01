@@ -52,6 +52,7 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
     String sellerId;
     private String sellerName;
     private  TextView tvsellerName;
+    private boolean isDummy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,8 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
         int price = intent.getIntExtra("price", 0);
         sellerId = intent.getStringExtra("sellerId");
         sellerName = intent.getStringExtra("nameOfSeller");
+
+        isDummy = intent.getBooleanExtra("isDummy",false);
         tvsellerName.setText(sellerName);
 
         ActionBar actionBar = getActionBar();
@@ -77,13 +80,13 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
         {
             Window window = getWindow();
 
-// clear FLAG_TRANSLUCENT_STATUS flag:
+            // clear FLAG_TRANSLUCENT_STATUS flag:
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+            // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-// finally change the color
+            // finally change the color
             window.setStatusBarColor(getResources().getColor(R.color.my_statusbar_color));
         }
         tvsubtotal.setText("Rs. "+price);
@@ -142,27 +145,6 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
                 tvtoday.setTextColor(Color.parseColor("#21bdba"));
                 tvTmrw.setTextColor(Color.parseColor("#21bdba"));
 
-              /* final AlertDialog.Builder builder = new AlertDialog.Builder(OrderActivity.this);
-                final DatePicker picker = new DatePicker(OrderActivity.this);
-                picker.setCalendarViewShown(true);
-
-                builder.setTitle("Select Delivery Date");
-                builder.setView(picker);
-                builder.setNegativeButton("Cancel", null);
-                builder.setPositiveButton("Set", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        int d = picker.getDayOfMonth();
-                       int m = picker.getMonth()+1;
-                       int y = picker.getYear();
-                      dateSelected = ""+y+"-"+m+"-"+d;
-                        tvDateSelected.setText(dateSelected);
-                        isDatePicked=true;
-
-                    }
-                });
-
-                builder.show();*/
 
                 Calendar now = Calendar.getInstance();
                 com.wdullaer.materialdatetimepicker.date.DatePickerDialog dpd
@@ -216,7 +198,9 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
 
     private class SendDataAddToCart extends AsyncTask<Void, Void, Void>
     {
-        private String urlMakeOrder = "http://www.mive.in/api/makeorder/";//"http://postcatcher.in/catchers/55f1f07178098e03000010f6";
+        private String urlMakeOrder = "http://www.mive.in/api/makeorder/";
+
+        //"http://postcatcher.in/catchers/55f1f07178098e03000010f6";
         private JSONObject jsonObj;
         private ProgressDialog pDialog;
         HttpParams myParams = new BasicHttpParams();
@@ -254,7 +238,14 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
                 Log.e("retrieved id", "" + restoreduserid);
                 String restoredcartid = JSONDTO.getInstance().getJsonUser().optJSONObject("cart").optString("cart_id");
 
-                params.put("cartId", restoredcartid);
+                if(isDummy)
+                    restoredcartid = JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id");
+
+                if(isDummy)
+                    params.put("dummycartId", restoredcartid);
+                else
+                    params.put("cartId", restoredcartid);
+
                 params.put("userId", restoreduserid);
                 params.put("deliveryTime", tvDateSelected.getText().toString());
                 params.put("orderMsg", "some test message");
@@ -270,6 +261,8 @@ TextView tvsubtotal, tvtotal, tvtoday , tvTmrw , tvSomeOther, tvDateSelected;
 
             jsonParser = new JSONParser();
 
+            if(isDummy == true)
+                urlMakeOrder = "http://www.mive.in/api/temp/makeorderdummy/";
             jsonObjectresult = jsonParser.makeHttpRequest(urlMakeOrder, "POST", params);
             return null;
         }

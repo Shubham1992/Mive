@@ -23,7 +23,10 @@ import java.util.Date;
 import java.util.Locale;
 
 public class InvoiceUploadActivity extends Activity {
-	
+
+    String sellerId;
+    String userId;
+    String dummyCartId;
 	// LogCat tag
 	private static final String TAG = InvoiceUploadActivity.class.getSimpleName();
 	
@@ -52,7 +55,12 @@ public class InvoiceUploadActivity extends Activity {
  
         btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
         btnRecordVideo = (Button) findViewById(R.id.btnRecordVideo);
- 
+
+        Intent intent = getIntent();
+        sellerId = intent.getStringExtra("sellerId");
+        dummyCartId = intent.getStringExtra("dummycartId");
+        int uIdint = intent.getIntExtra("userId",0);
+        userId =""+userId;
         /**
          * Capture image button click event
          */
@@ -211,6 +219,11 @@ public class InvoiceUploadActivity extends Activity {
     	Intent i = new Intent(InvoiceUploadActivity.this, UploadActivity.class);
         i.putExtra("filePath", fileUri.getPath());
         i.putExtra("isImage", isImage);
+        i.putExtra("sellerId", ""+sellerId);
+        i.putExtra("userId", userId);
+        i.putExtra("dummycartId", dummyCartId);
+
+
         startActivity(i);
     }
      

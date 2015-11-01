@@ -110,6 +110,7 @@ public class MainActivity extends FragmentActivity implements
     String sellername;
     private Button btnInvoiceSubmit;
     private boolean isUrlDummy;
+    private String sellerId;
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 
@@ -141,6 +142,7 @@ public class MainActivity extends FragmentActivity implements
 
         catId = intnt.getStringExtra("catId");
         sellername = intnt.getStringExtra("sellername");
+        sellerId = intnt.getStringExtra("sellerId");
 
         loggedIn = intnt.getBooleanExtra("loggedIn", false);
         pos = intnt.getIntExtra("pos", 0);
@@ -860,6 +862,8 @@ void hideFragments()
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                 int restoreduserid = prefs.getInt("userId", 0);
                 intent.putExtra("userId", restoreduserid);
+                intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
+                intent.putExtra("sellerId", sellerId);
                 mDrawerLayout.closeDrawers();
                 startActivity(intent);
 

@@ -48,6 +48,7 @@ public class InflateDummyStores {
 
 
             final String name = objectSeller.optString("nameOfSeller");
+            final  String sellerId = objectSeller.optString("seller_id");
             View viewStoreTab = inflater.inflate(R.layout.store_tab, layout, false);
             TextView tvName = (TextView) viewStoreTab.findViewById(R.id.tvStoreName);
             ImageView imageView = (ImageView) viewStoreTab.findViewById(R.id.storeImage);
@@ -70,6 +71,7 @@ public class InflateDummyStores {
                     Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra("catId", catId);
                     intent.putExtra("sellername", name);
+                    intent.putExtra("sellerId",""+sellerId);
                     intent.putExtra("urlDummy",true );
                     context.startActivity(intent);
                 }

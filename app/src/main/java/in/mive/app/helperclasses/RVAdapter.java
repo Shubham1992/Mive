@@ -43,6 +43,7 @@ import java.util.Map;
 
 import in.mive.app.activities.CartActivity;
 import in.mive.app.activities.DescriptionActivity;
+import in.mive.app.activities.DummyCartActivity;
 import in.mive.app.imageloader.ImageLoader;
 import in.mive.app.savedstates.ButtonDTO;
 import in.mive.app.savedstates.CartItemListDTO;
@@ -203,6 +204,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                     HashMap itemDetailMap = new HashMap();
                     itemDetailMap.put("id", products.get(position).get("productId"));
                     itemDetailMap.put("units", qnt);
+                    itemDetailMap.put("pricePerUnit", products.get(position).get("pricePerUnit").toString());
                     qnt=0;
                     itemsList.add(itemDetailMap);
                     flagSame = true;
@@ -231,6 +233,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                     HashMap itemDetailMap = new HashMap();
                     itemDetailMap.put("id", products.get(position).get("productId"));
                     itemDetailMap.put("units", qnt);
+                    itemDetailMap.put("pricePerUnit", products.get(position).get("pricePerUnit").toString());
                     itemsList.add(itemDetailMap);
 
                 }
@@ -465,7 +468,7 @@ Log.e("current id", currentId);
                 String restoredcartid = JSONDTO.getInstance().getJsonUser().optJSONObject("cart").optString("cart_id");
                 String restoredDummyCartId = JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id");
 
-                params.put("cartId",restoredDummyCartId);
+                params.put("dummycartId",restoredDummyCartId);
 
 
                 params.put("userId",restoreduserid);
@@ -475,6 +478,7 @@ Log.e("current id", currentId);
                     HashMap<String,String> hashMap = new HashMap();
                     hashMap.put("qty",itemsList.get(i).get("units").toString());
                     hashMap.put("productId",itemsList.get(i).get("id").toString());
+                    hashMap.put("pricePerUnit", itemsList.get(i).get("pricePerUnit").toString());
 
 
                     JSONObject objOneItem = new JSONObject(hashMap.toString());
@@ -512,6 +516,10 @@ Log.e("current id", currentId);
             ItemListDTO.getInstance().setItemlist(new ArrayList<Map>());
 
             Intent intent = new Intent(context,CartActivity.class);
+            if(isUrlDummy == true)
+                intent = new Intent(context,DummyCartActivity.class);
+
+            intent.putExtra("isDummy", true);
             context.startActivity(intent);
 
         }
