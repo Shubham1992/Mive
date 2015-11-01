@@ -3,17 +3,26 @@ package in.mive.app.imageupload;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.drawable.ColorDrawable;
+import android.media.ExifInterface;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,13 +40,19 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
 
 
-
-public class UploadActivity extends Activity {
+public class UploadActivity extends Activity implements DatePickerDialog.OnDateSetListener, com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener {
 	// LogCat tag
 	private static final String TAG = InvoiceUploadActivity.class.getSimpleName();
 
@@ -45,14 +60,24 @@ public class UploadActivity extends Activity {
 	private String filePath = null;
 	private TextView txtPercentage;
 	private ImageView imgPreview;
-	private VideoView vidPreview;
+
 	private Button btnUpload;
 	long totalSize = 0;
     String sellerId;
     String userId;
     String dummyCartId;
+    TextView orderDate;
+    EditText orderMsg;
+    private String dateSelected;
+    private boolean isDatePicked;
+    private int orientation;
+    private Bitmap rotatedBitmap;
+    private String sellerName;
+    private EditText ettotal;
+    TextView paid, unpaid;
+    String paymentStatus = "paid";
 
-	@Override
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_upload);
@@ -60,7 +85,9 @@ public class UploadActivity extends Activity {
 		btnUpload = (Button) findViewById(R.id.btnUpload);
 		progressBar = (ProgressBar) findViewById(R.id.progressBar);
 		imgPreview = (ImageView) findViewById(R.id.imgPreview);
-		vidPreview = (VideoView) findViewById(R.id.videoPreview);
+        ettotal = (EditText) findViewById(R.id.ettotal);
+        paid = (TextView) findViewById(R.id.paid);
+        unpaid = (TextView) findViewById(R.id.unpaid);
 
 		// Changing action bar background color
 		ActionBar actionBar= getActionBar();
@@ -74,8 +101,24 @@ public class UploadActivity extends Activity {
         sellerId = i.getStringExtra("sellerId");
         dummyCartId = i.getStringExtra("dummycartId");
         userId = i.getStringExtra("userId");
+        sellerName = i.getStringExtra("sellerName");
+        actionBar.setTitle(sellerName);
 		// boolean flag to identify the media type, image or video
 		boolean isImage = i.getBooleanExtra("isImage", true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+            Window window = getWindow();
+
+            // clear FLAG_TRANSLUCENT_STATUS flag:
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            // finally change the color
+            window.setStatusBarColor(getResources().getColor(R.color.my_statusbar_color));
+        }
 
 		if (filePath != null) {
 			// Displaying the image or video on the screen
@@ -90,20 +133,71 @@ public class UploadActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// uploading the file to server
+
+                if(isDatePicked != true)
+                    return;
+
+                btnUpload.setEnabled(false);
+                btnUpload.setText("Uploading...");
+                orderDate.setEnabled(false);
 				new UploadFileToServer().execute();
 			}
 		});
+        orderDate = (TextView) findViewById(R.id.tvDate);
+        orderMsg = (EditText) findViewById(R.id.etOrderMsg);
+        orderDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar now = Calendar.getInstance();
+                com.wdullaer.materialdatetimepicker.date.DatePickerDialog dpd
+                        = com.wdullaer.materialdatetimepicker.date.DatePickerDialog.newInstance(
+                        UploadActivity.this,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                //dpd.show(OrderActivity.this, "Datepickerdialog");
+                dpd.show(getFragmentManager(), "Pick Date");
+            }
+        });
+
+        paid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                paymentStatus = "paid";
+                paid.setBackgroundColor(Color.parseColor("#21bdba"));
+                paid.setTextColor(Color.WHITE);
+
+                unpaid.setBackgroundResource(R.drawable.dayselectorborder);
+                unpaid.setTextColor(Color.parseColor("#21bdba"));
+            }
+        });
+
+
+        unpaid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                paymentStatus = "unpaid";
+                unpaid.setBackgroundColor(Color.parseColor("#21bdba"));
+                unpaid.setTextColor(Color.WHITE);
+
+                paid.setBackgroundResource(R.drawable.dayselectorborder);
+                paid.setTextColor(Color.parseColor("#21bdba"));
+            }
+        });
+        //by default unpaid
+        unpaid.performClick();
 
 	}
 
 	/**
 	 * Displaying captured image/video on the screen
 	 * */
-	private void previewMedia(boolean isImage) {
+	private void previewMedia(boolean isImage)  {
 		// Checking whether captured media is image or video
 		if (isImage) {
 			imgPreview.setVisibility(View.VISIBLE);
-			vidPreview.setVisibility(View.GONE);
+
 			// bimatp factory
 			BitmapFactory.Options options = new BitmapFactory.Options();
 
@@ -113,17 +207,66 @@ public class UploadActivity extends Activity {
 
 			final Bitmap bitmap = BitmapFactory.decodeFile(filePath, options);
 
-			imgPreview.setImageBitmap(bitmap);
-		} else {
+            ExifInterface exif = null;
+            try {
+                exif = new ExifInterface(filePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+                imgPreview.setImageBitmap(bitmap);
+                return;
+            }
+            orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+
+            Matrix matrix = new Matrix();
+            matrix.postRotate(90);
+            rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+
+            imgPreview.setImageBitmap(rotatedBitmap);
+        }
+        else
+        {
 			imgPreview.setVisibility(View.GONE);
-			vidPreview.setVisibility(View.VISIBLE);
-			vidPreview.setVideoPath(filePath);
-			// start playing
-			vidPreview.start();
+
 		}
 	}
 
-	/**
+
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onDateSet(com.wdullaer.materialdatetimepicker.date.DatePickerDialog view, int year, int monthOfYear, int dayOfMonth)
+    {
+
+        String datefinal = null, monthfinal = null, yearfinal;
+        monthOfYear = monthOfYear+1;
+        if(dayOfMonth <10)
+            datefinal = "0"+dayOfMonth;
+        else
+            datefinal = ""+dayOfMonth;
+
+        if(monthOfYear < 10)
+            monthfinal = "0"+monthOfYear;
+
+        else
+        monthfinal = ""+monthOfYear;
+
+        String date = ""+year+"-"+datefinal+"-"+monthfinal;
+
+        dateSelected = date;
+
+
+
+       orderDate.setText(date);
+        isDatePicked=true;
+    }
+
+
+
+    /**
 	 * Uploading the file to server
 	 * */
 	private class UploadFileToServer extends AsyncTask<Void, Integer, String> {
@@ -143,7 +286,8 @@ public class UploadActivity extends Activity {
 			progressBar.setProgress(progress[0]);
 
 			// updating percentage value
-			txtPercentage.setText(String.valueOf(progress[0]) + "%");
+			 txtPercentage.setText(String.valueOf(progress[0]) + "%");
+             txtPercentage.setAlpha(0.5F);
 		}
 
 		@Override
@@ -174,19 +318,30 @@ public class UploadActivity extends Activity {
 				entity.addPart("image", new FileBody(sourceFile));
 
 				// Extra parameters if you want to pass to server
-				entity.addPart("sellerId",
-						new StringBody(sellerId));
+				entity.addPart("sellerId", new StringBody(sellerId));
 				entity.addPart("dummycartId", new StringBody(dummyCartId));
                 entity.addPart("userId", new StringBody(userId));
-                entity.addPart("deliveryTime", new StringBody("2105-10-31"));
-                entity.addPart("orderMsg", new StringBody("Some message"));
+                entity.addPart("deliveryTime", new StringBody(dateSelected));
 
-				Log.e("dummycartid", dummyCartId);
+                if(orderMsg.getText() != null && orderMsg.getText().length() > 0)
+                   entity.addPart("orderMsg", new StringBody(orderMsg.getText().toString()));
+
+                else
+                    entity.addPart("orderMsg", new StringBody("No message"));
+
+                entity.addPart("payment", new StringBody(paymentStatus));
+                entity.addPart("total", new StringBody(ettotal.getText().toString()));
+
+
+
+                Log.e("dummycartid", dummyCartId);
 				Log.e("userId", userId);
 				Log.e("sellerId", sellerId);
+                Log.e("date", dateSelected);
+                Log.e("ordermsg", orderMsg.getText().toString());
 
 
-				Log.e("makedummorderparam", entity.toString());
+				Log.e("makedummyorderparam", entity.toString());
 
 
                 totalSize = entity.getContentLength();
@@ -222,6 +377,19 @@ public class UploadActivity extends Activity {
 			// showing the server response in an alert dialog
 			showAlert(result);
 
+            btnUpload.setEnabled(true);
+            orderDate.setEnabled(true);
+            JSONObject jsonObject = null;
+            try {
+
+                jsonObject = new JSONObject(result);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Toast.makeText(UploadActivity.this, "Response from server: " + result, Toast.LENGTH_SHORT).show();
+            finish();
+
 			super.onPostExecute(result);
 		}
 
@@ -237,6 +405,7 @@ public class UploadActivity extends Activity {
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						// do nothing
+						finish();
 					}
 				});
 		AlertDialog alert = builder.create();

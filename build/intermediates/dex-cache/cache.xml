@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpcore-4.3.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\httpcore-4.3.3-383b493236803e9bcb7bfbeee75b4a72a03eeb98.jar" />
-    </item>
-    <item
         jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpclient-4.3.6.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="f3cf3b25e14d3bca47773e95aa85ea8fefbf8e81">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-9a15ec8be29fe4132480273fdc62cc161f00ca47.jar" />
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\httpclient-4.3.6-9a15ec8be29fe4132480273fdc62cc161f00ca47.jar" />
     </item>
     <item
         jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpmime-4.3.6.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="66a39a5e37d5da40fdad6176fc24ef4316e74702">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\httpmime-4.3.6-0a2c9ab3e57fca7f3eb563abce12c9eb59c5424f.jar" />
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\httpmime-4.3.6-0a2c9ab3e57fca7f3eb563abce12c9eb59c5424f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpcore-4.3.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\httpcore-4.3.3-383b493236803e9bcb7bfbeee75b4a72a03eeb98.jar" />
     </item>
 
 </items>

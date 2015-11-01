@@ -16,16 +16,30 @@
         android:orientation="horizontal"
         android:background="#21bdba">
 
+        <ImageView
+
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bckarrowwhite"
+            android:id="@+id/imgbckHome"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:textSize="20dp"
-            android:layout_marginLeft="10dp"
             android:text="Select Store"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            />
+            android:gravity="center"
+
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imgbckHome"
+            android:layout_toEndOf="@+id/imgbckHome" />
 
         <Button
             android:id="@+id/btnCrt"
@@ -38,6 +52,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:text="0"
+            android:visibility="gone"
             android:textSize="14dp"
             android:textStyle="bold"
             android:paddingBottom="10dp"

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.mive.R;
 
@@ -38,13 +39,20 @@ public class DummyStoreSelectionActivity extends Activity {
     Button btnCrt;
     private JSONObject jsonObjuser;
     ViewGroup layoutContainerstore;
+    ImageView imgHomeBck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_dynamic);
         Intent intent = getIntent();
         userId = intent.getIntExtra("userId", 0);
-
+        imgHomeBck = (ImageView) findViewById(R.id.imgbckHome);
+        imgHomeBck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         layoutContainerstore = (ViewGroup) findViewById(R.id.cntainerStore);
 
         btnCrt = (Button) findViewById(R.id.btnCrt);

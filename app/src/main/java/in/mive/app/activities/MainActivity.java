@@ -311,6 +311,7 @@ void hideFragments()
         MenuItem item = menu.findItem(R.id.action_search);
 
         View view = menu.findItem(R.id.action_cart).getActionView();
+        view.setVisibility(View.GONE);
         btncart = (Button) view.findViewById(R.id.cart_count);
         ButtonDTO.getInstance().setBtn(btncart);
         Log.e("setting buton", btncart.toString());
@@ -713,11 +714,11 @@ void hideFragments()
 
         int loader = R.drawable.tomato;
         ImageLoader imgLoader = new ImageLoader(MainActivity.this);
-       imgLoader.DisplayImage("http://www.mive.in/" + objuser.optString("profilephotourl").toString(), loader, imguser);
+        imgLoader.DisplayImage("http://www.mive.in/" + objuser.optString("profilephotourl").toString(), loader, imguser);
 
 
 
-       layoutStoreList = (LinearLayout) findViewById(R.id.storelistcontainer);
+        layoutStoreList = (LinearLayout) findViewById(R.id.storelistcontainer);
         InflateStoresintoDrawer inflateStoresintoDrawer = new InflateStoresintoDrawer();
         inflateStoresintoDrawer.inflateStoreTabs(MainActivity.this, layoutStoreList, JSONDTO.getInstance().getJsonUser());
 

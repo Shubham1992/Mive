@@ -50,6 +50,27 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="in.mive.app.activitynew.DummyStoreSelectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowContentOverlay="@drawable/ab_solid_dark_holo" >
+            <intent-filter>
+                <action android:name="android.intent.action.SS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="in.mive.app.activities.DummyCartActivity"
+            android:screenOrientation="portrait"
+            android:windowContentOverlay="@drawable/ab_solid_dark_holo" >
+            <intent-filter>
+                <action android:name="android.intent.action.DUMMYCART" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="in.mive.app.activities.PreviousOrders"
             android:label="Your Orders"
             android:screenOrientation="portrait"
@@ -68,6 +89,18 @@
             android:windowContentOverlay="@drawable/ab_solid_dark_holo" >
             <intent-filter>
                 <action android:name="android.intent.action.STORE1" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="in.mive.app.imageupload.InvoiceUploadActivity"
+            android:label="Store"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowContentOverlay="@drawable/ab_solid_dark_holo" >
+            <intent-filter>
+                <action android:name="android.intent.action.INVOICEUPLOAD" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -100,6 +133,26 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.SELECTCAT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="in.mive.app.imageupload.UploadActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UPLOADACT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="in.mive.app.activitynew.OptionSelect"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.OPTNSELECT" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

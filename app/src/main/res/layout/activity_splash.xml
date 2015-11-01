@@ -25,12 +25,17 @@ android:weightSum="3"
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:background="@drawable/txt"
+        android:layout_height="wrap_content"
+        android:text="Sourcing App for Restaurants"
         android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#008000"
         android:layout_gravity="center"
         android:id="@+id/tvMive"
         android:layout_weight="1"
+        android:typeface="serif"
 
 
          />

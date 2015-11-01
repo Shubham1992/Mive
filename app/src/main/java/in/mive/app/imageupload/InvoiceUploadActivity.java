@@ -41,7 +41,8 @@ public class InvoiceUploadActivity extends Activity {
     private Uri fileUri; // file url to store image/video
     
     private Button btnCapturePicture, btnRecordVideo;
- 
+    private String sellerName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,6 @@ public class InvoiceUploadActivity extends Activity {
         // Changing action bar background color
         // These two lines are not needed
 
-        ActionBar actionBar= getActionBar();
 
  
         btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
@@ -60,19 +60,24 @@ public class InvoiceUploadActivity extends Activity {
         sellerId = intent.getStringExtra("sellerId");
         dummyCartId = intent.getStringExtra("dummycartId");
         int uIdint = intent.getIntExtra("userId",0);
-        userId =""+userId;
+        sellerName = intent.getStringExtra("sellername");
+        userId =""+ uIdint;
+
+        getActionBar().setTitle(sellerName);
         /**
          * Capture image button click event
          */
         btnCapturePicture.setOnClickListener(new View.OnClickListener() {
- 
+
             @Override
             public void onClick(View v) {
                 // capture picture
                 captureImage();
             }
         });
- 
+
+        btnCapturePicture.performClick();
+
         /**
          * Record video button click event
          */
@@ -221,10 +226,12 @@ public class InvoiceUploadActivity extends Activity {
         i.putExtra("isImage", isImage);
         i.putExtra("sellerId", ""+sellerId);
         i.putExtra("userId", userId);
+        i.putExtra("sellerName",sellerName);
         i.putExtra("dummycartId", dummyCartId);
 
 
         startActivity(i);
+        finish();
     }
      
     /**

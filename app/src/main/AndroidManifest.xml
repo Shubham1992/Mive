@@ -107,7 +107,7 @@
             android:name="in.mive.app.imageupload.InvoiceUploadActivity"
             android:label="Store"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
+
             android:windowContentOverlay="@drawable/ab_solid_dark_holo">
             <intent-filter>
                 <action android:name="android.intent.action.INVOICEUPLOAD" />

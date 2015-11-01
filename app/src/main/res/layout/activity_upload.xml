@@ -1,59 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:layout_marginBottom="50dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     
 
     <!-- To display picture taken -->
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/imgPreview"
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:visibility="gone" 
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="visible"
         android:layout_marginTop="15dp"/>
 
     <!-- Videoview to preview recorded video -->
 
-    <VideoView
-        android:id="@+id/videoPreview"
-        android:layout_width="fill_parent"
-        android:layout_height="400dp"
-        android:visibility="gone" 
-        android:layout_marginTop="15dp"/>
+
 
     <TextView
         android:id="@+id/txtPercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
+        android:layout_gravity="bottom|center"
+        android:text="%"
         android:layout_marginTop="15dp"
         android:textColor="#000000"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_marginBottom="45dp"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
         android:layout_marginBottom="35dp" 
-        android:visibility="gone"/>
+        android:visibility="visible"
+        android:layout_gravity="bottom"/>
 
-    <Button
-        android:id="@+id/btnUpload"
-        android:layout_width="wrap_content"
+</FrameLayout>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+ >
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="#008000"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="btnUploadToServer"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="20dp"/>
+        android:gravity="center"
+        android:text="Pick A Date"
+       android:textSize="20dp"
+        android:padding="10dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#21bdba"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/edit"
+        android:padding="5dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="right|center_vertical"/>
+</FrameLayout>
+    <EditText
+        android:id="@+id/etOrderMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+       android:hint="Any Message with the order?" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+        <TextView
+            android:id="@+id/totaltext"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Total: "
+            android:gravity="left"
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:layout_weight="1"
+            />
+
+        <EditText
+            android:id="@+id/ettotal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total"
+            android:text="0.0"
+            android:background="@drawable/border"
+            android:gravity="right"
+            android:layout_marginLeft="30dp"
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="23dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+        >
+    <TextView
+        android:id="@+id/paid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Paid"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_weight="1"
+        android:textColor="#21bdba"
+        android:background="@drawable/dayselectorborder"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/unpaid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Un-Paid"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#21bdba"
+        android:background="@drawable/dayselectorborder"
+        android:layout_weight="1"/>
+</LinearLayout>
 
 </LinearLayout>
+</ScrollView>
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#21bdba"
+        android:gravity="center"
+
+        android:text="Upload"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        />
+    </FrameLayout>

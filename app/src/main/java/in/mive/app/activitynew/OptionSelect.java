@@ -274,7 +274,7 @@ public class OptionSelect extends Activity {
                     public void onClick(View view) {
 
 
-                        if (fragmentFAQ != null) {
+                       /* if (fragmentFAQ != null) {
                             Fragment fr = fragmentFAQ;
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.remove(fr).commit();
@@ -296,7 +296,9 @@ public class OptionSelect extends Activity {
                         intent.putExtra("userId", restoreduserid);
                         mDrawerLayout.closeDrawers();
                         startActivity(intent);
+*/
 
+                        layoutInvoice.performClick();
                     }
                 });
 
