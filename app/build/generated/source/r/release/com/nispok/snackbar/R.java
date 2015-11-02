@@ -28,33 +28,33 @@ public final class R {
 		public static final int sb__max_width = 0x7f09001a;
 		public static final int sb__min_width = 0x7f09001b;
 		public static final int sb__offset = 0x7f09003c;
-		public static final int sb__text_padding_bottom = 0x7f09008b;
-		public static final int sb__text_padding_left = 0x7f09008c;
-		public static final int sb__text_padding_right = 0x7f09008d;
-		public static final int sb__text_padding_top = 0x7f09008e;
-		public static final int sb__text_size = 0x7f09008f;
+		public static final int sb__text_padding_bottom = 0x7f09008d;
+		public static final int sb__text_padding_left = 0x7f09008e;
+		public static final int sb__text_padding_right = 0x7f09008f;
+		public static final int sb__text_padding_top = 0x7f090090;
+		public static final int sb__text_size = 0x7f090091;
 	}
 	public static final class drawable {
-		public static final int sb__bg = 0x7f020062;
-		public static final int sb__btn_bg = 0x7f020063;
-		public static final int sb__divider_bg = 0x7f020064;
+		public static final int sb__bg = 0x7f020067;
+		public static final int sb__btn_bg = 0x7f020068;
+		public static final int sb__divider_bg = 0x7f020069;
 	}
 	public static final class id {
-		public static final int sb__action = 0x7f0e0117;
-		public static final int sb__divider = 0x7f0e0114;
-		public static final int sb__inner = 0x7f0e0115;
-		public static final int sb__text = 0x7f0e0116;
+		public static final int sb__action = 0x7f0e0127;
+		public static final int sb__divider = 0x7f0e0124;
+		public static final int sb__inner = 0x7f0e0125;
+		public static final int sb__text = 0x7f0e0126;
 	}
 	public static final class interpolator {
 		public static final int sb__accelerate_cubic = 0x7f050000;
 		public static final int sb__decelerate_cubic = 0x7f050001;
 	}
 	public static final class layout {
-		public static final int sb__template = 0x7f030048;
+		public static final int sb__template = 0x7f03004f;
 	}
 	public static final class style {
-		public static final int Snackbar = 0x7f0a00b0;
-		public static final int Snackbar_Text = 0x7f0a00b1;
+		public static final int Snackbar = 0x7f0a00b1;
+		public static final int Snackbar_Text = 0x7f0a00b2;
 		public static final int Snackbar_Text_Action = 0x7f0a0078;
 	}
 }

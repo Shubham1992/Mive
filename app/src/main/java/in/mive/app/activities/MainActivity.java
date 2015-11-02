@@ -1,8 +1,10 @@
 package in.mive.app.activities;
 
+import dmax.dialog.SpotsDialog;
 import in.mive.app.helperclasses.GetProductsComponentFromJson;
 import in.mive.app.helperclasses.GetProductsComponentFromJsonArray;
 import in.mive.app.helperclasses.RVAdapter;
+import in.mive.app.helperclasses.RVAdapterDummy;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.adapter.TabsPagerAdapter;
 import in.mive.app.imageloader.ImageLoader;
@@ -82,7 +84,7 @@ public class MainActivity extends FragmentActivity implements
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-    private ProgressDialog pDialog;
+    private AlertDialog pDialog;
     private LinearLayout vpContainer;
 	// Tab titles
 
@@ -311,8 +313,12 @@ void hideFragments()
         MenuItem item = menu.findItem(R.id.action_search);
 
         View view = menu.findItem(R.id.action_cart).getActionView();
-        view.setVisibility(View.GONE);
+
+
         btncart = (Button) view.findViewById(R.id.cart_count);
+
+        btncart.setVisibility(View.GONE);
+
         ButtonDTO.getInstance().setBtn(btncart);
         Log.e("setting buton", btncart.toString());
 
@@ -483,7 +489,7 @@ void hideFragments()
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog = new SpotsDialog(MainActivity.this);
             pDialog.setMessage("Loading Products");
             pDialog.show();
 
@@ -533,11 +539,20 @@ void hideFragments()
 
             // class to return the json attributes in form of hashmap.
             // The map is set in DTO from where it can be accessed at all the fragments
-            RVAdapter adapter = new RVAdapter(products, MainActivity.this, isUrlDummy);
-            rvProducts.setAdapter(adapter);
+            if(isUrlDummy)
+            {
+                RVAdapterDummy adapter = new RVAdapterDummy(products, MainActivity.this, isUrlDummy);
+                rvProducts.setAdapter(adapter);
+
+            }
+
+            else
+            {
+                RVAdapter adapter = new RVAdapter(products, MainActivity.this, isUrlDummy);
+                rvProducts.setAdapter(adapter);
+            }
 
 
-            btncart.setVisibility(View.VISIBLE);
             Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.btncartmove);
           //  btncart.startAnimation(anim);
 
@@ -603,7 +618,7 @@ void hideFragments()
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog = new SpotsDialog(MainActivity.this);
             pDialog.setMessage("Getting Products...");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -896,11 +911,18 @@ void hideFragments()
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-               Intent intent =new Intent(MainActivity.this, PreviousOrders.class);
+
+                Intent intent =new Intent(MainActivity.this, PreviousOrders.class);
+                if(isUrlDummy)
+                    intent = new Intent(MainActivity.this, PreviousDummyOrders.class);
+
+
                 mDrawerLayout.closeDrawers();
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                 int restoreduserid = prefs.getInt("userId", 0);
                 intent.putExtra("userId", restoreduserid);
+                intent.putExtra("sortBy", "date");
+                intent.putExtra("paymentFilter", "all");
                 mDrawerLayout.closeDrawers();
                 startActivity(intent);
 

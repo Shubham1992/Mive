@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Select Seller"
+			android:padding="10dp"
+			android:textStyle="bold"/>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/storeFilterContainer"
+			android:orientation="vertical">
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_margin="10dp">
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Number Of Days:"
+				android:textStyle="bold"
+				android:padding="10dp"
+				android:layout_weight="1"/>
+			<EditText
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:padding="10dp"
+				android:id="@+id/dayset"
+				android:layout_weight="1"
+				android:gravity="center"
+				android:hint="days"
+				android:background="@drawable/dayselectorborder"/>
+		</LinearLayout>
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="23dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			>
+			<TextView
+				android:id="@+id/paid"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Paid"
+				android:gravity="center"
+				android:padding="10dp"
+				android:layout_weight="1"
+				android:textColor="#21bdba"
+				android:background="@drawable/dayselectorborder"
+				android:textStyle="bold"/>
+
+			<TextView
+				android:id="@+id/unpaid"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Un-Paid"
+				android:padding="10dp"
+				android:gravity="center"
+				android:textStyle="bold"
+				android:textColor="#21bdba"
+				android:background="@drawable/dayselectorborder"
+				android:layout_weight="1"/>
+		</LinearLayout>
+
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Sort By"
+			android:padding="10dp"
+			android:textStyle="bold"
+			android:layout_marginTop="10dp"/>
+
+<LinearLayout
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+</LinearLayout>
+	</LinearLayout>
+</ScrollView>

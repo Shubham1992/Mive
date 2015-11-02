@@ -39,10 +39,13 @@ import java.util.Map;
 import in.mive.app.helperclasses.JSONParser;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.imageloader.ImageLoader;
+import in.mive.app.imageupload.UploadActivity;
 import in.mive.app.savedstates.ButtonDTO;
 import in.mive.app.savedstates.CartItemListDTO;
+import in.mive.app.savedstates.DummyCartItemListDTO;
 import in.mive.app.savedstates.ItemListDTO;
 import in.mive.app.savedstates.JSONDTO;
+import in.mive.app.savedstates.UpdateDummyItemListDTO;
 import in.mive.app.savedstates.UpdateItemListDTO;
 
 /**
@@ -180,9 +183,7 @@ boolean enabledBtn= true;
 			ServiceHandler sh = new ServiceHandler();
 			// Making a request to url and getting response
 
-			String restoredcartid = JSONDTO.getInstance().getJsonUser().optJSONObject("cart").optString("cart_id");
 
-			// Log.e("retrieved id", "" + restoredcartid);
 
             try {
                 userId= JSONDTO.getInstance().getJsonUser().getString("user_id").toString();
@@ -227,46 +228,52 @@ boolean enabledBtn= true;
                 pDialog.cancel();
 
 
-        for (int i= 0; i <jsonArraySeecrt.length(); i++)
-        {
-            JSONObject jsonObject = jsonArraySeecrt.optJSONObject(i);
-             jsonArrayItems = jsonObject.optJSONArray("items");
-            JSONObject sellerObj = jsonObject.optJSONObject("seller");
-            final String nameOfSeller = sellerObj.optString("nameOfSeller");
-            final String sellerId = sellerObj.optString("seller_id");
+            for (int i= 0; i <jsonArraySeecrt.length(); i++)
+            {
+                JSONObject jsonObject = jsonArraySeecrt.optJSONObject(i);
+                 jsonArrayItems = jsonObject.optJSONArray("items");
+                JSONObject sellerObj = jsonObject.optJSONObject("seller");
+                final String nameOfSeller = sellerObj.optString("nameOfSeller");
+                final String sellerId = sellerObj.optString("seller_id");
 
 
-          //  new GetItemListData().execute();
+              //  new GetItemListData().execute();
 
-            View  viewCategryOfItems = inflater.inflate(R.layout.category_cart_holder, layoutItemList, false);
-            LinearLayout linearLayoutCategryOfItems = (LinearLayout) viewCategryOfItems.findViewById(R.id.prdct_holder);
-            Button buttonPlaceOrdr = (Button)viewCategryOfItems.findViewById(R.id.btnPlcOrdr);
-            TextView textViewStoreTitle = (TextView) viewCategryOfItems.findViewById(R.id.storetitle);
-            TextView tvCatTotal = (TextView)viewCategryOfItems.findViewById(R.id.textViewSubtotalCat);
-            textViewStoreTitle.setText(nameOfSeller);
-
-
-
-            getItemsCart(linearLayoutCategryOfItems);
+                View  viewCategryOfItems = inflater.inflate(R.layout.category_cart_holder, layoutItemList, false);
+                LinearLayout linearLayoutCategryOfItems = (LinearLayout) viewCategryOfItems.findViewById(R.id.prdct_holder);
+                Button buttonPlaceOrdr = (Button)viewCategryOfItems.findViewById(R.id.btnPlcOrdr);
+                TextView textViewStoreTitle = (TextView) viewCategryOfItems.findViewById(R.id.storetitle);
+                TextView tvCatTotal = (TextView)viewCategryOfItems.findViewById(R.id.textViewSubtotalCat);
+                textViewStoreTitle.setText(nameOfSeller);
 
 
-            tvCatTotal.setText("Rs "+totpayable);
-            final int totCost = totpayable;
-            buttonPlaceOrdr.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(DummyCartActivity.this, OrderActivity.class);
-                    intent.putExtra("price", totCost);
-                    intent.putExtra("sellerId", sellerId);
-                    intent.putExtra("nameOfSeller", nameOfSeller);
-                    intent.putExtra("isDummy", true);
-                    startActivity(intent);
-                }
-            });
-            totpayable=0;
 
-            layoutItemList.addView(viewCategryOfItems);
-        }
+                getItemsCart(linearLayoutCategryOfItems);
+
+
+                tvCatTotal.setText("Rs "+totpayable);
+                final int totCost = totpayable;
+                buttonPlaceOrdr.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(DummyCartActivity.this, UploadActivity.class);
+                        intent.putExtra("userId", userId);
+                        intent.putExtra("price", ""+totCost);
+                        intent.putExtra("sellerId", sellerId);
+                        intent.putExtra("sellerName", nameOfSeller);
+
+                        intent.putExtra("dummycartId",JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
+                        intent.putExtra("isDummy", true);
+
+                        Log.e("Mive: ", "total "+totCost);
+
+                        startActivity(intent);
+                    }
+                });
+                totpayable=0;
+
+                layoutItemList.addView(viewCategryOfItems);
+            }
 
 
 		}
@@ -310,7 +317,7 @@ boolean enabledBtn= true;
 
         }
 
-        CartItemListDTO.getInstance().setItemlist(l);
+        DummyCartItemListDTO.getInstance().setItemlist(l);
        // new GetEachProductData().execute();
         getEachPrdct(layoutCategoryHolder);
 
@@ -322,14 +329,14 @@ boolean enabledBtn= true;
 
     void getEachPrdct(ViewGroup layoutCatholder)
     {
-        Log.e("qty value in list", CartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
-        qty = Integer.parseInt(CartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
+        Log.e("qty value in list", DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
+        qty = Integer.parseInt(DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
         Log.e("qty in getprdct", "" + qty);
 
 
 
         try {
-            jsonObjEachItems = new JSONObject( CartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("product").toString());
+            jsonObjEachItems = new JSONObject( DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("product").toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -350,7 +357,7 @@ boolean enabledBtn= true;
         ImageView productImage = (ImageView)cartItmView.findViewById(R.id.imgProductPhoto);
         final TextView btnPlusQuantity = (TextView)cartItmView.findViewById(R.id.btnPlusQuantity);
         final TextView btnMinusQuantity = (TextView)cartItmView.findViewById(R.id.btnMinusQuantity);
-        final TextView tvPrice = (TextView)cartItmView.findViewById(R.id.tvPricePerUnit);
+        final TextView tvPrice = (TextView)cartItmView.findViewById(R.id.tvPricePerUnittext);
         final TextView tvSelectedQuantity =(TextView)cartItmView.findViewById(R.id.tvAvailableQuantity);
         final TextView tvUnitType =(TextView)cartItmView.findViewById(R.id.tvUnitType);
 
@@ -369,10 +376,10 @@ boolean enabledBtn= true;
             return;
         //...
 
-        final String itemId = CartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("cartItemId").toString();
+        final String itemId = DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("cartItemId").toString();
         Log.e("cart item id", itemId);
         //
-        final List<HashMap> l = CartItemListDTO.getInstance().getItemlist();
+        final List<HashMap> l = DummyCartItemListDTO.getInstance().getItemlist();
         //l.get(loadingprdctnmbr).put("itemId",jsonObjEachItems.optInt("product_id"));
         l.get(loadingprdctnmbr).put("itemId",itemId);
 
@@ -584,7 +591,7 @@ boolean enabledBtn= true;
                 pDialog.dismiss();
             if(jsonObjectresult != null)
             Log.e("result", jsonObjectresult.toString());
-            UpdateItemListDTO.getInstance().setItemlist(new ArrayList<HashMap>());
+            UpdateDummyItemListDTO.getInstance().setItemlist(new ArrayList<HashMap>());
 
             enabledBtn=true;
 
@@ -642,7 +649,7 @@ boolean enabledBtn= true;
 
     void prepareUpdate(List<HashMap> l)
     {
-        List<HashMap> listUpdate = UpdateItemListDTO.getInstance().getItemlist();
+        List<HashMap> listUpdate = UpdateDummyItemListDTO.getInstance().getItemlist();
         for (int i = 0; i<l.size(); i++)
         {
             HashMap map = new HashMap<String , String>();
@@ -653,10 +660,10 @@ boolean enabledBtn= true;
 
             listUpdate.add(map);
         }
-    UpdateItemListDTO.getInstance().setItemlist(listUpdate);
+        UpdateDummyItemListDTO.getInstance().setItemlist(listUpdate);
          if(updatetsk != null)
          {  updatetsk.cancel(true);
-            // UpdateItemListDTO.getInstance().setProductMap(new ArrayList<HashMap>());
+            // UpdateDummyItemListDTO.getInstance().setProductMap(new ArrayList<HashMap>());
          }
           updatetsk = new SendUpdateDataAddToCart();
         updatetsk.execute();

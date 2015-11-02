@@ -410,7 +410,7 @@ Log.e("current id", currentId);
 			cv = (CardView)itemView.findViewById(R.id.cv);
             rlCard = (ViewGroup)itemView.findViewById(R.id.rlCard);
 			tvproductName= (TextView) itemView.findViewById(R.id.tvProductName);
-			tvproductPricePerUnit= (TextView) itemView.findViewById(R.id.tvPricePerUnit);
+			tvproductPricePerUnit= (TextView) itemView.findViewById(R.id.tvPricePerUnittext);
 			tvproductQuantityAvailable= (TextView) itemView.findViewById(R.id.tvAvailableQuantity);
 			tvproductQuantitySelected= (TextView) itemView.findViewById(R.id.tvQuantitySelected);
 			imgProductImage=(ImageView)itemView.findViewById(R.id.imgProductPhoto);

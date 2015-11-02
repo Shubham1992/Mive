@@ -12,12 +12,13 @@
         android:icon="@drawable/search100"
         />
 
-    <item android:id="@+id/action_cart"
+        <item android:id="@+id/action_cart"
         android:title="cart"
         android:actionLayout="@layout/cart_with_text"
         android:icon="@drawable/cartfab"
-        android:showAsAction="always"
+        android:showAsAction="never"
         tools:ignore="AppCompatResource"
+
         />
 
 

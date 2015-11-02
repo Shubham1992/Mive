@@ -349,7 +349,7 @@ boolean enabledBtn= true;
         ImageView productImage = (ImageView)cartItmView.findViewById(R.id.imgProductPhoto);
         final TextView btnPlusQuantity = (TextView)cartItmView.findViewById(R.id.btnPlusQuantity);
         final TextView btnMinusQuantity = (TextView)cartItmView.findViewById(R.id.btnMinusQuantity);
-        final TextView tvPrice = (TextView)cartItmView.findViewById(R.id.tvPricePerUnit);
+        final TextView tvPrice = (TextView)cartItmView.findViewById(R.id.tvPricePerUnittext);
         final TextView tvSelectedQuantity =(TextView)cartItmView.findViewById(R.id.tvAvailableQuantity);
         final TextView tvUnitType =(TextView)cartItmView.findViewById(R.id.tvUnitType);
 

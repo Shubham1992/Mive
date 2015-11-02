@@ -4,8 +4,10 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -23,6 +25,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -51,6 +54,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 
+import in.mive.app.activitynew.OptionSelect;
+import in.mive.app.savedstates.JSONDTO;
+
 
 public class UploadActivity extends Activity implements DatePickerDialog.OnDateSetListener, com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener {
 	// LogCat tag
@@ -76,7 +82,11 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
     private EditText ettotal;
     TextView paid, unpaid;
     String paymentStatus = "paid";
-
+    private String toatlprice;
+    ImageView imageViewBckHome;
+    TextView titleActnBar;
+    FrameLayout layoutImgCntnr;
+    ImageView imageViewInvoiceUpload;
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,9 +98,35 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
         ettotal = (EditText) findViewById(R.id.ettotal);
         paid = (TextView) findViewById(R.id.paid);
         unpaid = (TextView) findViewById(R.id.unpaid);
+        layoutImgCntnr = (FrameLayout) findViewById(R.id.frameImageContainer);
+        imageViewBckHome = (ImageView) findViewById(R.id.imgbckHome);
+        imageViewBckHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        titleActnBar = (TextView) findViewById(R.id.titleActionBar);
+        imageViewInvoiceUpload = (ImageView) findViewById(R.id.imageViewInvoiceUpload);
+        imageViewInvoiceUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UploadActivity.this, InvoiceUploadActivity.class);
+               // intent.putExtra("catId", catId);
+                SharedPreferences prefs = getSharedPreferences("userIdPref", Context.MODE_PRIVATE);
+                int restoreduserid = prefs.getInt("userId", 0);
+                intent.putExtra("userId", restoreduserid);
+                intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
+
+                intent.putExtra("sellername", sellerName);
+                intent.putExtra("sellerId", "" + sellerId);
+                intent.putExtra("urlDummy", true);
+                startActivity(intent);
+            }
+        });
+
 
 		// Changing action bar background color
-		ActionBar actionBar= getActionBar();
 
 		// Receiving the data from previous activity
 		Intent i = getIntent();
@@ -102,9 +138,17 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
         dummyCartId = i.getStringExtra("dummycartId");
         userId = i.getStringExtra("userId");
         sellerName = i.getStringExtra("sellerName");
-        actionBar.setTitle(sellerName);
+        toatlprice = i.getStringExtra("price");
+        if(toatlprice != null)
+        {
+            ettotal.setText(toatlprice);
+        }
+
+        titleActnBar.setText(sellerName);
+
+
 		// boolean flag to identify the media type, image or video
-		boolean isImage = i.getBooleanExtra("isImage", true);
+		boolean isImage = i.getBooleanExtra("isImage", false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
         {
@@ -124,6 +168,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 			// Displaying the image or video on the screen
 			previewMedia(isImage);
 		} else {
+            layoutImgCntnr.setVisibility(View.GONE);
 			Toast.makeText(getApplicationContext(),
 					"Sorry, file path is missing!", Toast.LENGTH_LONG).show();
 		}
@@ -135,7 +180,8 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 				// uploading the file to server
 
                 if(isDatePicked != true)
-                    return;
+                {Toast.makeText(UploadActivity.this, "No Date Picked",Toast.LENGTH_SHORT ).show();
+                    return;}
 
                 btnUpload.setEnabled(false);
                 btnUpload.setText("Uploading...");
@@ -218,7 +264,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
             orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
 
             Matrix matrix = new Matrix();
-            matrix.postRotate(90);
+           // matrix.postRotate(90);
             rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
             imgPreview.setImageBitmap(rotatedBitmap);
@@ -312,11 +358,18 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 							}
 						});
 
-				File sourceFile = new File(filePath);
+				if(filePath != null)
+                {
+                    File sourceFile = new File(filePath);
 
-				// Adding file data to http body
-				entity.addPart("image", new FileBody(sourceFile));
+                    // Adding file data to http body
 
+                    entity.addPart("image", new FileBody(sourceFile));
+                }
+                else
+                {
+                    layoutImgCntnr.setVisibility(View.GONE);
+                }
 				// Extra parameters if you want to pass to server
 				entity.addPart("sellerId", new StringBody(sellerId));
 				entity.addPart("dummycartId", new StringBody(dummyCartId));
@@ -388,6 +441,11 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
             }
 
             Toast.makeText(UploadActivity.this, "Response from server: " + result, Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(UploadActivity.this, OptionSelect.class);
+            intent.putExtra("id", Integer.parseInt(userId));
+            startActivity(intent);
+
             finish();
 
 			super.onPostExecute(result);

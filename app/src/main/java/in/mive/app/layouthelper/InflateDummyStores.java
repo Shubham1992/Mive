@@ -17,12 +17,14 @@ import com.mive.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import in.mive.app.activities.MainActivity;
 import in.mive.app.imageupload.InvoiceUploadActivity;
 import in.mive.app.savedstates.JSONDTO;
+import in.mive.app.savedstates.SavedSellerIds;
 import in.mive.app.savedstates.SavedSellerProductsMap;
 
 /**
@@ -39,7 +41,11 @@ public class InflateDummyStores {
         map = new HashMap();
         JSONArray jsonArray = jsonObject.optJSONArray("dummyvendors");
 
+        List<HashMap<String, String>> list = new ArrayList();
+
         for (int i = 0; i < jsonArray.length(); i++) {
+
+            //get a particular vendor
             JSONObject objCategories = jsonArray.optJSONObject(i);
             JSONObject objectSeller = objCategories.optJSONObject("seller");
             final String catId = objCategories.optString("dummyvendor_id");
@@ -54,6 +60,11 @@ public class InflateDummyStores {
 
             final String name = objectSeller.optString("nameOfSeller");
             final  String sellerId = objectSeller.optString("seller_id");
+
+            HashMap hashMap = new HashMap();
+            hashMap.put("sellerId", sellerId);
+            list.add(hashMap);
+
             View viewStoreTab = inflater.inflate(R.layout.store_tab, layout, false);
             TextView tvName = (TextView) viewStoreTab.findViewById(R.id.tvStoreName);
             ImageView imageView = (ImageView) viewStoreTab.findViewById(R.id.storeImage);
@@ -116,6 +127,7 @@ public class InflateDummyStores {
             layout.addView(viewStoreTab);
         }
 
+        SavedSellerIds.getInstance().setList(list);
         SavedSellerProductsMap.getInstance().setProductMap(map);
     }
 }

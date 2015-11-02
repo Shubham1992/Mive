@@ -18,12 +18,12 @@
 
         <ImageView
 
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:src="@drawable/bckarrowwhite"
             android:id="@+id/imgbckHome"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"/>
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:text="Select Store"
             android:textColor="#ffffff"
             android:textStyle="bold"

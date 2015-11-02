@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/scrollViewPreviousOrder"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+		android:background="#ffffff">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:orientation="horizontal"
+            android:background="#21bdba">
+
+            <ImageView
+
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bckarrowwhite"
+                android:id="@+id/imgbckHome"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="17dp"
+                android:text="Your Orders"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:gravity="center"
+
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/imgbckHome"
+                android:layout_toEndOf="@+id/imgbckHome" />
+
+            <Button
+                android:id="@+id/btnFilter"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/filter"
+                android:layout_gravity="right|center"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+
+                android:visibility="visible"
+
+                android:paddingBottom="10dp"
+                android:paddingLeft="3dp"
+                android:gravity="center"
+               />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+			android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/previousOrderContainer"
+
+            >
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>

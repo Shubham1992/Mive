@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:orientation="horizontal"
+			  android:layout_width="match_parent"
+			  android:layout_height="40dp"
+	android:background="#d3d3d3"
+	android:padding="1dp"
+	android:weightSum="1">
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/sellername"
+	android:text="Seller"
+	android:background="#ffffff"
+	android:padding="10dp"
+	android:textSize="15dp"
+	android:layout_weight=".2"/>
+
+	<Button
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight=".4"
+		android:text="Y"
+		android:id="@+id/yes"
+		android:background="#ffffff"/>
+	<Button
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight=".4"
+		android:text="N"
+		android:id="@+id/no"
+		android:background="#ffffff"/>
+
+</LinearLayout>

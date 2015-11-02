@@ -180,6 +180,9 @@
     <color name="shadow_mid_color">#14000000</color>
     <color name="shadow_start_color">#44000000</color>
     <color name="snackbar_background_color">#323232</color>
+    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.github.d-max/spots-dialog/0.4/res/values/values.xml -->
+    <eat-comment/>
+    <color name="spots_dialog_color">@android:color/holo_blue_dark</color>
     <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
@@ -201,6 +204,7 @@
     <declare-styleable name="CollapsingToolbarLayout"><attr format="dimension" name="expandedTitleMargin"/><attr format="dimension" name="expandedTitleMarginStart"/><attr format="dimension" name="expandedTitleMarginTop"/><attr format="dimension" name="expandedTitleMarginEnd"/><attr format="dimension" name="expandedTitleMarginBottom"/><attr format="reference" name="expandedTitleTextAppearance"/><attr format="reference" name="collapsedTitleTextAppearance"/><attr format="color" name="contentScrim"/><attr format="color" name="statusBarScrim"/><attr format="reference" name="toolbarId"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="reference" name="statusBarBackground"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout_LayoutParams"><attr name="android:layout_gravity"/><attr format="string" name="layout_behavior"/><attr format="reference" name="layout_anchor"/><attr format="integer" name="layout_keyline"/><attr name="layout_anchorGravity"><flag name="top" value="0x30"/><flag name="bottom" value="0x50"/><flag name="left" value="0x03"/><flag name="right" value="0x05"/><flag name="center_vertical" value="0x10"/><flag name="fill_vertical" value="0x70"/><flag name="center_horizontal" value="0x01"/><flag name="fill_horizontal" value="0x07"/><flag name="center" value="0x11"/><flag name="fill" value="0x77"/><flag name="clip_vertical" value="0x80"/><flag name="clip_horizontal" value="0x08"/><flag name="start" value="0x00800003"/><flag name="end" value="0x00800005"/></attr></declare-styleable>
+    <declare-styleable name="Dialog"><attr format="reference" name="DialogTitleAppearance"/><attr format="reference|string" name="DialogTitleText"/><attr format="reference|color" name="DialogSpotColor"/><attr format="integer" name="DialogSpotCount"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="topBottomBarArrowSize"/><attr format="dimension" name="middleBarArrowSize"/><attr format="dimension" name="barSize"/><attr format="dimension" name="thickness"/></declare-styleable>
     <declare-styleable name="FloatingActionButton"><attr name="android:background"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
     <declare-styleable name="GifTextureView"><attr format="reference|string" name="gifSource"/><attr format="boolean" name="isOpaque"/></declare-styleable>
@@ -368,6 +372,10 @@
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
+    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.github.d-max/spots-dialog/0.4/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="progress_margin">24dp</dimen>
+    <dimen name="progress_width">250dp</dimen>
     <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.nispok/snackbar/2.11.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="sb__bg_corner_radius">0dp</dimen>
@@ -391,8 +399,16 @@
     <dimen name="snackbar_padding_vertical">14dp</dimen>
     <dimen name="snackbar_padding_vertical_2lines">24dp</dimen>
     <dimen name="snackbar_text_size">14sp</dimen>
+    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.github.d-max/spots-dialog/0.4/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="spot_size">6dp</dimen>
+    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="tab_max_width">264dp</dimen>
     <dimen name="tab_min_width">72dp</dimen>
+    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.github.d-max/spots-dialog/0.4/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="title_margin">10dp</dimen>
     <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
@@ -1610,6 +1626,13 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/sb__action_text_color</item>
         <item name="android:background">@drawable/sb__btn_bg</item>
+    </style>
+    <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.github.d-max/spots-dialog/0.4/res/values/values.xml -->
+    <eat-comment/>
+    <style name="SpotsDialogDefault" parent="android:Theme.DeviceDefault.Light.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogTitleText">Loading…</item>
+        <item name="DialogSpotCount">5</item>
     </style>
     <!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>

@@ -1,8 +1,10 @@
 package in.mive.app.activitynew;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -31,6 +33,7 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 
+import dmax.dialog.SpotsDialog;
 import in.mive.app.activities.ContactFragment;
 import in.mive.app.activities.FAQFragment;
 import in.mive.app.activities.HelpNSupport;
@@ -60,6 +63,7 @@ public class OptionSelect extends Activity {
     private Button btnInvoiceSubmit;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+    private AlertDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -274,29 +278,8 @@ public class OptionSelect extends Activity {
                     public void onClick(View view) {
 
 
-                       /* if (fragmentFAQ != null) {
-                            Fragment fr = fragmentFAQ;
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.remove(fr).commit();
-                        }
-                        if (fragmentContact != null) {
-                            Fragment fr = fragmentContact;
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.remove(fr).commit();
-                        }
-                        if (fragmenthelp != null) {
-                            Fragment fr = fragmenthelp;
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.remove(fr).commit();
-                        }
-                        Intent intent = new Intent(OptionSelect.this, InvoiceUploadActivity.class);
-                        mDrawerLayout.closeDrawers();
-                        SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
-                        int restoreduserid = prefs.getInt("userId", 0);
-                        intent.putExtra("userId", restoreduserid);
-                        mDrawerLayout.closeDrawers();
-                        startActivity(intent);
-*/
+
+
 
                         layoutInvoice.performClick();
                     }
@@ -474,6 +457,11 @@ public class OptionSelect extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+
+            progressDialog = new SpotsDialog(OptionSelect.this);
+            progressDialog.setMessage("Loading..");
+            progressDialog.show();
+
         }
 
         @Override
@@ -515,7 +503,8 @@ public class OptionSelect extends Activity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-
+            if(progressDialog.isShowing())
+                progressDialog.cancel();
             JSONDTO.getInstance().setJsonUser(jsonObjuser);
 
          setUserInDrawer(jsonObjuser);

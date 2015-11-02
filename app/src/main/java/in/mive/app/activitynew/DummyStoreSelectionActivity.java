@@ -1,13 +1,18 @@
 package in.mive.app.activitynew;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -22,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import dmax.dialog.SpotsDialog;
 import in.mive.app.activities.CartActivity;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.layouthelper.InflateDummyStores;
@@ -40,6 +46,8 @@ public class DummyStoreSelectionActivity extends Activity {
     private JSONObject jsonObjuser;
     ViewGroup layoutContainerstore;
     ImageView imgHomeBck;
+    private AlertDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +75,19 @@ public class DummyStoreSelectionActivity extends Activity {
                 startActivity(intent1);
             }
         });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+            Window window = getWindow();
 
+            // clear FLAG_TRANSLUCENT_STATUS flag:
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            // finally change the color
+            window.setStatusBarColor(getResources().getColor(R.color.my_statusbar_color));
+        }
         new GetData().execute();
     }
 
@@ -81,6 +101,10 @@ public class DummyStoreSelectionActivity extends Activity {
 
         @Override
         protected void onPreExecute() {
+            progressDialog = new SpotsDialog(DummyStoreSelectionActivity.this);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+
             super.onPreExecute();
                }
 
@@ -124,9 +148,11 @@ public class DummyStoreSelectionActivity extends Activity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
+            if(progressDialog.isShowing())
+                progressDialog.cancel();
             JSONDTO.getInstance().setJsonUser(jsonObjuser);
 
-            new GetCartData().execute();
+           // new GetCartData().execute();
 
 
 

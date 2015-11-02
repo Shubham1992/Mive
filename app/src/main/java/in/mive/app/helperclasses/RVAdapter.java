@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -155,12 +156,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                 SnackbarManager.show(
                         Snackbar.with(context) // context
                                 .text(holder.tvproductName.getText().toString()+" added to cart") // text to display
-                                .actionLabel("Save") // action button label
+                                .actionLabel("See Cart") // action button label
                                 .actionColor(Color.parseColor("#21bdba"))
+                                .duration(Snackbar.SnackbarDuration.LENGTH_INDEFINITE)
                                 .eventListener(new EventListener() {
                                     @Override
                                     public void onShow(Snackbar snackbar) {
-                                       // btnCart.setVisibility(View.GONE);
+                                        // btnCart.setVisibility(View.GONE);
                                     }
 
                                     @Override
@@ -175,7 +177,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
 
                                     @Override
                                     public void onDismiss(Snackbar snackbar) {
-                                       // btnCart.setVisibility(View.VISIBLE);
+                                        // btnCart.setVisibility(View.VISIBLE);
                                     }
 
                                     @Override
@@ -262,7 +264,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                     SnackbarManager.show(
                             Snackbar.with(context) // context
                                     .text(holder.tvproductName.getText().toString() + " deleted from cart") // text to display
-                                    .actionLabel("Save") // action button label
+                                    .actionLabel("See Cart") // action button label
                                     .actionColor(Color.parseColor("#21bdba"))
                                     .eventListener(new EventListener() {
                                         @Override
@@ -409,18 +411,21 @@ Log.e("current id", currentId);
 		TextView btnMinusQuantity;
 		ImageView imgProductImage;
         ViewGroup rlCard;
+        EditText etPricePerItemTotal;
 
 		ProductViewHolder(View itemView) {
 			super(itemView);
 			cv = (CardView)itemView.findViewById(R.id.cv);
             rlCard = (ViewGroup)itemView.findViewById(R.id.rlCard);
 			tvproductName= (TextView) itemView.findViewById(R.id.tvProductName);
-			tvproductPricePerUnit= (TextView) itemView.findViewById(R.id.tvPricePerUnit);
+			tvproductPricePerUnit= (TextView) itemView.findViewById(R.id.tvPricePerUnittext);
 			tvproductQuantityAvailable= (TextView) itemView.findViewById(R.id.tvAvailableQuantity);
 			tvproductQuantitySelected= (TextView) itemView.findViewById(R.id.tvQuantitySelected);
 			imgProductImage=(ImageView)itemView.findViewById(R.id.imgProductPhoto);
 			btnMinusQuantity=(TextView)itemView.findViewById(R.id.btnMinusQuantity);
 			btnPlusQuantity=(TextView)itemView.findViewById(R.id.btnPlusQuantity);
+
+
 
 		}
 	}

@@ -67,7 +67,7 @@
 				android:textSize="16dp"
 				android:textStyle="bold"
 				android:paddingLeft="15dp"
-				android:id="@+id/tvPricePerUnit"
+				android:id="@+id/tvPricePerUnittext"
 				android:layout_alignBottom="@+id/imgProductPhoto"
 				android:layout_toRightOf="@+id/imgProductPhoto"
 				android:layout_toEndOf="@+id/imgProductPhoto" />

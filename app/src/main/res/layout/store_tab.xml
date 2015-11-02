@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:elevation="5dp">
 
 <ImageView
     android:layout_width="match_parent"
@@ -34,13 +35,17 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Order"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:background="@drawable/dayselectorborder"/>
         <Button
             android:id="@+id/invoice"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Invoice"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:background="@drawable/dayselectorborder"/>
 
 
     </LinearLayout>
