@@ -191,8 +191,6 @@ ADDED from AndroidManifest.xml:106:9
 		ADDED from AndroidManifest.xml:108:13
 	android:windowContentOverlay
 		ADDED from AndroidManifest.xml:111:13
-	android:theme
-		ADDED from AndroidManifest.xml:110:13
 	android:name
 		ADDED from AndroidManifest.xml:107:13
 intent-filter#android.intent.action.INVOICEUPLOAD+android.intent.category.DEFAULT

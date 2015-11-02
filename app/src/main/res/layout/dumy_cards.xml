@@ -114,6 +114,16 @@
 				android:layout_alignTop="@+id/btnMinusQuantity"
 				android:layout_toLeftOf="@+id/btnPlusQuantity"
 				android:layout_toStartOf="@+id/btnPlusQuantity" />
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="number"
+				android:padding="5dp"
+				android:hint="price"
+				android:id="@+id/etPricePerItemTotal"
+				android:layout_alignTop="@+id/btnMinusQuantity"
+				android:layout_centerHorizontal="true" />
 		</RelativeLayout>
 
 	</android.support.v7.widget.CardView>

@@ -40,10 +40,10 @@ public final class R {
 		public static final int sb__divider_bg = 0x7f020064;
 	}
 	public static final class id {
-		public static final int sb__action = 0x7f0e0117;
-		public static final int sb__divider = 0x7f0e0114;
-		public static final int sb__inner = 0x7f0e0115;
-		public static final int sb__text = 0x7f0e0116;
+		public static final int sb__action = 0x7f0e011b;
+		public static final int sb__divider = 0x7f0e0118;
+		public static final int sb__inner = 0x7f0e0119;
+		public static final int sb__text = 0x7f0e011a;
 	}
 	public static final class interpolator {
 		public static final int sb__accelerate_cubic = 0x7f050000;

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -409,6 +410,7 @@ Log.e("current id", currentId);
 		TextView btnMinusQuantity;
 		ImageView imgProductImage;
         ViewGroup rlCard;
+        EditText etPricePerItemTotal;
 
 		ProductViewHolder(View itemView) {
 			super(itemView);
@@ -421,6 +423,8 @@ Log.e("current id", currentId);
 			imgProductImage=(ImageView)itemView.findViewById(R.id.imgProductPhoto);
 			btnMinusQuantity=(TextView)itemView.findViewById(R.id.btnMinusQuantity);
 			btnPlusQuantity=(TextView)itemView.findViewById(R.id.btnPlusQuantity);
+
+
 
 		}
 	}

@@ -311,8 +311,12 @@ void hideFragments()
         MenuItem item = menu.findItem(R.id.action_search);
 
         View view = menu.findItem(R.id.action_cart).getActionView();
-        view.setVisibility(View.GONE);
+
+
         btncart = (Button) view.findViewById(R.id.cart_count);
+
+        btncart.setVisibility(View.GONE);
+
         ButtonDTO.getInstance().setBtn(btncart);
         Log.e("setting buton", btncart.toString());
 
@@ -537,7 +541,7 @@ void hideFragments()
             rvProducts.setAdapter(adapter);
 
 
-            btncart.setVisibility(View.VISIBLE);
+
             Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.btncartmove);
           //  btncart.startAnimation(anim);
 
@@ -896,11 +900,18 @@ void hideFragments()
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-               Intent intent =new Intent(MainActivity.this, PreviousOrders.class);
+
+                Intent intent =new Intent(MainActivity.this, PreviousOrders.class);
+                if(isUrlDummy)
+                    intent = new Intent(MainActivity.this, PreviousDummyOrders.class);
+
+
                 mDrawerLayout.closeDrawers();
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                 int restoreduserid = prefs.getInt("userId", 0);
                 intent.putExtra("userId", restoreduserid);
+                intent.putExtra("sortBy", "date");
+                intent.putExtra("paymentFilter", "all");
                 mDrawerLayout.closeDrawers();
                 startActivity(intent);
 

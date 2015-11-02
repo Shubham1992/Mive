@@ -47,45 +47,41 @@
           <theme>@style/CustomActionBarTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+        <config>
+          <theme>@android:style/Theme.Holo.Light</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c85feca-3d7f-42c0-9a5a-41e6aaad8c82" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/edit.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/AllCategoryFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/AllCategoryFragment$GetCategories.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/DummyCartItemListDTO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousDummyOrders.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerIds.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateDummyItemListDTO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dumy_cards.xml" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\activitynew\NewMainActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\activitynew\OptionSelectFragment.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/AllCategoryFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/AllCategoryFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/AllCategoryFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CartActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CartActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CartActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/ContactFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/ContactFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatActivity$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatActivity$GetCategories.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatFragment$GetCategories.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/CustomCatFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/CustomCatFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/DescriptionActivity$GetProductDesc.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/DescriptionActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/DescriptionActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/DescriptionActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FAQ.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FAQ.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FAQFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FAQFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FruitsFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FruitsFragment$GetCategories.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FAQ.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FAQ.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FAQFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FAQFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/FruitsFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FruitsFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/FruitsFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/HelpNSupport.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/HelpNSupport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/imageloader/ImageLoader.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/imageloader/ImageLoader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/imageloader/ImageLoader.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/imageloader/ImageLoader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$GetData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity$GetData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/HelpNSupport.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/HelpNSupport.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/LoginActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/LoginActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$11.class" />
@@ -94,7 +90,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$12.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$13.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity$4.class" />
@@ -115,27 +110,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$GetSearchedData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity$GetSearchedData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/MainActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$SendDataAddToCart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity$SendDataAddToCart.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/OrderActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/OrderActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/PreviousOrders$GetOrderData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/PreviousOrders$GetOrderData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/PreviousOrders$GetOrderData.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/PreviousOrders$GetOrderData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/PreviousOrders.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/PreviousOrders.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/PreviousOrders.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/PreviousOrders.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/nispok/snackbar/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/nispok/snackbar/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/wdullaer/materialdatetimepicker/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/wdullaer/materialdatetimepicker/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/nispok/snackbar/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/nispok/snackbar/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/wdullaer/materialdatetimepicker/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/wdullaer/materialdatetimepicker/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$id.class" />
@@ -150,12 +130,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$integer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$interpolator.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$interpolator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$interpolator.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$interpolator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/design/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/design/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/android/support/v7/appcompat/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/nispok/snackbar/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/nispok/snackbar/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/wdullaer/materialdatetimepicker/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/wdullaer/materialdatetimepicker/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/nispok/snackbar/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/nispok/snackbar/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/wdullaer/materialdatetimepicker/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/wdullaer/materialdatetimepicker/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$menu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$menu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$menu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$menu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/mive/R$raw.class" />
@@ -170,9 +150,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/mive/R$xml.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/SelectCategory.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/SelectCategory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/SelectCategory.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/SelectCategory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/SelectFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/SelectFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/SplashActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/SplashActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/VegetablesFragment$GetCategories.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/VegetablesFragment$GetCategories.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/SelectFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/SelectFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/in/mive/app/activities/VegetablesFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/VegetablesFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/in/mive/app/activities/VegetablesFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
@@ -185,12 +163,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/Config.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/DummyStoreSelectionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/DummyStoreSelectionActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DummyCartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DummyCartActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateDummyStores.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateDummyStores.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/InvoiceUploadActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/InvoiceUploadActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/OptionSelect.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/OptionSelect.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/design/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mive/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mive/R.java" />
@@ -203,23 +178,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/wdullaer/materialdatetimepicker/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/wdullaer/materialdatetimepicker/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/release/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/release/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/UploadActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/UploadActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_upload.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_upload.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_splash.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/cards.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/cards.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/cards.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/cards.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/cards.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cards.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.html" afterPath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/main.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-release-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-release-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/release/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/option_select.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/option_select.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/store_tab.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/store_tab.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MiveApplication.iws" />
@@ -248,12 +220,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RVAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.655172">
+              <caret line="913" column="56" selection-start-line="913" selection-start-column="56" selection-end-line="913" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreviousDummyOrders.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousDummyOrders.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.20527308">
+              <caret line="222" column="12" selection-start-line="222" selection-start-column="12" selection-end-line="222" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="store_dynamic.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.551724">
+              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="511" column="0" selection-start-line="511" selection-start-column="0" selection-end-line="511" selection-end-column="0" />
-              <folding />
+              <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
+              <folding>
+                <element signature="e#4468#4486#0" expanded="true" />
+                <element signature="e#5885#5903#0" expanded="true" />
+                <element signature="e#6293#6311#0" expanded="true" />
+                <element signature="e#6699#6717#0" expanded="true" />
+                <element signature="e#7120#7138#0" expanded="true" />
+                <element signature="e#8100#8118#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -262,7 +274,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/DummyStoreSelectionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+              <caret line="133" column="37" selection-start-line="133" selection-start-column="37" selection-end-line="133" selection-end-column="37" />
               <folding>
                 <element signature="e#1497#1642#0" expanded="true" />
                 <element signature="e#1641#1642#0" expanded="true" />
@@ -271,94 +283,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store_dynamic.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.448276">
-              <caret line="23" column="39" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="description.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/description.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.137931">
-              <caret line="404" column="50" selection-start-line="404" selection-start-column="42" selection-end-line="404" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OptionSelect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/OptionSelect.java">
+      <file leaf-file-name="InflateDummyStores.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateDummyStores.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="270" column="65" selection-start-line="270" selection-start-column="65" selection-end-line="270" selection-end-column="65" />
+              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <file leaf-file-name="SavedSellerIds.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerIds.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0689654">
-              <caret line="256" column="36" selection-start-line="256" selection-start-column="36" selection-end-line="256" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
+                <element signature="e#403#404#0" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
+                <element signature="e#502#503#0" expanded="true" />
+                <element signature="e#625#626#0" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="bckarrow.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bckarrow.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="option_select.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/option_select.xml">
+      <file leaf-file-name="DummyCartActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DummyCartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0689654">
-              <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="45" />
+            <state vertical-scroll-proportion="-8.206897">
+              <caret line="596" column="5" selection-start-line="500" selection-start-column="4" selection-end-line="596" selection-end-column="5" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_upload.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_upload.xml">
+      <file leaf-file-name="OrderActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/OrderActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.448276">
-              <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49808428">
-              <caret line="313" column="36" selection-start-line="313" selection-start-column="36" selection-end-line="313" selection-end-column="36" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="115" column="34" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
+              <folding>
+                <element signature="e#4244#5174#0" expanded="true" />
+                <element signature="e#5173#5174#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -369,8 +350,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="resourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -1941,23 +1922,31 @@
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/FruitsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/RVAdapterStores.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DummyCartActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/OrderActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/Config.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/OptionSelect.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateDummyStores.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/store_tab.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/InvoiceUploadActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_upload.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/UploadActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/DummyStoreSelectionActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/option_select.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/cards.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dumy_cards.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateDummyItemListDTO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/DummyCartItemListDTO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DummyCartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerIds.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateDummyStores.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousDummyOrders.java" />
       </list>
     </option>
   </component>
@@ -1994,6 +1983,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2137,11 +2127,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2172,6 +2162,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="savedstates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2347,7 +2341,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2366,13 +2359,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\layout" />
       <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\drawable" />
       <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\libs" />
-      <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\res\layout" />
       <recent name="C:\Users\Shubham\Desktop\MiveApplication\app\src\main\java\in\mive\app\imageupload" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="in.mive.app.activities" />
+      <recent name="in.mive.app.savedstates" />
       <recent name="in.mive.app.layouthelper" />
       <recent name="in.mive.app.activitynew" />
       <recent name="in.mive.app.imageupload" />
@@ -2612,7 +2606,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446341169185</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="major changes ...image upload working">
+      <created>1446406979408</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1446406979408</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2626,7 +2626,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06462585" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.088435374" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2881997" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18367347" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2634,7 +2634,8 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27912253" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282313" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -2646,7 +2647,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32906976" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2667,14 +2667,15 @@
     <MESSAGE value="comiting" />
     <MESSAGE value="comiting new invoice pattern" />
     <MESSAGE value="comiting image upload...not yet working" />
-    <option name="LAST_COMMIT_MESSAGE" value="comiting image upload...not yet working" />
+    <MESSAGE value="major changes ...image upload working" />
+    <option name="LAST_COMMIT_MESSAGE" value="major changes ...image upload working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java</url>
-          <line>488</line>
+          <line>492</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -2684,75 +2685,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousOrders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="216" column="88" selection-start-line="216" selection-start-column="88" selection-end-line="216" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/previous_order_tab.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="196" column="8" selection-start-line="196" selection-start-column="8" selection-end-line="196" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/AndroidMultiPartEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/SelectFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="85" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/NewMainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/category_cart_holder.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1034484">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/GetProductsComponentFromJsonArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.96552">
-          <caret line="202" column="51" selection-start-line="202" selection-start-column="51" selection-end-line="202" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CustomCatFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2830,24 +2762,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.071428575">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/AllCategoryFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="202" column="74" selection-start-line="202" selection-start-column="69" selection-end-line="202" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="237" column="0" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2862,24 +2780,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DummyCartActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="544" column="131" selection-start-line="544" selection-start-column="16" selection-end-line="544" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/OptionSelectFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/adapter/RVAdapterStores.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="460" column="119" selection-start-line="460" selection-start-column="119" selection-end-line="460" selection-end-column="119" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2887,7 +2792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="93" selection-start-line="4" selection-start-column="93" selection-end-line="4" selection-end-column="93" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2898,29 +2802,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/OrderActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="16" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3431#4206#0" expanded="false" />
-            <element signature="e#4205#4206#0" expanded="false" />
-            <element signature="e#4244#5174#0" expanded="false" />
-            <element signature="e#5173#5174#0" expanded="false" />
-            <element signature="e#5217#6333#0" expanded="false" />
-            <element signature="e#6332#6333#0" expanded="false" />
-            <element signature="e#6378#6710#0" expanded="false" />
-            <element signature="e#6709#6710#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/dayselectorborder.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2965,34 +2850,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateDummyStores.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="32" />
-          <folding>
-            <element signature="e#2779#3150#0" expanded="false" />
-            <element signature="e#3149#3150#0" expanded="false" />
-            <element signature="e#2779#3150#0" expanded="false" />
-            <element signature="e#3149#3150#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.413793">
-          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/imageupload/InvoiceUploadActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6551723">
           <caret line="24" column="34" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3000,7 +2861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1302682">
           <caret line="4" column="29" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3008,18 +2868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6551723">
           <caret line="140" column="47" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4958#5652#0" expanded="true" />
-            <element signature="e#5651#5652#0" expanded="true" />
-            <element signature="e#5688#6108#0" expanded="true" />
-            <element signature="e#6107#6108#0" expanded="true" />
-            <element signature="e#6147#6569#0" expanded="true" />
-            <element signature="e#6568#6569#0" expanded="true" />
-            <element signature="e#9301#9333#0" expanded="true" />
-            <element signature="e#12552#12699#0" expanded="true" />
-            <element signature="e#12698#12699#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3063,10 +2911,22 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/OptionSelect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.448276">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="270" column="65" selection-start-line="270" selection-start-column="65" selection-end-line="270" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#19763#19764#0" expanded="false" />
+            <element signature="e#19807#19808#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/option_select.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -3074,21 +2934,43 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/DummyStoreSelectionActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding>
-            <element signature="e#1497#1642#0" expanded="true" />
-            <element signature="e#1641#1642#0" expanded="true" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/option_select.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dumy_cards.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0689654">
-          <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="45" />
+        <state vertical-scroll-proportion="-7.862069">
+          <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cards_cart.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cards.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.9310346">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3098,7 +2980,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0689654">
+        <state vertical-scroll-proportion="0.0">
           <caret line="256" column="36" selection-start-line="256" selection-start-column="36" selection-end-line="256" selection-end-column="36" />
           <folding />
         </state>
@@ -3107,26 +2989,158 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/OptionSelect.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/CartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="270" column="65" selection-start-line="270" selection-start-column="65" selection-end-line="270" selection-end-column="65" />
+        <state vertical-scroll-proportion="-4.275862">
+          <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/helperclasses/RVAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="511" column="0" selection-start-line="511" selection-start-column="0" selection-end-line="511" selection-end-column="0" />
+        <state vertical-scroll-proportion="-10.068966">
+          <caret line="523" column="50" selection-start-line="523" selection-start-column="50" selection-end-line="523" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateItemListDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="1" selection-start-line="11" selection-start-column="0" selection-end-line="35" selection-end-column="1" />
+          <folding>
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#601#610#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/UpdateDummyItemListDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/CartItemListDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/DummyCartItemListDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/OrderActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="115" column="34" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
+          <folding>
+            <element signature="e#4244#5174#0" expanded="true" />
+            <element signature="e#5173#5174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/DummyCartActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.206897">
+          <caret line="596" column="5" selection-start-line="500" selection-start-column="4" selection-end-line="596" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activitynew/DummyStoreSelectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="133" column="37" selection-start-line="133" selection-start-column="37" selection-end-line="133" selection-end-column="37" />
+          <folding>
+            <element signature="e#1497#1642#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/savedstates/SavedSellerIds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/layouthelper/InflateDummyStores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/store_dynamic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.551724">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
+          <folding>
+            <element signature="e#4468#4486#0" expanded="true" />
+            <element signature="e#5885#5903#0" expanded="true" />
+            <element signature="e#6293#6311#0" expanded="true" />
+            <element signature="e#6699#6717#0" expanded="true" />
+            <element signature="e#7120#7138#0" expanded="true" />
+            <element signature="e#8100#8118#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49808428">
-          <caret line="313" column="36" selection-start-line="313" selection-start-column="36" selection-end-line="313" selection-end-column="36" />
+        <state vertical-scroll-proportion="-11.655172">
+          <caret line="913" column="56" selection-start-line="913" selection-start-column="56" selection-end-line="913" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mive/app/activities/PreviousDummyOrders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20527308">
+          <caret line="222" column="12" selection-start-line="222" selection-start-column="12" selection-end-line="222" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -127,6 +127,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="in.mive.app.activities.PreviousDummyOrders"
+            android:label="Orders"
+            android:screenOrientation="portrait"
+            android:windowContentOverlay="@drawable/ab_solid_dark_holo" >
+            <intent-filter>
+                <action android:name="android.intent.action.PREVIOUSDUMMY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="in.mive.app.activities.SelectCategory"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >

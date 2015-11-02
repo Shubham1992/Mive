@@ -64,15 +64,26 @@
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="Rs. 40"
+				android:text="Total Rs."
 				android:textSize="16dp"
-				android:textStyle="bold"
+				android:textStyle="normal"
 				android:paddingLeft="15dp"
 				android:id="@+id/tvPricePerUnit"
 				android:layout_alignBottom="@+id/imgProductPhoto"
 				android:layout_toRightOf="@+id/imgProductPhoto"
 				android:layout_toEndOf="@+id/imgProductPhoto" />
 
+			<EditText
+				android:id="@+id/etpriceTotal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="5dp"
+				android:text="0.0"
+				android:textColor="#000000"
+
+				android:layout_alignTop="@+id/btnMinusQuantity"
+				android:layout_toRightOf="@+id/tvPricePerUnit"
+				android:layout_toEndOf="@+id/tvPricePerUnit" />
 			<TextView
 
 				android:layout_width="28dp"
