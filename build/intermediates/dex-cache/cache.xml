@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.github.d-max\spots-dialog\0.4\jars\classes.jar"
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.github.yasevich\endless-recycler-view\1.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="f82b3f786bf4937ed1a1cc9a9a811e154813ba9a">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-fd0629a0391f1ea3d264f2a325220af522c78823.jar" />
+        sha1="0ef95b5256e64b43ae000397ae2968247c74318e">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-8d7b9b821f71bf2509a491a873c15d2bd4a63445.jar" />
     </item>
 
 </items>

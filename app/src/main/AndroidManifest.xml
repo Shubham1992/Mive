@@ -115,17 +115,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="in.mive.app.activities.CustomCatActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowContentOverlay="@drawable/ab_solid_dark_holo">
-            <intent-filter>
-                <action android:name="android.intent.action.CUSTOM" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name="in.mive.app.activities.OrderActivity"
@@ -157,8 +146,8 @@
 			android:name="in.mive.app.activities.DummyOrderFilterActivity"
 			android:label="Orders"
 			android:screenOrientation="portrait"
-			android:windowContentOverlay="@drawable/ab_solid_dark_holo"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+
+
 			>
 			<intent-filter>
 				<action android:name="android.intent.action.DUMMYFILTER" />
@@ -186,6 +175,19 @@
             >
             <intent-filter>
                 <action android:name="android.intent.action.UPLOADACT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="in.mive.app.imageupload.FullscreenInvoice"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.FULLSCREENINVOICE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

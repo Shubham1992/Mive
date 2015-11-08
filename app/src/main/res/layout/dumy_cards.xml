@@ -80,9 +80,11 @@ android:background="#d3d3d3"
 				android:paddingLeft="10dp"
                 android:paddingRight="10dp"
 				android:text="0.0"
+				android:maxWidth="90dp"
 				android:id="@+id/etPricePerItemTotal"
 				android:layout_alignTop="@+id/btnMinusQuantity"
-				android:layout_centerHorizontal="true" />
+				android:layout_toRightOf="@+id/tvPricePerUnittext"
+				android:layout_toEndOf="@+id/tvPricePerUnittext" />
 
 			<TextView
 

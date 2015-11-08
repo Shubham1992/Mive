@@ -3,6 +3,7 @@ package in.mive.app.layouthelper;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,15 +68,29 @@ public class InflateDummyStores {
 
             View viewStoreTab = inflater.inflate(R.layout.store_tab, layout, false);
             TextView tvName = (TextView) viewStoreTab.findViewById(R.id.tvStoreName);
-            ImageView imageView = (ImageView) viewStoreTab.findViewById(R.id.storeImage);
-            final LinearLayout linearLayoutCont = (LinearLayout) viewStoreTab.findViewById(R.id.optnSkipinvoicecontainer);
-            Button buttonOrder = (Button) viewStoreTab.findViewById(R.id.order);
-            Button buttonInvoice = (Button) viewStoreTab.findViewById(R.id.invoice);
+            tvName.setText(name);
+            Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Regular.ttf");
+            tvName.setTypeface(custom_font);
+            //ImageView imageView = (ImageView) viewStoreTab.findViewById(R.id.storeImage);
+           // final LinearLayout linearLayoutCont = (LinearLayout) viewStoreTab.findViewById(R.id.optnSkipinvoicecontainer);
+          //  Button buttonOrder = (Button) viewStoreTab.findViewById(R.id.order);
+          //  Button buttonInvoice = (Button) viewStoreTab.findViewById(R.id.invoice);
 
+            viewStoreTab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, MainActivity.class);
+                    intent.putExtra("catId", catId);
+                    intent.putExtra("sellername", name);
+                    intent.putExtra("sellerId",""+sellerId);
+                    intent.putExtra("urlDummy",true );
+                    context.startActivity(intent);
+                }
+            });
 
             imgcnt = i %3 ;
             Log.e("image cnt", "" + imgcnt);
-            if (imgcnt ==0)
+           /* if (imgcnt ==0)
             imageView.setBackgroundResource(R.drawable.sb1);
 
             else if (imgcnt == 1)
@@ -84,7 +99,7 @@ public class InflateDummyStores {
             else if (imgcnt == 2)
                 imageView.setBackgroundResource(R.drawable.sb3);
 
-            tvName.setText(name);
+
 
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -122,7 +137,7 @@ public class InflateDummyStores {
                     intent.putExtra("urlDummy", true);
                     context.startActivity(intent);
                 }
-            });
+            });*/
 
             layout.addView(viewStoreTab);
         }

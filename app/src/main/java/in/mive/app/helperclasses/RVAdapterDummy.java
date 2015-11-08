@@ -54,7 +54,7 @@ import in.mive.app.savedstates.JSONDTO;
 /**
  * Created by Admin-PC on 8/10/2015.
  */
-public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductViewHolder> implements Filterable{
+public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductViewHolder> {
 
 
     List<Map> products=new ArrayList<Map>(); // products is a list that holds the products acquired from json
@@ -80,7 +80,7 @@ public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductV
 
 
         //btnCart.setOnTouchListener(RVAdapter.this);
-
+        if(btnCart != null)
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +89,7 @@ public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductV
 
                 //make http request here to send data to cart
                 btnCart.setEnabled(false);
-			new SendDataAddToCart().execute();
+			    new SendDataAddToCart().execute();
 
 
 
@@ -99,17 +99,12 @@ public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductV
     }
     //.................
 
-    @Override
-    public Filter getFilter() {
-
-        return null;
-    }
 
     //.................
 
     @Override
 	public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-	{View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.dumy_cards, parent, false);
+	{View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.dumy_cards2, parent, false);
 		ProductViewHolder pvh = new ProductViewHolder(v);
 		return pvh;
 
@@ -121,7 +116,7 @@ public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductV
 	{
 		holder.tvproductName.setText(products.get(position).get("productName").toString());
 
-		//holder.tvproductPricePerUnit.setText("Rs. " + products.get(position).get("pricePerUnit").toString());
+		/*//holder.tvproductPricePerUnit.setText("Rs. " + products.get(position).get("pricePerUnit").toString());
 
 		holder.tvproductQuantityAvailable.setText(products.get(position).get("availableQty").toString());
 		// Load image here
@@ -175,9 +170,9 @@ public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductV
                 holder.tvproductQuantitySelected.setText("" + qnt);
                 holder.rlCard.setBackgroundColor(Color.parseColor("#caf4f3"));
 
-                /*ViewGroup vg = SavedTopLayout.getInstance().getSavedTopLayout();
+                *//*ViewGroup vg = SavedTopLayout.getInstance().getSavedTopLayout();
                 Log.e("view ", vg.toString());
-*/
+*//*
                 SnackbarManager.show(
                         Snackbar.with(context) // context
                                 .text(holder.tvproductName.getText().toString()+" added to cart") // text to display
@@ -373,7 +368,7 @@ public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductV
 
 
         });
-
+*/
 	}
 
     private void setNumerOnFAB(List<Map> itemsList , String currentId)
@@ -402,8 +397,9 @@ public class RVAdapterDummy extends RecyclerView.Adapter<RVAdapterDummy.ProductV
     }
 
     public  boolean chkIfAlreadyInCart(String currentId)
-    {List<HashMap> cartItemsList = CartItemListDTO.getInstance().getItemlist();
-Log.e("current id", currentId);
+    {
+        List<HashMap> cartItemsList = CartItemListDTO.getInstance().getItemlist();
+        Log.e("current id", currentId);
 
         for (int i = 0; i < cartItemsList.size(); i++) {
             Log.e("Product id in cart",cartItemsList.get(i).get("productId").toString() );
@@ -442,14 +438,19 @@ Log.e("current id", currentId);
 			super(itemView);
 			cv = (CardView)itemView.findViewById(R.id.cv);
             rlCard = (ViewGroup)itemView.findViewById(R.id.rlCard);
+
+            //..........
+            //here
+
+
 			tvproductName= (TextView) itemView.findViewById(R.id.tvProductName);
 			//tvproductPricePerUnit= (TextView) itemView.findViewById(R.id.tvPricePerUnittext);
-			tvproductQuantityAvailable= (TextView) itemView.findViewById(R.id.tvAvailableQuantity);
+			/*tvproductQuantityAvailable= (TextView) itemView.findViewById(R.id.tvAvailableQuantity);
 			tvproductQuantitySelected= (TextView) itemView.findViewById(R.id.tvQuantitySelected);
 			imgProductImage=(ImageView)itemView.findViewById(R.id.imgProductPhoto);
 			btnMinusQuantity=(TextView)itemView.findViewById(R.id.btnMinusQuantity);
 			btnPlusQuantity=(TextView)itemView.findViewById(R.id.btnPlusQuantity);
-            etPricePerItemTotal = (EditText) itemView.findViewById(R.id.etPricePerItemTotal);
+            etPricePerItemTotal = (EditText) itemView.findViewById(R.id.etPricePerItemTotal);*/
 
 
 

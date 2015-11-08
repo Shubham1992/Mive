@@ -189,12 +189,14 @@ public class InvoiceUploadActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                         "User cancelled image capture", Toast.LENGTH_SHORT)
                         .show();
+                finish();
             
             } else {
                 // failed to capture image
                 Toast.makeText(getApplicationContext(),
                         "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
                         .show();
+                finish();
             }
         
         } else if (requestCode == CAMERA_CAPTURE_VIDEO_REQUEST_CODE) {

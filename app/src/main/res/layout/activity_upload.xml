@@ -26,7 +26,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textSize="17dp"
-            android:text="Make Order"
+            android:text="Invoice"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:gravity="center"
@@ -54,17 +54,7 @@
             android:gravity="center"
             android:textColor="#21bdba"/>
 
-        <ImageView
 
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/imageViewInvoiceUpload"
-            android:layout_below="@+id/btnCrt"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/camera"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"/>
 
     </RelativeLayout>
 <ScrollView
@@ -92,9 +82,10 @@
             <ImageView
                 android:id="@+id/imgPreview"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="250dp"
                 android:visibility="visible"
-                android:layout_marginTop="15dp"/>
+
+                android:background="@drawable/userbck"/>
 
             <!-- Videoview to preview recorded video -->
 
@@ -116,13 +107,24 @@
                 android:id="@+id/progressBar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
-                android:layout_marginBottom="35dp"
+
+                android:layout_height="10dp"
+
+
                 android:visibility="visible"
                 android:layout_gravity="bottom"/>
 
+            <ImageView
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imageViewInvoiceUpload"
+
+
+                android:src="@drawable/camera"
+               android:layout_margin="20dp"
+
+                android:layout_gravity="right|bottom" />
         </FrameLayout>
 
         <FrameLayout
@@ -131,18 +133,22 @@
          >
             <TextView
                 android:id="@+id/tvDate"
+                android:background="@drawable/bck_invooice_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="left"
+
                 android:text="Pick A Date"
-               android:textSize="20dp"
-                android:padding="10dp"
+               android:textSize="15dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
                 android:layout_gravity="left"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="#21bdba"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
                 android:textStyle="normal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 />
 
             <ImageView
@@ -150,71 +156,87 @@
                 android:layout_height="30dp"
                 android:src="@drawable/edit"
                 android:padding="5dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="4dp"
-                android:layout_gravity="right|center_vertical"/>
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="9dp"
+                android:layout_gravity="right|center"/>
         </FrameLayout>
             <EditText
                 android:id="@+id/etOrderMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:textSize="16dp"
                 android:layout_marginTop="20dp"
-               android:hint="Any Message with the order?" />
+                android:background="@drawable/bck_invooice_buttons"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+               android:hint="Any Message?" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:background="@drawable/bck_invooice_buttons"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 >
                 <TextView
                     android:id="@+id/totaltext"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="Total: "
+                    android:textColor="#000000"
                     android:gravity="left"
                     android:padding="10dp"
                     android:textSize="18dp"
                     android:layout_weight="1"
+                    android:visibility="gone"
                     />
 
                 <EditText
                     android:id="@+id/ettotal"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Total"
-                    android:text="0.0"
-                    android:background="@drawable/border"
-                    android:gravity="right"
-                    android:layout_marginLeft="30dp"
+                    android:layout_height="match_parent"
+
+                    android:hint="Amount"
+                    android:textColor="#888888"
+                    android:background="#e8e8e8"
+                    android:gravity="left|center"
+
                     android:padding="10dp"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     />
             </LinearLayout>
+
             <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="23dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-                >
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+               android:background="#c8c8c8" >
             <TextView
                 android:id="@+id/paid"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Paid"
                 android:gravity="center"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:layout_weight="1"
                 android:textColor="#21bdba"
-                android:background="@drawable/dayselectorborder"
+                android:background="@drawable/greyselectorborder"
                 android:textStyle="bold"/>
 
             <TextView
@@ -222,11 +244,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Un-Paid"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="#21bdba"
-                android:background="@drawable/dayselectorborder"
+                android:background="@drawable/greyselectorborder"
                 android:layout_weight="1"/>
         </LinearLayout>
 

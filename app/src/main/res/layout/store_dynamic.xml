@@ -27,19 +27,20 @@
             android:paddingRight="10dp"
             android:paddingLeft="10dp"/>
         <TextView
+            android:id="@+id/tvHeadingAppbar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:textSize="17dp"
-            android:text="Select Store"
-            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:text="CHOOSE A SUPPLIER"
+
+            android:textColor="#CC0000"
             android:textStyle="bold"
             android:gravity="center"
-
+            android:typeface="sans"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imgbckHome"
-            android:layout_toEndOf="@+id/imgbckHome" />
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:id="@+id/btnCrt"
@@ -62,6 +63,17 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE A SUPPLIER.."
+        android:padding="12dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:background="#FFFFE5"
+        android:visibility="gone"
+
+        />
 
 </LinearLayout>
 </ScrollView>

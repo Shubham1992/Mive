@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mive.R;
 
@@ -47,6 +49,7 @@ public class DummyStoreSelectionActivity extends Activity {
     ViewGroup layoutContainerstore;
     ImageView imgHomeBck;
     private AlertDialog progressDialog;
+    TextView tvTitleAppbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,9 @@ public class DummyStoreSelectionActivity extends Activity {
             }
         });
         layoutContainerstore = (ViewGroup) findViewById(R.id.cntainerStore);
-
+        tvTitleAppbar = (TextView) findViewById(R.id.tvHeadingAppbar);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
+        tvTitleAppbar.setTypeface(custom_font);
         btnCrt = (Button) findViewById(R.id.btnCrt);
         btnCrt.setEnabled(false);
         btnCrt.setAlpha(.8F);

@@ -6,10 +6,11 @@ import in.mive.app.helperclasses.GetProductsComponentFromJsonArray;
 import in.mive.app.helperclasses.RVAdapter;
 import in.mive.app.helperclasses.RVAdapterDummy;
 import in.mive.app.helperclasses.ServiceHandler;
-import in.mive.app.adapter.TabsPagerAdapter;
+
 import in.mive.app.imageloader.ImageLoader;
 import in.mive.app.imageupload.InvoiceUploadActivity;
 import in.mive.app.layouthelper.InflateStoresintoDrawer;
+import in.mive.app.layouthelper.RecyclerViewProductsInflator;
 import in.mive.app.savedstates.ButtonDTO;
 import in.mive.app.savedstates.CartItemListDTO;
 import in.mive.app.savedstates.JSONDTO;
@@ -64,6 +65,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.github.yasevich.endlessrecyclerview.EndlessRecyclerView;
 import com.mive.R;
 
 import org.json.JSONArray;
@@ -75,11 +77,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends FragmentActivity implements
-		ActionBar.TabListener  {
+public class MainActivity extends FragmentActivity
+		 {
 
 	private ViewPager viewPager;
-	private TabsPagerAdapter mAdapter;
+
 	private ActionBar actionBar;
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
@@ -102,7 +104,8 @@ public class MainActivity extends FragmentActivity implements
     private Fragment fragmenthelp = null, fragmentCstm = null, fragmentContact= null, fragmentFAQ = null;
     Button btncart;
     Intent intnt;
-    RecyclerView rvSearch , rvProducts;
+    RecyclerView rvSearch;
+             LinearLayout rvProducts;
     String searchText;
     TextView tvNoreslt;
     private PagerSlidingTabStrip tabs;
@@ -113,7 +116,8 @@ public class MainActivity extends FragmentActivity implements
     private Button btnInvoiceSubmit;
     private boolean isUrlDummy;
     private String sellerId;
-
+    private LinearLayoutManager layoutManager, layoutManager2;
+    private TextView totalAmountFinal;
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 
 
@@ -126,14 +130,15 @@ public class MainActivity extends FragmentActivity implements
         setContentView(R.layout.activity_main);
 
         rvSearch = (RecyclerView) findViewById(R.id.rvsearch);
-        rvProducts = (RecyclerView) findViewById(R.id.rvProduct);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-        LinearLayoutManager layoutManager2 = new LinearLayoutManager(MainActivity.this);
-
+        rvProducts = (LinearLayout) findViewById(R.id.rvProduct);
+        layoutManager = new LinearLayoutManager(MainActivity.this);
+        layoutManager2 = new LinearLayoutManager(MainActivity.this);
+        totalAmountFinal = (TextView) findViewById(R.id.totalAmountFinal);
         rvSearch.setLayoutManager(layoutManager);
-        rvProducts.setLayoutManager(layoutManager2);
+       // rvProducts.setLayoutManager(layoutManager2);
 
-        vpContainer = (LinearLayout) findViewById(R.id.vpContainer);
+
+
         tvNoreslt = (TextView) findViewById(R.id.tvNoReslt);
         intnt = getIntent();
 
@@ -173,16 +178,39 @@ public class MainActivity extends FragmentActivity implements
         ab.setTitle(sellername);
         //ab.setSubtitle("sub-title");
 
+        GetProductsComponentFromJsonArray fromJsonArray = new GetProductsComponentFromJsonArray();
+        products = fromJsonArray.getComponent(MainActivity.this, SavedSellerProductsMap.getInstance().getProductMap().get(catId));
 
+
+        if(isUrlDummy)
+        {
+           /* RVAdapterDummy adapter = new RVAdapterDummy(products, MainActivity.this, isUrlDummy);
+            rvProducts.setAdapter(adapter);
+            rvProducts.setOnScrollListener(new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                    super.onScrollStateChanged(recyclerView, newState);
+                }
+            });
+*/
+            RecyclerViewProductsInflator  viewProductsInflator = new RecyclerViewProductsInflator();
+            viewProductsInflator.inflateProducts(products, MainActivity.this , rvProducts, totalAmountFinal);
+
+
+        }
+
+        else
+        {
+           /* RVAdapter adapter = new RVAdapter(products, MainActivity.this, isUrlDummy);
+            rvProducts.setAdapter(adapter);
+*/
+        }
         // getActivity() will hand over the context to the method
         // if you call this inside an activity, simply replace getActivity() by "this"
         if(!isConnected(MainActivity.this)) buildDialog(MainActivity.this).show();
         else {
             // we have internet connection, so it is save to connect to the internet here
 
-
-            GetProductsComponentFromJsonArray fromJsonArray = new GetProductsComponentFromJsonArray();
-          products = fromJsonArray.getComponent(MainActivity.this, SavedSellerProductsMap.getInstance().getProductMap().get(catId));
 
 
 
@@ -203,7 +231,7 @@ public class MainActivity extends FragmentActivity implements
         hideFragments();
 
         // Initilization
-		viewPager = (ViewPager) findViewById(R.id.pager);
+		// viewPager = (ViewPager) findViewById(R.id.pager);
 	    //	actionBar = getActionBar();
 
 
@@ -237,7 +265,7 @@ public class MainActivity extends FragmentActivity implements
 		/**
 		 * on swiping the viewpager make respective tab selected
 		 * */
-		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+		/*viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int position) {
@@ -254,7 +282,7 @@ public class MainActivity extends FragmentActivity implements
             @Override
             public void onPageScrollStateChanged(int arg0) {
             }
-        });
+        });*/
 
 
     }
@@ -287,21 +315,6 @@ void hideFragments()
 
 }
 
-
-	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
-	}
-
-	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		// on tab selected
-		// show respected fragmenthelp view
-		viewPager.setCurrentItem(tab.getPosition());
-	}
-
-	@Override
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-	}
 
 
     @Override
@@ -341,7 +354,7 @@ void hideFragments()
                     Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
                     //.........
                     searchText = s.trim();
-                    vpContainer.setVisibility(View.GONE);
+
                   //  rvSearch.setVisibility(View.VISIBLE);
                    // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
@@ -539,28 +552,16 @@ void hideFragments()
 
             // class to return the json attributes in form of hashmap.
             // The map is set in DTO from where it can be accessed at all the fragments
-            if(isUrlDummy)
-            {
-                RVAdapterDummy adapter = new RVAdapterDummy(products, MainActivity.this, isUrlDummy);
-                rvProducts.setAdapter(adapter);
-
-            }
-
-            else
-            {
-                RVAdapter adapter = new RVAdapter(products, MainActivity.this, isUrlDummy);
-                rvProducts.setAdapter(adapter);
-            }
 
 
-            Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.btncartmove);
-          //  btncart.startAnimation(anim);
+
 
             if(jsonObjcart.optString("count") != null) {
                 Log.e("count", jsonObjcart.optString("count"));
                 btncart.setText(jsonObjcart.optString("count"));
-//.............
-                JSONArray arritems = jsonObjcart.optJSONArray("results");
+
+              //.............
+            JSONArray arritems = jsonObjcart.optJSONArray("results");
                 //sizeofcartlist = arritems.length();
 
                JSONObject eachItem;
@@ -767,7 +768,7 @@ void hideFragments()
 
                 // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
                 viewPager.setCurrentItem(3);
-                vpContainer.setVisibility(View.VISIBLE);
+
                 mDrawerLayout.closeDrawers();
 
             }
@@ -806,7 +807,7 @@ void hideFragments()
                 }
               //  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
                 viewPager.setCurrentItem(2);
-                vpContainer.setVisibility(View.VISIBLE);
+
                 mDrawerLayout.closeDrawers();
             }
         });
@@ -836,7 +837,7 @@ void hideFragments()
                 }
                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
                 viewPager.setCurrentItem(1);
-                vpContainer.setVisibility(View.VISIBLE);
+
                 mDrawerLayout.closeDrawers();     }
         });
 
@@ -1065,14 +1066,6 @@ void hideFragments()
 
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-      // recreate();
-        new GetCartData().execute();
-
-    }
 
 
     @Override
@@ -1080,7 +1073,7 @@ void hideFragments()
     {
         //super.onBackPressed();
 
-        if(vpContainer.getVisibility() == View.GONE)
+        /*if(vpContainer.getVisibility() == View.GONE)
         {vpContainer.setVisibility(View.VISIBLE);
             tvNoreslt.setVisibility(View.GONE);
            // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
@@ -1091,6 +1084,7 @@ void hideFragments()
         }
         else {
             finish();
-        }
+        }*/
+        finish();
     }
 }

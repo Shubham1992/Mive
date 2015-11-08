@@ -87,6 +87,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
     TextView titleActnBar;
     FrameLayout layoutImgCntnr;
     ImageView imageViewInvoiceUpload;
+    String totalOfInvoice = "0.0";
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -168,7 +169,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 			// Displaying the image or video on the screen
 			previewMedia(isImage);
 		} else {
-            layoutImgCntnr.setVisibility(View.GONE);
+           // layoutImgCntnr.setVisibility(View.GONE);
 			Toast.makeText(getApplicationContext(),
 					"Sorry, file path is missing!", Toast.LENGTH_LONG).show();
 		}
@@ -211,11 +212,11 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
             @Override
             public void onClick(View view) {
                 paymentStatus = "paid";
-                paid.setBackgroundColor(Color.parseColor("#21bdba"));
-                paid.setTextColor(Color.WHITE);
+                paid.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                paid.setTextColor(Color.BLACK);
 
-                unpaid.setBackgroundResource(R.drawable.dayselectorborder);
-                unpaid.setTextColor(Color.parseColor("#21bdba"));
+                unpaid.setBackgroundResource(R.drawable.greyselectorborder);
+                unpaid.setTextColor(Color.parseColor("#e8e8e8"));
             }
         });
 
@@ -224,11 +225,11 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
             @Override
             public void onClick(View view) {
                 paymentStatus = "unpaid";
-                unpaid.setBackgroundColor(Color.parseColor("#21bdba"));
-                unpaid.setTextColor(Color.WHITE);
+                unpaid.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                unpaid.setTextColor(Color.BLACK);
 
-                paid.setBackgroundResource(R.drawable.dayselectorborder);
-                paid.setTextColor(Color.parseColor("#21bdba"));
+                paid.setBackgroundResource(R.drawable.greyselectorborder);
+                paid.setTextColor(Color.parseColor("#e8e8e8"));
             }
         });
         //by default unpaid
@@ -268,6 +269,14 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
             rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
             imgPreview.setImageBitmap(rotatedBitmap);
+            imgPreview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(UploadActivity.this, FullscreenInvoice.class);
+                    intent.putExtra("filepath", filePath);
+                    startActivity(intent);
+                }
+            });
         }
         else
         {
@@ -383,7 +392,9 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
                     entity.addPart("orderMsg", new StringBody("No message"));
 
                 entity.addPart("payment", new StringBody(paymentStatus));
-                entity.addPart("total", new StringBody(ettotal.getText().toString()));
+              if(ettotal.getText() != null)
+                  totalOfInvoice = ettotal.getText().toString();
+                entity.addPart("total", new StringBody(totalOfInvoice));
 
 
 

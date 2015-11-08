@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <ScrollView
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:android="http://schemas.android.com/apk/res/android">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginBottom="50dp">
 
 	<LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,7 +17,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="Select Seller"
-			android:padding="10dp"
+			android:padding="12dp"
+            android:elevation="5dp"
 			android:textStyle="bold"/>
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -38,11 +43,12 @@
 			<EditText
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:padding="10dp"
+				android:padding="7dp"
 				android:id="@+id/dayset"
-				android:layout_weight="1"
+				android:layout_weight="2"
 				android:gravity="center"
-				android:hint="days"
+				android:text="7"
+
 				android:background="@drawable/dayselectorborder"/>
 		</LinearLayout>
 
@@ -78,6 +84,17 @@
 				android:textColor="#21bdba"
 				android:background="@drawable/dayselectorborder"
 				android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/all"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="All"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#21bdba"
+                android:background="@drawable/dayselectorborder"
+                android:layout_weight="1"/>
 		</LinearLayout>
 
 
@@ -87,12 +104,86 @@
 			android:text="Sort By"
 			android:padding="10dp"
 			android:textStyle="bold"
-			android:layout_marginTop="10dp"/>
+            android:elevation="5dp"
+			android:layout_marginTop="18dp"
+            />
 
-<LinearLayout
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/sortbyoptnscntainer"
+			android:orientation="vertical"
+			android:background="#d3d3d3">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sub-Total"
+                android:padding="15dp"
+                android:gravity="center"
+                android:id="@+id/subtotalfilter"
+                android:background="#ffffff"
+                android:layout_margin="1px"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seller"
+                android:padding="15dp"
+                android:gravity="center"
+                android:id="@+id/sellerfilter"
+                android:background="#ffffff"
+                android:layout_margin="1px"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:padding="15dp"
+                android:gravity="center"
+                android:id="@+id/statusfilter"
+                android:background="#ffffff"
+                android:layout_margin="1px"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:padding="15dp"
+                android:gravity="center"
+                android:id="@+id/datefilter"
+                android:background="#ffffff"
+                android:layout_margin="1px"/>
+		</LinearLayout>
 	</LinearLayout>
 </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:elevation="5dp">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Clear Filter"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:elevation="8dp"
+        android:background="#ffffff"
+        android:textColor="#808080"
+        android:textStyle="bold"
+        />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Apply Filter"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:elevation="8dp"
+            android:background="#21bdba"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            />
+    </LinearLayout>
+</FrameLayout>

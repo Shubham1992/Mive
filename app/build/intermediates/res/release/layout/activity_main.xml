@@ -20,35 +20,6 @@
         android:layout_height="match_parent"
         android:id="@+id/mainframe"
         >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:background="#21bdba"
-            android:orientation="horizontal"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:visibility="gone">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/drawericon"
-
-                android:id="@+id/imgdrawertoggle"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:text="@string/app_name"
-                android:layout_toRightOf="@+id/imgdrawertoggle"
-               android:padding="2dp"
-                android:textSize="23dp"
-                android:layout_marginLeft="15dp"
-                android:textStyle="bold"/>
-
-
-
-        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,37 +28,19 @@
             android:paddingTop="10dp"
             android:id="@+id/tvNoReslt"
             android:visibility="gone"/>
-        <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:id="@+id/vpContainer"
-             android:visibility="gone" >
 
-
-
-                <com.astuetz.PagerSlidingTabStrip
-                    android:id="@+id/tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="?android:attr/actionBarSize"
-                          />
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                android:visibility="visible"    >
-
-                </android.support.v4.view.ViewPager>
-
-
-          </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/rvProduct"
-            android:visibility="visible"
-            />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rvProduct"
+                        android:visibility="visible"
+                        android:orientation="vertical"
+                        />
+            </ScrollView>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -130,7 +83,49 @@
 
 
 			/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#e8e8e8"
+    android:layout_gravity="bottom"
+    android:elevation="5dp"
 
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Total:"
+        android:gravity="right|center"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:id="@+id/textView6"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/totalAmountFinal"
+        android:layout_toStartOf="@+id/totalAmountFinal" />
+    <TextView
+        android:id="@+id/totalAmountFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="0.0"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Skip"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:textColor="#ff8800"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
 
     </FrameLayout>
 
@@ -254,7 +249,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <Button
                 android:layout_width="match_parent"

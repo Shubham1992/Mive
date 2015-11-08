@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:elevation="5dp">
 
-<ImageView
     android:layout_width="match_parent"
-    android:layout_height="90dp"
-    android:id="@+id/storeImage"
+    android:layout_height="wrap_content"
+    android:padding="1px"
+    android:background="#d3d3d3">
 
-   />
-    <TextView
+        <TextView
         android:id="@+id/tvStoreName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="Store Name"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="40dp"
-        android:textColor="#ffffff"
+        android:background="@drawable/btn_stores_selector"
+        android:paddingLeft="20dp"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+
+        android:layout_gravity="center"
+        android:textColor="#888888"
+        android:textStyle="normal"
+
+        android:textSize="16dp"
+
+        />
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text=">"
+
+        android:gravity="center"
         android:textStyle="bold"
         android:textSize="25dp"
-        />
-    <LinearLayout
+        android:typeface="serif"
+        android:textColor="#808080"
+        android:layout_gravity="center|right"
+        android:padding="10dp"/>
+   <!-- <LinearLayout
         android:id="@+id/optnSkipinvoicecontainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,5 +63,5 @@
             android:background="@drawable/dayselectorborder"/>
 
 
-    </LinearLayout>
+    </LinearLayout>-->
 </FrameLayout>

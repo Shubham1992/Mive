@@ -50,8 +50,8 @@ public class InflateStores {
             final String name = objectSeller.optString("nameOfSeller");
             View viewStoreTab = inflater.inflate(R.layout.store_tab, layout, false);
             TextView tvName = (TextView) viewStoreTab.findViewById(R.id.tvStoreName);
-            ImageView imageView = (ImageView) viewStoreTab.findViewById(R.id.storeImage);
-            imgcnt = i %3 ;
+           // ImageView imageView = (ImageView) viewStoreTab.findViewById(R.id.storeImage);
+           /* imgcnt = i %3 ;
             Log.e("image cnt", ""+imgcnt);
             if (imgcnt ==0)
             imageView.setBackgroundResource(R.drawable.sb1);
@@ -60,7 +60,7 @@ public class InflateStores {
                 imageView.setBackgroundResource(R.drawable.sb2);
 
             else if (imgcnt == 2)
-                imageView.setBackgroundResource(R.drawable.sb3);
+                imageView.setBackgroundResource(R.drawable.sb3);*/
 
             tvName.setText(name);
             viewStoreTab.setOnClickListener(new View.OnClickListener() {
