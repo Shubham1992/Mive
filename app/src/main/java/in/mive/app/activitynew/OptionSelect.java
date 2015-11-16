@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,9 +28,12 @@ import android.widget.TextView;
 
 import com.mive.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +42,8 @@ import in.mive.app.activities.ContactFragment;
 import in.mive.app.activities.FAQFragment;
 import in.mive.app.activities.HelpNSupport;
 import in.mive.app.activities.LoginActivity;
+import in.mive.app.activities.MainActivity;
+import in.mive.app.activities.PreviousDummyOrders;
 import in.mive.app.activities.PreviousOrders;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.imageloader.ImageLoader;
@@ -45,6 +51,8 @@ import in.mive.app.imageupload.InvoiceUploadActivity;
 import in.mive.app.layouthelper.InflateStores;
 import in.mive.app.layouthelper.InflateStoresintoDrawer;
 import in.mive.app.savedstates.JSONDTO;
+import in.mive.app.savedstates.SavedSellerIds;
+import in.mive.app.savedstates.SavedSellerProductsMap;
 
 /**
  * Created by Shubham on 10/30/2015.
@@ -64,6 +72,7 @@ public class OptionSelect extends Activity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private AlertDialog progressDialog;
+    private JSONObject sellerIds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -307,11 +316,15 @@ public class OptionSelect extends Activity {
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.remove(fr).commit();
                         }
-                        Intent intent = new Intent(OptionSelect.this, PreviousOrders.class);
+                        Intent  intent = new Intent(OptionSelect.this, PreviousDummyOrders.class);
+
+
                         mDrawerLayout.closeDrawers();
                         SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                         int restoreduserid = prefs.getInt("userId", 0);
                         intent.putExtra("userId", restoreduserid);
+                        intent.putExtra("sortBy", "date");
+                        intent.putExtra("paymentFilter", "all");
                         mDrawerLayout.closeDrawers();
                         startActivity(intent);
 
@@ -445,6 +458,32 @@ public class OptionSelect extends Activity {
 
             }
 
+    public void setSellerIds(JSONObject jsonObject)
+    {
+
+        JSONArray jsonArray = jsonObject.optJSONArray("dummyvendors");
+
+        List<HashMap<String, String>> list = new ArrayList();
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+
+            //get a particular vendor
+            JSONObject objCategories = jsonArray.optJSONObject(i);
+            JSONObject objectSeller = objCategories.optJSONObject("seller");
+
+            final  String sellerId = objectSeller.optString("seller_id");
+
+            HashMap hashMap = new HashMap();
+            hashMap.put("sellerId", sellerId);
+            list.add(hashMap);
+
+
+        }
+
+        SavedSellerIds.getInstance().setList(list);
+
+    }
+
 
     private class GetData extends AsyncTask<Void, Void, Void>
     {
@@ -500,14 +539,16 @@ public class OptionSelect extends Activity {
             return null;
         }
         List<Map> resultListcat1;
+
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            if(progressDialog.isShowing())
+            if (progressDialog.isShowing())
                 progressDialog.cancel();
             JSONDTO.getInstance().setJsonUser(jsonObjuser);
 
-         setUserInDrawer(jsonObjuser);
+            setUserInDrawer(jsonObjuser);
+            setSellerIds(jsonObjuser);
 
         }
 

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/sb__action_bg_color" /><!-- From: file:/Users/wmora/dev/snackbar/lib/src/main/res/drawable-v21/sb__btn_bg.xml --><!-- From: file:/C:/Users/Shubham/Desktop/MiveApplication/app/build/intermediates/exploded-aar/com.nispok/snackbar/2.11.0/res/drawable-v21/sb__btn_bg.xml -->

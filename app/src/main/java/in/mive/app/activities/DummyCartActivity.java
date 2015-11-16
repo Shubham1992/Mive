@@ -123,32 +123,7 @@ boolean enabledBtn= true;
 
         int realsize = Integer.parseInt(ButtonDTO.getInstance().getBtn().getText().toString());
 
-        if(realsize <= 0)
-        {
-            View noItemView = inflater.inflate(R.layout.no_item_in_cart, null);
-            Button btnadd = (Button) noItemView.findViewById(R.id.btnAdd);
-            btnadd.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                   finish();
-                   /* Intent intent = new Intent(CartActivity.this, MainActivity.class);
-                   // intent.putExtra("id",intUser);
-                    startActivity(intent);*/
-
-
-                }
-            });
-            layoutItemList.addView(noItemView);
-
-
-        }
-        else {
-        	// btnSubmitCart.setVisibility(View.VISIBLE);
-           // new GetItemListData().execute();
-			new GetseeCartData().execute();
-
-        }
-
+        new GetseeCartData().execute();
     }
 
     @Override

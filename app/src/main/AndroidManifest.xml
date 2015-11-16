@@ -28,6 +28,7 @@
         <activity
             android:name="in.mive.app.activities.MainActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
             android:windowContentOverlay="@drawable/ab_solid_dark_holo">
             <intent-filter>
                 <action android:name="android.intent.action.CAT" />
@@ -106,6 +107,7 @@
         <activity
             android:name="in.mive.app.imageupload.InvoiceUploadActivity"
             android:label="Store"
+            android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait"
 
             android:windowContentOverlay="@drawable/ab_solid_dark_holo">
@@ -170,7 +172,9 @@
         <activity
             android:name="in.mive.app.imageupload.UploadActivity"
             android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
+
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             >
             <intent-filter>
@@ -247,6 +251,7 @@
         <activity
             android:name="in.mive.app.activities.SplashActivity"
             android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

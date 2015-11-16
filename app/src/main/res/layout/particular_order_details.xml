@@ -64,7 +64,8 @@
         android:layout_width="match_parent"
         android:layout_height="440dp"
         android:id="@+id/imgContainer"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
     </android.support.v4.view.ViewPager>
 
@@ -78,24 +79,149 @@
 
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp">
+        >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:orientation="vertical"
             android:background="#ffffff"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="To:"
+                        android:textSize="15dp"
+                        android:id="@+id/textView24"
+                        android:padding="5dp"
+                         />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/frmname"
+                        android:text="Name"
+                        android:padding="5dp"
+                        android:textStyle="bold"
+                        android:textSize="15dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/frmadress"
+                        android:text="adress"
+                        android:padding="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/frmPin"
+                        android:text="201301"
+                        android:padding="5dp"
+                        android:visibility="gone"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/frmPhone"
+                        android:text="phone"
+                        android:padding="5dp"
+                        />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#808080"/>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="From:"
+                        android:textSize="15dp"
+                        android:id="@+id/textView25"
+                        android:padding="5dp"
+                     />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/toname"
+                        android:text="Name"
+                        android:padding="5dp"
+                        android:textStyle="bold"
+                        android:textSize="15dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/toadress"
+                        android:text="adress"
+                        android:padding="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/toPin"
+                        android:text="201301"
+                        android:padding="5dp"
+                        android:visibility="gone"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/toPhone"
+                        android:text="phone"
+                        android:padding="5dp"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d3d3d3"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Order Id"
+                android:text="Invoice No#"
                 android:id="@+id/textView8"
                 android:textSize="15dp"
+                android:padding="5dp"
+                android:visibility="gone"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -104,22 +230,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2344"
+                android:visibility="gone"
+                android:padding="5dp"
                 android:textStyle="bold"
                 android:textSize="16dp"
-                android:padding="5dp"
+
                 android:id="@+id/tvOrderId"
-                android:layout_below="@+id/textView8"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/tvOrderDate"
+                android:layout_alignStart="@+id/tvOrderDate" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Order Date"
                 android:textSize="15dp"
+                android:padding="5dp"
                 android:id="@+id/textView20"
-                android:layout_alignTop="@+id/textView22"
-                android:layout_centerHorizontal="true" />
+                android:layout_below="@+id/textView8"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:layout_width="115dp"
@@ -128,72 +258,124 @@
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:padding="5dp"
-                android:gravity="center"
+                android:gravity="left"
                 android:id="@+id/tvOrderDate"
-                android:layout_below="@+id/textView20"
-                android:layout_centerHorizontal="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Order Amount"
-                android:textSize="15dp"
-                android:id="@+id/textView22"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rs. 1000"
-                android:textSize="16dp"
-                android:padding="5dp"
-                android:textStyle="bold"
-                android:id="@+id/tvOrderAmount"
-                android:layout_below="@+id/textView22"
-                android:layout_alignLeft="@+id/textView22"
-                android:layout_alignStart="@+id/textView22" />
+                android:layout_below="@+id/tvOrderId"
+                android:layout_toRightOf="@+id/textView26"
+                android:layout_toEndOf="@+id/textView26" />
 
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COD"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/tvPaymentMode"
-                android:paddingLeft="10dp"
-                android:paddingTop="7dp"
-                android:paddingBottom="10dp"
-                android:paddingRight="10dp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@+id/tvOrderAmount"
-                android:layout_alignRight="@+id/tvOrderAmount"
-                android:layout_alignEnd="@+id/tvOrderAmount" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Seller"
-                android:textStyle="bold"
-                android:paddingLeft="10dp"
-                android:id="@+id/tvsellername"
-                android:layout_below="@+id/tvOrderDate"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <TextView
+                <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="mode"
-                android:padding="2dp"
+                android:padding="5dp"
                 android:textStyle="bold"
                 android:id="@+id/tvPaymentStatus"
-                android:layout_alignTop="@+id/tvsellername"
-                android:layout_centerHorizontal="true" />
-        </RelativeLayout>
+                    android:layout_alignTop="@+id/textView26"
+                    android:layout_toRightOf="@+id/textView26"
+                    android:layout_toEndOf="@+id/textView26" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Status"
+                    android:textSize="15dp"
+                    android:padding="5dp"
+                    android:id="@+id/textView26"
+                    android:layout_below="@+id/textView20"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+            </RelativeLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:id="@+id/orderItemsContainer"
+           android:padding="10dp">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:paddingTop="10dp"
+                   android:paddingBottom="10dp"
+                   android:gravity="center"
+                   android:text="Item"
+                   android:layout_weight="1"
+                   android:textStyle="bold"
+                   android:background="#d3d3d3"
+                   android:layout_margin="1px"/>
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:paddingTop="10dp"
+                   android:paddingBottom="10dp"
+                   android:gravity="center"
+                   android:text="Qty"
+                   android:layout_weight="1"
+                   android:textStyle="bold"
+                   android:background="#d3d3d3"
+                   android:layout_margin="1px"/>
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:paddingTop="10dp"
+                   android:paddingBottom="10dp"
+                   android:gravity="center"
+                   android:text="Rate"
+                   android:layout_weight="1"
+                   android:textStyle="bold"
+                   android:background="#d3d3d3"
+                   android:layout_margin="1px"/>
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:paddingTop="10dp"
+                   android:paddingBottom="10dp"
+                   android:gravity="center"
+                   android:text="Sub Total"
+                   android:layout_weight="1"
+                   android:textStyle="bold"
+                   android:background="#d3d3d3"
+                   android:layout_margin="1px"/>
+           </LinearLayout>
+
+       </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/amtcntainer"
+                android:padding="10dp"
+                android:gravity="right">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order Amount"
+                    android:textSize="15dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/textView22"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs. 1000"
+                    android:textSize="16dp"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvOrderAmount"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </android.support.v7.widget.CardView>
 </LinearLayout>

@@ -1,6 +1,5 @@
 package in.mive.app.imageupload;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -12,12 +11,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.drawable.ColorDrawable;
 import android.media.ExifInterface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -30,7 +27,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.mive.R;
 
@@ -48,11 +44,10 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Timer;
 
 import in.mive.app.activitynew.OptionSelect;
 import in.mive.app.savedstates.JSONDTO;
@@ -75,7 +70,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
     TextView orderDate;
     EditText orderMsg;
     private String dateSelected;
-    private boolean isDatePicked;
+    private boolean isTotalPicked;
     private int orientation;
     private Bitmap rotatedBitmap;
     private String sellerName;
@@ -170,8 +165,8 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 			previewMedia(isImage);
 		} else {
            // layoutImgCntnr.setVisibility(View.GONE);
-			Toast.makeText(getApplicationContext(),
-					"Sorry, file path is missing!", Toast.LENGTH_LONG).show();
+			/*Toast.makeText(getApplicationContext(),
+					"Sorry, file path is missing!", Toast.LENGTH_LONG).show();*/
 		}
 
 		btnUpload.setOnClickListener(new View.OnClickListener() {
@@ -180,8 +175,8 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 			public void onClick(View v) {
 				// uploading the file to server
 
-                if(isDatePicked != true)
-                {Toast.makeText(UploadActivity.this, "No Date Picked",Toast.LENGTH_SHORT ).show();
+                if(ettotal.getText().length() < 1)
+                {Toast.makeText(UploadActivity.this, "No Amount Added",Toast.LENGTH_SHORT ).show();
                     return;}
 
                 btnUpload.setEnabled(false);
@@ -190,8 +185,14 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 				new UploadFileToServer().execute();
 			}
 		});
+
+
         orderDate = (TextView) findViewById(R.id.tvDate);
+
+
         orderMsg = (EditText) findViewById(R.id.etOrderMsg);
+        getTodaysDate(orderDate);
+
         orderDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -237,6 +238,22 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 
 	}
 
+
+    void getTodaysDate(TextView orderDate)
+    {
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        //get current date time with Date()
+        Date date = new Date();
+        System.out.println(dateFormat.format(date));
+
+        //get current date time with Calendar()
+        Calendar cal = Calendar.getInstance();
+        System.out.println(dateFormat.format(cal.getTime()));
+        orderDate.setText(dateFormat.format(cal.getTime()));
+        dateSelected = dateFormat.format(cal.getTime());
+
+    }
 	/**
 	 * Displaying captured image/video on the screen
 	 * */
@@ -313,10 +330,8 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 
         dateSelected = date;
 
-
-
        orderDate.setText(date);
-        isDatePicked=true;
+
     }
 
 
@@ -375,10 +390,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 
                     entity.addPart("image", new FileBody(sourceFile));
                 }
-                else
-                {
-                    layoutImgCntnr.setVisibility(View.GONE);
-                }
+
 				// Extra parameters if you want to pass to server
 				entity.addPart("sellerId", new StringBody(sellerId));
 				entity.addPart("dummycartId", new StringBody(dummyCartId));

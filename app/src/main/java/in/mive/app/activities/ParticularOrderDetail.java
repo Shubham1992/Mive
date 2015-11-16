@@ -43,6 +43,7 @@ public class ParticularOrderDetail extends Activity {
     LayoutInflater layoutInflater;
     ViewPager layoutInvoiceImages;
     ImageView viewBckPress;
+    LinearLayout linearLayoutItemsCnt;
 
     PArticularImagesCustomPagerAdapter customPagerAdapter;
     @Override
@@ -54,6 +55,7 @@ public class ParticularOrderDetail extends Activity {
         layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         layoutInvoiceImages = (ViewPager) findViewById(R.id.imgContainer);
         viewBckPress = (ImageView) findViewById(R.id.imgbckHome);
+        linearLayoutItemsCnt = (LinearLayout) findViewById(R.id.orderItemsContainer);
         viewBckPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,6 +92,7 @@ public class ParticularOrderDetail extends Activity {
         private JSONObject jsonObjcart;
         String jsonOrderDetail;
         private JSONObject objectOrder;
+        private JSONObject objectOrderItems;
 
         @Override
         protected void onPreExecute() {
@@ -110,12 +113,21 @@ public class ParticularOrderDetail extends Activity {
             // Making a request to urlcat1 and getting response
 
             urlOrders = "http://www.mive.in/api/order/"+ orderId;
+            String urlItemsInOrder = "http://www.mive.in/api/order/items/" + orderId + "/";
 
 
 
             jsonOrderDetail = sh.makeServiceCall(urlOrders, ServiceHandler.GET);
             try {
                 objectOrder = new JSONObject(jsonOrderDetail);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            String jsonOrderItemDetail = sh.makeServiceCall(urlItemsInOrder, ServiceHandler.GET);
+            try {
+                objectOrderItems = new JSONObject(jsonOrderItemDetail);
+                Log.e("Particular Order items",objectOrderItems.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -131,76 +143,129 @@ public class ParticularOrderDetail extends Activity {
             if (pDialog.isShowing())
                 pDialog.dismiss();
 
-
-            TextView tvOrderId = (TextView) findViewById(R.id.tvOrderId);
-            TextView tvOrderDate = (TextView) findViewById(R.id.tvOrderDate);
-            TextView tvOrderAmount = (TextView) findViewById(R.id.tvOrderAmount);
-
-            TextView tvPaymentMode = (TextView)findViewById(R.id.tvPaymentMode);
-            TextView tvPaymentStatus = (TextView)findViewById(R.id.tvPaymentStatus);
-            TextView tvSellerName = (TextView)findViewById(R.id.tvsellername);
-
-
-            final String orderId = objectOrder.optString("order_id");
-            String orderDate = objectOrder.optString("deliveryTime");
-            String orderAmount = objectOrder.optString("subtotal");
-
-
-            String paymentStatus = objectOrder.optString("payment");
-            JSONObject jsonObjectSeller = objectOrder.optJSONObject("seller");
-            String sellername = jsonObjectSeller.optString("nameOfSeller");
-
-            JSONArray jsonArrayInvoiceImages = objectOrder.optJSONArray("invoices");
-            if(jsonArrayInvoiceImages.length() <= 0)
-                layoutInvoiceImages.setVisibility(View.GONE);
-
-            customPagerAdapter = new PArticularImagesCustomPagerAdapter(ParticularOrderDetail.this,jsonArrayInvoiceImages  );
-            layoutInvoiceImages.setAdapter(customPagerAdapter);
-            layoutInvoiceImages.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
-            {
-                @Override
-                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
-                {
-
-                }
-
-                @Override
-                public void onPageSelected(int position)
-                {}
-
-                @Override
-                public void onPageScrollStateChanged(int state)
-                {
-
-                }
-            });
+            setOrderlayout(objectOrder);
+            setOrderItemslayout(objectOrderItems);
 
 
 
-            /*for (int i =0 ; i < jsonArrayInvoiceImages.length(); i++)
-            {
-                JSONObject jsonObjectImagesInvoice = jsonArrayInvoiceImages.optJSONObject(i);
-                String url = jsonObjectImagesInvoice.optString("geturl");
-
-                View viewImages = layoutInflater.inflate(R.layout.img_invoice_tab, layoutInvoiceImages, false);
-                ImageView imageViewInvoice = (ImageView) viewImages.findViewById(R.id.img_invoice);
-
-                int loader = R.drawable.tomato;
-                ImageLoader imgLoader = new ImageLoader(ParticularOrderDetail.this);
-                imgLoader.DisplayImage("http://www.mive.in/" + url, loader, imageViewInvoice);
-
-                layoutInvoiceImages.addView(viewImages);
-
-            }*/
-
-            tvSellerName.setText(sellername);
-            tvPaymentStatus.setText(paymentStatus);
-            tvOrderId.setText(orderId);
-            tvOrderDate.setText(orderDate);
-            tvOrderAmount.setText("Rs. "+orderAmount);
 
 
         }
+    }
+
+    private void setOrderItemslayout(JSONObject objectOrderItems) {
+        JSONArray jsonArray = objectOrderItems.optJSONArray("results");
+
+        for (int i= 0; i<jsonArray.length(); i++)
+        {
+            JSONObject jsonObjectItem = jsonArray.optJSONObject(i);
+            int qty = jsonObjectItem.optInt("qtyInUnits");
+            int ppu = jsonObjectItem.optInt("pricePerUnit");
+
+            int amt = qty*ppu;
+
+            JSONObject product = jsonObjectItem.optJSONObject("product");
+            String nameOfItem = product.optString("name");
+            String descOfItem = product.optString("description");
+
+
+            View viewItems = layoutInflater.inflate(R.layout.particular_order_items_tab, linearLayoutItemsCnt, false);
+            TextView tvname = (TextView) viewItems.findViewById(R.id.itemname);
+            TextView tvQty = (TextView) viewItems.findViewById(R.id.itemqty);
+            TextView tvDesc = (TextView) viewItems.findViewById(R.id.itemdesc);
+            TextView tvAmt = (TextView) viewItems.findViewById(R.id.itemAmt);
+
+
+            tvname.setText(nameOfItem);
+            tvQty.setText(""+qty);
+            tvDesc.setText(""+ppu);
+            tvAmt.setText(""+amt);
+
+            linearLayoutItemsCnt.addView(viewItems);
+
+
+        }
+    }
+
+    private void setOrderlayout(JSONObject objectOrder) {
+        TextView tvOrderId = (TextView) findViewById(R.id.tvOrderId);
+        TextView tvOrderDate = (TextView) findViewById(R.id.tvOrderDate);
+        TextView tvOrderAmount = (TextView) findViewById(R.id.tvOrderAmount);
+
+        TextView tvPaymentMode = (TextView)findViewById(R.id.tvPaymentMode);
+        TextView tvPaymentStatus = (TextView)findViewById(R.id.tvPaymentStatus);
+        TextView tvSellerName = (TextView)findViewById(R.id.tvsellername);
+
+        TextView tvfrmname = (TextView) findViewById(R.id.frmname);
+        TextView tvfrmAdress = (TextView) findViewById(R.id.frmadress);
+        TextView tvfrmPostal = (TextView) findViewById(R.id.frmPin);
+        TextView tvfrmPhone = (TextView) findViewById(R.id.frmPhone);
+        TextView tvtoname = (TextView) findViewById(R.id.toname);
+        TextView tvtoAdress = (TextView) findViewById(R.id.toadress);
+        TextView tvtoPostal = (TextView) findViewById(R.id.toPin);
+        TextView tvtoPhone = (TextView) findViewById(R.id.toPhone);
+
+        final String orderId = objectOrder.optString("order_id");
+        String orderDate = objectOrder.optString("deliveryTime");
+        String orderAmount = objectOrder.optString("subtotal");
+
+
+        String paymentStatus = objectOrder.optString("payment");
+        JSONObject jsonObjectSeller = objectOrder.optJSONObject("seller");
+        String sellername = jsonObjectSeller.optString("nameOfSeller");
+        String tomailId = jsonObjectSeller.optString("mailId");
+        String tomobile = jsonObjectSeller.optString("mobileNo");
+        String toPostal = jsonObjectSeller.optString("postalCode");
+
+        tvtoname.setText(sellername);
+        tvtoAdress.setText(tomailId);
+        tvtoPhone.setText(tomobile);
+        tvtoPostal.setText(toPostal);
+
+        JSONObject jsonObjectUser = JSONDTO.getInstance().getJsonUser();
+        String frmname = jsonObjectUser.optString("nameOfOwner");
+        String frmmobileno = jsonObjectUser.optString("mobileNo");
+
+        tvfrmname.setText(frmname);
+        tvfrmPhone.setText(frmmobileno);
+
+
+
+
+        JSONArray jsonArrayInvoiceImages = objectOrder.optJSONArray("invoices");
+        if(jsonArrayInvoiceImages.length() <= 0)
+            layoutInvoiceImages.setVisibility(View.GONE);
+
+        customPagerAdapter = new PArticularImagesCustomPagerAdapter(ParticularOrderDetail.this,jsonArrayInvoiceImages  );
+        layoutInvoiceImages.setAdapter(customPagerAdapter);
+        layoutInvoiceImages.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
+        {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+            {
+
+            }
+
+            @Override
+            public void onPageSelected(int position)
+            {}
+
+            @Override
+            public void onPageScrollStateChanged(int state)
+            {
+
+            }
+        });
+
+
+
+
+
+
+        tvPaymentStatus.setText(paymentStatus);
+        tvOrderId.setText(orderId);
+        tvOrderDate.setText(orderDate);
+        tvOrderAmount.setText("Rs. "+orderAmount);
     }
 
 

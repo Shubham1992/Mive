@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="1dp"
+
+    android:background="#e8e8e8">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/itemname"
+        android:text="name"
+
+        android:textSize="15dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:gravity="left"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/itemqty"
+        android:text="qty"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="15dp"
+        android:layout_weight="1"    />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemdesc"
+        android:text="desc"
+        android:background="#ffffff"
+        android:gravity="left"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="15dp"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/itemAmt"
+        android:text="Amt"
+        android:paddingLeft="10dp"
+        android:background="#ffffff"
+        android:gravity="left"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="15dp"
+        android:layout_weight="1"
+        />
+</LinearLayout>

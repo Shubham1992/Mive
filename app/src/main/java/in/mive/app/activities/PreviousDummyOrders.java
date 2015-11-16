@@ -37,7 +37,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -195,6 +198,7 @@ public class PreviousDummyOrders extends Activity {
         private String jsonObjectresult;
         private JSONArray jsonArrayDummyOrders;
 
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -292,6 +296,20 @@ public class PreviousDummyOrders extends Activity {
 
                 final String orderId = objectOrder.optString("order_id");
                 String orderDate = objectOrder.optString("deliveryTime");
+
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-mm");
+                String dateInString = orderDate;
+                Date date = null;
+                try {
+
+                    date = formatter.parse(dateInString);
+                  /*  System.out.println(date);
+                    System.out.println(formatter.format(date));*/
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 String orderAmount = objectOrder.optString("subtotal");
                 String status = objectOrder.optString("status");
                 String paymntMode = objectOrder.optString("payment_mode");
@@ -301,9 +319,15 @@ public class PreviousDummyOrders extends Activity {
                 String sellername = jsonObjectSeller.optString("nameOfSeller");
                 tvSellerName.setText(sellername);
                 tvPaymentStatus.setText(paymentStatus);
+
+                if(paymentStatus.equalsIgnoreCase("paid"))
+                    tvPaymentStatus.setTextColor(Color.parseColor("#808080"));
+                else
+                    tvPaymentStatus.setTextColor(Color.parseColor("#000000"));
+
                 tvOrderId.setText(orderId);
-                tvOrderDate.setText(orderDate);
-                tvOrderAmount.setText("Rs. "+orderAmount);
+                tvOrderDate.setText(formatter.format(date));
+                tvOrderAmount.setText(""+orderAmount);
                 tvPaymentMode.setText(paymntMode);
 
 

@@ -12,7 +12,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:orientation="horizontal"
+
             android:background="#21bdba">
 
             <ImageView
@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textSize="17dp"
+                android:textSize="15dp"
                 android:text="Your Orders"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
@@ -42,8 +42,8 @@
 
             <Button
                 android:id="@+id/btnFilter"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/filter"
                 android:layout_gravity="right|center"
@@ -63,9 +63,73 @@
             android:orientation="vertical"
 			android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/previousOrderContainer"
+            android:id="@+id/previousOrderContainer">
 
-            >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:background="#e8e8e8"
+               android:paddingTop="10dp"
+               android:paddingBottom="10dp">
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"
+                   android:text="Seller"
+                    android:textStyle="bold"
+                   android:gravity="center"
+                   android:layout_weight="1"/>
+               <TextView
+                   android:layout_width="1dp"
+                   android:layout_height="match_parent"
+                   android:background="#000000"
+                   />
+
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"
+                   android:text="Date"
+                   android:gravity="center"
+                   android:textStyle="bold"
+                   android:layout_weight="1"/>
+               <TextView
+                   android:layout_width="1dp"
+                   android:layout_height="match_parent"
+                   android:background="#000000"
+                   />
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"
+                   android:text="Payment"
+                   android:gravity="center"
+                   android:textStyle="bold"
+                   android:layout_weight="1"/>
+               <TextView
+                   android:layout_width="1dp"
+                   android:layout_height="match_parent"
+                   android:background="#000000"
+                   />
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"
+                   android:text="Amount"
+                   android:gravity="center"
+                   android:textStyle="bold"
+                   android:layout_weight="1"/>
+               <TextView
+                   android:layout_width="1dp"
+                   android:layout_height="match_parent"
+                   android:background="#000000"
+                   />
+               <TextView
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"
+                   android:text="Invoice"
+                   android:gravity="center"
+                   android:textStyle="bold"
+                   android:layout_weight="1"/>
+
+           </LinearLayout>
 
 
         </LinearLayout>

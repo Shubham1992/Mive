@@ -9,6 +9,7 @@ import in.mive.app.helperclasses.ServiceHandler;
 
 import in.mive.app.imageloader.ImageLoader;
 import in.mive.app.imageupload.InvoiceUploadActivity;
+import in.mive.app.imageupload.UploadActivity;
 import in.mive.app.layouthelper.InflateStoresintoDrawer;
 import in.mive.app.layouthelper.RecyclerViewProductsInflator;
 import in.mive.app.savedstates.ButtonDTO;
@@ -118,6 +119,8 @@ public class MainActivity extends FragmentActivity
     private String sellerId;
     private LinearLayoutManager layoutManager, layoutManager2;
     private TextView totalAmountFinal;
+    private TextView skipbutton;
+
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 
 
@@ -134,6 +137,9 @@ public class MainActivity extends FragmentActivity
         layoutManager = new LinearLayoutManager(MainActivity.this);
         layoutManager2 = new LinearLayoutManager(MainActivity.this);
         totalAmountFinal = (TextView) findViewById(R.id.totalAmountFinal);
+        skipbutton = (TextView) findViewById(R.id.skipbutton);
+
+
         rvSearch.setLayoutManager(layoutManager);
        // rvProducts.setLayoutManager(layoutManager2);
 
@@ -154,6 +160,27 @@ public class MainActivity extends FragmentActivity
         loggedIn = intnt.getBooleanExtra("loggedIn", false);
         pos = intnt.getIntExtra("pos", 0);
         Log.e("id= ", "" + id);
+
+
+        skipbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, UploadActivity.class);
+
+                SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
+                int restoreduserid = prefs.getInt("userId", 0);
+                intent.putExtra("userId", restoreduserid);
+                intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
+                intent.putExtra("sellerId", sellerId);
+
+
+                intent.putExtra("sellerName", sellername);
+
+                startActivity(intent);
+            }
+        });
+
+
 
         mainframe = (ViewGroup) findViewById(R.id.mainframe);
         SavedTopLayout.getInstance().setSavedTopLayout(mainframe);
@@ -184,15 +211,7 @@ public class MainActivity extends FragmentActivity
 
         if(isUrlDummy)
         {
-           /* RVAdapterDummy adapter = new RVAdapterDummy(products, MainActivity.this, isUrlDummy);
-            rvProducts.setAdapter(adapter);
-            rvProducts.setOnScrollListener(new RecyclerView.OnScrollListener() {
-                @Override
-                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                    super.onScrollStateChanged(recyclerView, newState);
-                }
-            });
-*/
+
             RecyclerViewProductsInflator  viewProductsInflator = new RecyclerViewProductsInflator();
             viewProductsInflator.inflateProducts(products, MainActivity.this , rvProducts, totalAmountFinal);
 
@@ -201,9 +220,7 @@ public class MainActivity extends FragmentActivity
 
         else
         {
-           /* RVAdapter adapter = new RVAdapter(products, MainActivity.this, isUrlDummy);
-            rvProducts.setAdapter(adapter);
-*/
+
         }
         // getActivity() will hand over the context to the method
         // if you call this inside an activity, simply replace getActivity() by "this"
