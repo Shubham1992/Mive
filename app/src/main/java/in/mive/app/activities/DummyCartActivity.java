@@ -63,7 +63,7 @@ public class DummyCartActivity extends Activity {
     private JSONObject jsonObjAllItems;
     private JSONObject jsonObjEachItems;
     private String urlprdct = null;
-    private int qty=0;
+    private float qty=0;
     private  Button btnSubmitCart;
     private int totpayable;
     JSONObject eachItem;
@@ -236,7 +236,7 @@ boolean enabledBtn= true;
                         intent.putExtra("price", ""+totCost);
                         intent.putExtra("sellerId", sellerId);
                         intent.putExtra("sellerName", nameOfSeller);
-
+                        intent.putExtra("invoiceOnly", "no");
                         intent.putExtra("dummycartId",JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
                         intent.putExtra("isDummy", true);
 
@@ -305,7 +305,7 @@ boolean enabledBtn= true;
     void getEachPrdct(ViewGroup layoutCatholder)
     {
         Log.e("qty value in list", DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
-        qty = Integer.parseInt(DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
+        qty = Float.parseFloat(DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
         Log.e("qty in getprdct", "" + qty);
 
 
@@ -339,8 +339,8 @@ boolean enabledBtn= true;
 
         //PRODUCTID = itemlist.get(c).get("id").toString();
         tvQuantitySelected.setText(""+qty);
-        final int ppu = jsonObjEachItems.optInt("pricePerUnit");
-        int totPricePeritem = ppu * qty;
+        final float ppu = jsonObjEachItems.optInt("pricePerUnit");
+        float totPricePeritem = ppu * qty;
 
 //            final String itemId = jsonObjEachItems.optString("product_id").toString();
 
@@ -397,7 +397,7 @@ boolean enabledBtn= true;
                 //Log.e("real size", ""+realS);
 
                 updateCart(itemId, "" + qnt);
-                int totPricePeritem = ppu * qnt;
+                float totPricePeritem = ppu * qnt;
                 tvPrice.setText("Rs. "+totPricePeritem);
                 totpayable +=ppu;
 
@@ -434,7 +434,7 @@ boolean enabledBtn= true;
                     tvQuantitySelected.setText("" + qnt);
 
                     updateCart(itemId,""+qnt);
-                    int totPricePeritem = ppu * qnt;
+                    float totPricePeritem = ppu * qnt;
                     tvPrice.setText("Rs. "+totPricePeritem);
                     totpayable -=ppu;
 

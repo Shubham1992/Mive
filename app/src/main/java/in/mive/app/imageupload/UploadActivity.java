@@ -83,6 +83,8 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
     FrameLayout layoutImgCntnr;
     ImageView imageViewInvoiceUpload;
     String totalOfInvoice = "0.0";
+    private String invoiceonly;
+
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -104,37 +106,27 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
         });
         titleActnBar = (TextView) findViewById(R.id.titleActionBar);
         imageViewInvoiceUpload = (ImageView) findViewById(R.id.imageViewInvoiceUpload);
-        imageViewInvoiceUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UploadActivity.this, InvoiceUploadActivity.class);
-               // intent.putExtra("catId", catId);
-                SharedPreferences prefs = getSharedPreferences("userIdPref", Context.MODE_PRIVATE);
-                int restoreduserid = prefs.getInt("userId", 0);
-                intent.putExtra("userId", restoreduserid);
-                intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
 
-                intent.putExtra("sellername", sellerName);
-                intent.putExtra("sellerId", "" + sellerId);
-                intent.putExtra("urlDummy", true);
-                startActivity(intent);
-            }
-        });
 
 
 		// Changing action bar background color
 
 		// Receiving the data from previous activity
 		Intent i = getIntent();
-
+        SharedPreferences prefs = getSharedPreferences("userIdPref", Context.MODE_PRIVATE);
+        int restoreduserid = prefs.getInt("userId", 0);
 		// image or video path that is captured in previous activity
 		filePath = i.getStringExtra("filePath");
 
         sellerId = i.getStringExtra("sellerId");
         dummyCartId = i.getStringExtra("dummycartId");
-        userId = i.getStringExtra("userId");
+        userId = ""+restoreduserid;
+
+
         sellerName = i.getStringExtra("sellerName");
         toatlprice = i.getStringExtra("price");
+        invoiceonly = i.getStringExtra("invoiceOnly");
+
         if(toatlprice != null)
         {
             ettotal.setText(toatlprice);
@@ -145,6 +137,26 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 
 		// boolean flag to identify the media type, image or video
 		boolean isImage = i.getBooleanExtra("isImage", false);
+
+
+        imageViewInvoiceUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UploadActivity.this, InvoiceUploadActivity.class);
+                // intent.putExtra("catId", catId);
+                SharedPreferences prefs = getSharedPreferences("userIdPref", Context.MODE_PRIVATE);
+                int restoreduserid = prefs.getInt("userId", 0);
+                intent.putExtra("userId", restoreduserid);
+                intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
+
+                intent.putExtra("sellername", sellerName);
+                intent.putExtra("sellerId", "" + sellerId);
+                intent.putExtra("urlDummy", true);
+                intent.putExtra("invoiceOnly", invoiceonly);
+                startActivity(intent);
+            }
+        });
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
         {
@@ -241,7 +253,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 
     void getTodaysDate(TextView orderDate)
     {
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         //get current date time with Date()
         Date date = new Date();
@@ -326,7 +338,7 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
         else
         monthfinal = ""+monthOfYear;
 
-        String date = ""+year+"-"+datefinal+"-"+monthfinal;
+        String date = ""+year+"-"+monthfinal+"-"+datefinal;
 
         dateSelected = date;
 
@@ -355,9 +367,8 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 			// updating progress bar value
 			progressBar.setProgress(progress[0]);
 
-			// updating percentage value
-			 txtPercentage.setText(String.valueOf(progress[0]) + "%");
-             txtPercentage.setAlpha(0.5F);
+
+
 		}
 
 		@Override
@@ -382,20 +393,20 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 							}
 						});
 
-				if(filePath != null)
+
+
+				// Extra parameters if you want to pass to server
+				entity.addPart("sellerId", new StringBody(""+3));
+				entity.addPart("dummycartId", new StringBody(""+2));
+                entity.addPart("userId", new StringBody(""+1));
+                entity.addPart("deliveryTime", new StringBody(dateSelected));
+                if(filePath != null)
                 {
                     File sourceFile = new File(filePath);
-
-                    // Adding file data to http body
-
                     entity.addPart("image", new FileBody(sourceFile));
                 }
 
-				// Extra parameters if you want to pass to server
-				entity.addPart("sellerId", new StringBody(sellerId));
-				entity.addPart("dummycartId", new StringBody(dummyCartId));
-                entity.addPart("userId", new StringBody(userId));
-                entity.addPart("deliveryTime", new StringBody(dateSelected));
+                entity.addPart("invoiceonly", new StringBody(invoiceonly));
 
                 if(orderMsg.getText() != null && orderMsg.getText().length() > 0)
                    entity.addPart("orderMsg", new StringBody(orderMsg.getText().toString()));
@@ -404,28 +415,35 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
                     entity.addPart("orderMsg", new StringBody("No message"));
 
                 entity.addPart("payment", new StringBody(paymentStatus));
-              if(ettotal.getText() != null)
+                if(ettotal.getText() != null)
                   totalOfInvoice = ettotal.getText().toString();
                 entity.addPart("total", new StringBody(totalOfInvoice));
 
 
-
-                Log.e("dummycartid", dummyCartId);
+                Log.e("dummycartId", dummyCartId);
 				Log.e("userId", userId);
 				Log.e("sellerId", sellerId);
-                Log.e("date", dateSelected);
-                Log.e("ordermsg", orderMsg.getText().toString());
-
-
-				Log.e("makedummyorderparam", entity.toString());
+                Log.e("deliveryTime", dateSelected);
+                Log.e("orderMsg", orderMsg.getText().toString());
+                Log.e("invoiceonly", invoiceonly);
+                Log.e("payment", paymentStatus);
+                Log.e("total", totalOfInvoice);
+                if(filePath != null)
+                Log.e("image", filePath);
 
 
                 totalSize = entity.getContentLength();
-				httppost.setEntity(entity);
+                Log.e("entity length", ""+entity.getContentLength());
+
+                httppost.setEntity(entity);
 
 				// Making server call
 				HttpResponse response = httpclient.execute(httppost);
 				HttpEntity r_entity = response.getEntity();
+
+                Log.e("respnse invoice", response.toString());
+                Log.e("response complete", r_entity.toString());
+
 
 				int statusCode = response.getStatusLine().getStatusCode();
 				if (statusCode == 200) {

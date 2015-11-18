@@ -146,7 +146,7 @@
 
 		<activity
 			android:name="in.mive.app.activities.DummyOrderFilterActivity"
-			android:label="Orders"
+			android:label="Filters"
 			android:screenOrientation="portrait"
 
 

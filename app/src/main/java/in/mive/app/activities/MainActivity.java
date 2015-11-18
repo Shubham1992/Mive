@@ -119,7 +119,8 @@ public class MainActivity extends FragmentActivity
     private String sellerId;
     private LinearLayoutManager layoutManager, layoutManager2;
     private TextView totalAmountFinal;
-    private TextView skipbutton;
+    private TextView skipbutton, nextbutton;
+
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 
@@ -138,6 +139,8 @@ public class MainActivity extends FragmentActivity
         layoutManager2 = new LinearLayoutManager(MainActivity.this);
         totalAmountFinal = (TextView) findViewById(R.id.totalAmountFinal);
         skipbutton = (TextView) findViewById(R.id.skipbutton);
+        nextbutton = (TextView) findViewById(R.id.tvnxt);
+
 
 
         rvSearch.setLayoutManager(layoutManager);
@@ -172,6 +175,7 @@ public class MainActivity extends FragmentActivity
                 intent.putExtra("userId", restoreduserid);
                 intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
                 intent.putExtra("sellerId", sellerId);
+                intent.putExtra("invoiceOnly", "yes");
 
 
                 intent.putExtra("sellerName", sellername);
@@ -213,7 +217,7 @@ public class MainActivity extends FragmentActivity
         {
 
             RecyclerViewProductsInflator  viewProductsInflator = new RecyclerViewProductsInflator();
-            viewProductsInflator.inflateProducts(products, MainActivity.this , rvProducts, totalAmountFinal);
+            viewProductsInflator.inflateProducts(products, MainActivity.this , rvProducts, totalAmountFinal, nextbutton);
 
 
         }
@@ -227,8 +231,6 @@ public class MainActivity extends FragmentActivity
         if(!isConnected(MainActivity.this)) buildDialog(MainActivity.this).show();
         else {
             // we have internet connection, so it is save to connect to the internet here
-
-
 
 
             new GetCartData().execute();

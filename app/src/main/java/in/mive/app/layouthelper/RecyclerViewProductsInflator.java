@@ -56,7 +56,7 @@ public class RecyclerViewProductsInflator {
     TextView tvtotal;
 
 
-    public  void inflateProducts(List<Map> products, final Context context, ViewGroup layout ,TextView tvTotal)
+    public  void inflateProducts(List<Map> products, final Context context, ViewGroup layout ,TextView tvTotal, TextView nxt)
     {
         this.context = context;
         this.tvtotal =tvTotal;
@@ -87,7 +87,7 @@ public class RecyclerViewProductsInflator {
 
             layout.addView(itemView);
         }
-        tvtotal.setOnClickListener(new View.OnClickListener() {
+        nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

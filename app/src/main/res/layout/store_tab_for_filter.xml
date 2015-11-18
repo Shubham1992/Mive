@@ -20,8 +20,7 @@
 <TextView
 	android:layout_width="match_parent"
 	android:layout_height="1dp"
-	android:background="#808080"
-	android:layout_marginLeft="50dp"
-	android:layout_marginRight="50dp"/>
+	android:background="#d3d3d3"
+	/>
 
 </LinearLayout>

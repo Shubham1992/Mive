@@ -2,137 +2,137 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.github.d-max\spots-dialog\0.4\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f82b3f786bf4937ed1a1cc9a9a811e154813ba9a">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-fd0629a0391f1ea3d264f2a325220af522c78823.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.systembartint\systembartint\1.0.3\de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287\systembartint-1.0.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\systembartint-1.0.3-09a3735358c97610e6d13125042def9872405a41.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-7e74f6ac3d0cf5066f50c7d4f9dadfd5ab1c5cf7.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-d548ba668f5ad1f56e3c9ad3ac3efc5ace107ab2.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.nispok\snackbar\2.11.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d0db114dc90b3e192ba48d22421a9c47cfc01f00">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-3d984ace1e716609c74ef9157b177d369f8740d5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpcore-4.3.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\httpcore-4.3.3-383b493236803e9bcb7bfbeee75b4a72a03eeb98.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.wdullaer\materialdatetimepicker\1.5.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f3c15dd877bfdfbbd71f0d2f4c5139b52fd04735">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-0f8eb659fc69b39b394a15cc292d27876bc632fc.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-c25103427899ba3be75af50fede451f7368b1b79.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-f5d527999052a7ca79164b885f06e8e72cb0bcf4.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-7247d6fb4dcec445d7582e186074e41f2c57c427.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.astuetz\pagerslidingtabstrip\1.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="7912610ed96381c25c36d986eba422731b9641b6">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-d2982ac6985d1af6e2850515a8d1aa504a6e743e.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-cb69c2b2a0357dd407275fe6fc8251e25f3f346c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\pl.droidsonroids.gif\android-gif-drawable\1.1.7\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d6825a79ca6c134dd6f26fc15eff443b5215dbdc">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-41a09d2f6bf3912ea3db4cae87efd0ca2acdc4e8.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpmime-4.3.6.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="66a39a5e37d5da40fdad6176fc24ef4316e74702">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\httpmime-4.3.6-0a2c9ab3e57fca7f3eb563abce12c9eb59c5424f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.github.yasevich\endless-recycler-view\1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0ef95b5256e64b43ae000397ae2968247c74318e">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-8d7b9b821f71bf2509a491a873c15d2bd4a63445.jar" />
-    </item>
-    <item
         jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.github.siyamed\android-shape-imageview\0.9.3\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="ee07783aa59eefdeacc107abf472f45f60272302">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-adcc47036a509cf407dca4f0d667d92b7c679ebb.jar" />
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-adcc47036a509cf407dca4f0d667d92b7c679ebb.jar" />
     </item>
     <item
         jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-9c904b671f8e77909cfc507edb3d945941064fb6.jar" />
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-9c904b671f8e77909cfc507edb3d945941064fb6.jar" />
     </item>
     <item
-        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.0.0\jars\classes.jar"
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\classes-8a2830cbe0b233cc1701d1b44cd7a7e0d1ff4a33.jar" />
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\internal_impl-23.0.0-f5d527999052a7ca79164b885f06e8e72cb0bcf4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-cb69c2b2a0357dd407275fe6fc8251e25f3f346c.jar" />
     </item>
     <item
         jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpclient-4.3.6.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="f3cf3b25e14d3bca47773e95aa85ea8fefbf8e81">
-        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-9a15ec8be29fe4132480273fdc62cc161f00ca47.jar" />
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\httpclient-4.3.6-9a15ec8be29fe4132480273fdc62cc161f00ca47.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-8a2830cbe0b233cc1701d1b44cd7a7e0d1ff4a33.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\pl.droidsonroids.gif\android-gif-drawable\1.1.7\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d6825a79ca6c134dd6f26fc15eff443b5215dbdc">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-41a09d2f6bf3912ea3db4cae87efd0ca2acdc4e8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.github.yasevich\endless-recycler-view\1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0ef95b5256e64b43ae000397ae2968247c74318e">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-8d7b9b821f71bf2509a491a873c15d2bd4a63445.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-7247d6fb4dcec445d7582e186074e41f2c57c427.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpcore-4.3.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\httpcore-4.3.3-383b493236803e9bcb7bfbeee75b4a72a03eeb98.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.github.d-max\spots-dialog\0.4\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f82b3f786bf4937ed1a1cc9a9a811e154813ba9a">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-fd0629a0391f1ea3d264f2a325220af522c78823.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.nispok\snackbar\2.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d0db114dc90b3e192ba48d22421a9c47cfc01f00">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-3d984ace1e716609c74ef9157b177d369f8740d5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-7e74f6ac3d0cf5066f50c7d4f9dadfd5ab1c5cf7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.astuetz\pagerslidingtabstrip\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-d2982ac6985d1af6e2850515a8d1aa504a6e743e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-d548ba668f5ad1f56e3c9ad3ac3efc5ace107ab2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\exploded-aar\com.wdullaer\materialdatetimepicker\1.5.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f3c15dd877bfdfbbd71f0d2f4c5139b52fd04735">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\classes-0f8eb659fc69b39b394a15cc292d27876bc632fc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.systembartint\systembartint\1.0.3\de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287\systembartint-1.0.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\systembartint-1.0.3-09a3735358c97610e6d13125042def9872405a41.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\support-annotations-23.0.0-c25103427899ba3be75af50fede451f7368b1b79.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shubham\Desktop\MiveApplication\app\libs\httpmime-4.3.6.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66a39a5e37d5da40fdad6176fc24ef4316e74702">
+        <dex dex="C:\Users\Shubham\Desktop\MiveApplication\app\build\intermediates\pre-dexed\release\httpmime-4.3.6-0a2c9ab3e57fca7f3eb563abce12c9eb59c5424f.jar" />
     </item>
 
 </items>

@@ -83,6 +83,7 @@ public class PreviousDummyOrders extends Activity {
 
 
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -269,7 +270,11 @@ public class PreviousDummyOrders extends Activity {
             if(jsonArrayDummyOrders.length() <= 0)
             {
                 TextView tvNoPrev = new TextView(PreviousDummyOrders.this);
-                tvNoPrev.setText("No Orders Yet");
+                tvNoPrev.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                tvNoPrev.setText("No Orders to display");
+
+                layout.addView(tvNoPrev);
                 return;
             }
 

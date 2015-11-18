@@ -37,6 +37,7 @@ public class DummyOrderFilterActivity extends Activity
 {
 	LayoutInflater inflater;
 	ViewGroup sellerContainer;
+	ViewGroup statuscontainer, sortbyoptncontainer;
 	// userId dayFilter  paymentFilter  sortBy
 	String userId ;
 	String days;
@@ -45,7 +46,8 @@ public class DummyOrderFilterActivity extends Activity
 	TextView tvall , tvpaid , tvunpaid;
 	TextView tvdate, tvSeller, tvSubTotal, tvStatus;
 	EditText etDays;
-	Button apply;
+	Button apply, clear;
+	TextView toggleseller, toggledays, togglestatus, togglesortby;
     List<HashMap<String,String>> listToSubmit = new ArrayList<>();
 
 	@Override
@@ -54,8 +56,13 @@ public class DummyOrderFilterActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.order_filter);
 		apply = (Button) findViewById(R.id.applyfilter);
+        clear = (Button) findViewById(R.id.clearfilter);
+
 		inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 		sellerContainer = (ViewGroup) findViewById(R.id.storeFilterContainer);
+		statuscontainer = (ViewGroup) findViewById(R.id.statuscontainer);
+		sortbyoptncontainer = (ViewGroup) findViewById(R.id.sortbyoptnscntainer);
+
 
 		JSONObject jsonObject = JSONDTO.getInstance().getJsonUser();
 
@@ -73,8 +80,8 @@ public class DummyOrderFilterActivity extends Activity
 		settingListeners();
 
 		apply.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent(DummyOrderFilterActivity.this, PreviousDummyOrders.class);
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                 int restoreduserid = prefs.getInt("userId", 0);
@@ -83,12 +90,17 @@ public class DummyOrderFilterActivity extends Activity
                 intent.putExtra("paymentFilter", paymentFilter);
 
 
-
-                intent.putExtra("dayFilter" , Integer.parseInt(etDays.getText().toString()));
-				startActivity(intent);
+                intent.putExtra("dayFilter", Integer.parseInt(etDays.getText().toString()));
+                startActivity(intent);
                 finish();
-			}
-		});
+            }
+        });
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recreate();
+            }
+        });
 
 	}
 
@@ -102,35 +114,102 @@ public class DummyOrderFilterActivity extends Activity
 		tvStatus = (TextView) findViewById(R.id.statusfilter);
 		tvSubTotal = (TextView) findViewById(R.id.subtotalfilter);
 		etDays = (EditText) findViewById(R.id.dayset);
+		toggleseller = (TextView) findViewById(R.id.toggleseller);
+		toggledays = (TextView) findViewById(R.id.toggledays);
+		togglestatus = (TextView) findViewById(R.id.togglestatus);
+		togglesortby = (TextView) findViewById(R.id.togglesortby);
 
 
+		toggleseller.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
 
+                sellerContainer.setVisibility(View.VISIBLE);
+                sortbyoptncontainer.setVisibility(View.GONE);
+                statuscontainer.setVisibility(View.GONE);
+                etDays.setVisibility(View.GONE);
+
+                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                view.setBackgroundColor(Color.WHITE);
+            }
+		});
+		toggledays.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+                sellerContainer.setVisibility(View.GONE);
+                sortbyoptncontainer.setVisibility(View.GONE);
+                statuscontainer.setVisibility(View.GONE);
+                etDays.setVisibility(View.VISIBLE);
+
+                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                view.setBackgroundColor(Color.WHITE);
+
+			}
+		});
+		togglestatus.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+                sellerContainer.setVisibility(View.GONE);
+                sortbyoptncontainer.setVisibility(View.GONE);
+                statuscontainer.setVisibility(View.VISIBLE);
+                etDays.setVisibility(View.GONE);
+
+                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                view.setBackgroundColor(Color.WHITE);
+			}
+		});
+
+		togglesortby.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+                sellerContainer.setVisibility(View.GONE);
+                sortbyoptncontainer.setVisibility(View.VISIBLE);
+                statuscontainer.setVisibility(View.GONE);
+                etDays.setVisibility(View.GONE);
+
+                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                view.setBackgroundColor(Color.WHITE);
+
+			}
+		});
 
 		tvall.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
 
-					tvall.setBackgroundResource(R.drawable.dayselectedbck);
-					tvpaid.setBackgroundResource(R.drawable.dayselectorborder);
-					tvunpaid.setBackgroundResource(R.drawable.dayselectorborder);
+					tvall.setBackgroundColor(Color.parseColor("#e8e8e8"));
+					tvpaid.setBackgroundColor(Color.parseColor("#ffffff"));
+					tvunpaid.setBackgroundColor(Color.parseColor("#ffffff"));
 					paymentFilter = "all";
 				}
 			});
 		tvpaid.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				tvpaid.setBackgroundResource(R.drawable.dayselectedbck);
-				tvall.setBackgroundResource(R.drawable.dayselectorborder);
-				tvunpaid.setBackgroundResource(R.drawable.dayselectorborder);
+				tvpaid.setBackgroundColor(Color.parseColor("#e8e8e8"));
+				tvall.setBackgroundColor(Color.parseColor("#ffffff"));
+				tvunpaid.setBackgroundColor(Color.parseColor("#ffffff"));
 				paymentFilter = "paid";
 			}
 		});
 		tvunpaid.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				tvunpaid.setBackgroundResource(R.drawable.dayselectedbck);
-				tvpaid.setBackgroundResource(R.drawable.dayselectorborder);
-				tvall.setBackgroundResource(R.drawable.dayselectorborder);
+				tvunpaid.setBackgroundColor(Color.parseColor("#e8e8e8"));
+				tvpaid.setBackgroundColor(Color.parseColor("#ffffff"));
+				tvall.setBackgroundColor(Color.parseColor("#ffffff"));
 				paymentFilter = "unpaid";
 			}
 		});

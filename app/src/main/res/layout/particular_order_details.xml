@@ -354,15 +354,27 @@
                 android:padding="10dp"
                 android:gravity="right">
                 <TextView
+                    android:id="@+id/updateorder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="7dp"
+                    android:text="Update"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="#d8d8d8"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="Order Amount"
                     android:textSize="15dp"
+                    android:gravity="right|center"
                     android:layout_marginRight="10dp"
                     android:id="@+id/textView22"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+
+                    android:layout_weight="1"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -371,8 +383,9 @@
                     android:textSize="16dp"
                     android:padding="5dp"
                     android:textStyle="bold"
+                    android:gravity="center"
                     android:id="@+id/tvOrderAmount"
-                    />
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </LinearLayout>
