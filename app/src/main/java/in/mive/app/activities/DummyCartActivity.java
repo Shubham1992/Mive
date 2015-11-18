@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -63,7 +64,7 @@ public class DummyCartActivity extends Activity {
     private JSONObject jsonObjAllItems;
     private JSONObject jsonObjEachItems;
     private String urlprdct = null;
-    private int qty=0;
+    private float qty=0;
     private  Button btnSubmitCart;
     private int totpayable;
     JSONObject eachItem;
@@ -72,12 +73,16 @@ public class DummyCartActivity extends Activity {
     private JSONParser jsonParser;
     private ProgressDialog pDialog;
     private AsyncTask<Void, Void, Void> updatetsk;
-    private TextView  tvtotal;
-boolean enabledBtn= true;
+
+    boolean enabledBtn= true;
     private View viewCategoryCart;
     private JSONArray jsonArraySeecrt;
     private JSONArray jsonArrayItems;
     String userId;
+    private float pricePerUnit = 0;
+    private List<HashMap<String, String >> listofItems = new ArrayList<>();
+    private float totalAmount;
+    ImageView bckhome; Button buttonUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -87,21 +92,24 @@ boolean enabledBtn= true;
         JSONObject jsonProduct = JSONDTO.getInstance().getJsonProductscat1();
 //        JSONArray jsonArrayProducts = jsonProduct.optJSONArray("results");
         jsonParser =new JSONParser();
-        btnSubmitCart = (Button) findViewById(R.id.btnSubmitCart);
-        tvtotal = (TextView) findViewById(R.id.tvtotal);
-
-        btnSubmitCart.setOnClickListener(new View.OnClickListener() {
+        bckhome = (ImageView) findViewById(R.id.imgbckHome);
+        bckhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(DummyCartActivity.this, OrderActivity.class);
-                intent.putExtra("price", totpayable);
-                startActivity(intent);
                 finish();
-
             }
         });
-        ActionBar  actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        buttonUpdate = (Button) findViewById(R.id.btnupdate);
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new SendUpdateDataAddToCart().execute();
+            }
+        });
+
+
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
         {
             Window window = getWindow();
@@ -135,28 +143,28 @@ boolean enabledBtn= true;
         return (super.onOptionsItemSelected(menuItem));
     }
 
-	//get see cart
-	private class GetseeCartData extends AsyncTask<Void, Void, Void>
-	{
+    //get see cart
+    private class GetseeCartData extends AsyncTask<Void, Void, Void>
+    {
 
 
 
         @Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			// Showing progress dialog
-			pDialog = new ProgressDialog(DummyCartActivity.this);
-			pDialog.setMessage("Creating your Cart...");
-			pDialog.setCancelable(false);
-			pDialog.show();
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // Showing progress dialog
+            pDialog = new ProgressDialog(DummyCartActivity.this);
+            pDialog.setMessage("Creating your Cart...");
+            pDialog.setCancelable(false);
+            pDialog.show();
 
-		}
+        }
 
-		@Override
-		protected Void doInBackground(Void... arg0) {
-			// Creating service handler class instance
-			ServiceHandler sh = new ServiceHandler();
-			// Making a request to url and getting response
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            // Creating service handler class instance
+            ServiceHandler sh = new ServiceHandler();
+            // Making a request to url and getting response
 
 
 
@@ -168,35 +176,35 @@ boolean enabledBtn= true;
 
             String urlseecrt = "http://www.mive.in/api/seedummycart/?userId="+userId;
 
-			String jsonStr = sh.makeServiceCall(urlseecrt, ServiceHandler.GET);
+            String jsonStr = sh.makeServiceCall(urlseecrt, ServiceHandler.GET);
 
 
 
-			// Log.d("Response cartitems: ", "> " + jsonStr);
+            // Log.d("Response cartitems: ", "> " + jsonStr);
 
-			if (jsonStr != null) {
-				try {
-					Log.e("json see crt", jsonStr.toString());
-                     jsonArraySeecrt = new JSONArray(jsonStr);
+            if (jsonStr != null) {
+                try {
+                    Log.e("json see crt", jsonStr.toString());
+                    jsonArraySeecrt = new JSONArray(jsonStr);
                     Log.e("json dummy  see", jsonArraySeecrt.toString());
 
 
-					// JSONDTO.getInstance().setJsonProductscat1(jsonObj);
+                    // JSONDTO.getInstance().setJsonProductscat1(jsonObj);
 
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-			} else {
-				Log.e("ServiceHandler", "Couldn't get any data from the url");
-			}
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Log.e("ServiceHandler", "Couldn't get any data from the url");
+            }
 
 
-			return null;
-		}
-		List<Map> resultList;
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
+            return null;
+        }
+        List<Map> resultList;
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
             layoutItemList.removeAllViews();
 
             if (pDialog.isShowing())
@@ -206,13 +214,13 @@ boolean enabledBtn= true;
             for (int i= 0; i <jsonArraySeecrt.length(); i++)
             {
                 JSONObject jsonObject = jsonArraySeecrt.optJSONObject(i);
-                 jsonArrayItems = jsonObject.optJSONArray("items");
+                jsonArrayItems = jsonObject.optJSONArray("items");
                 JSONObject sellerObj = jsonObject.optJSONObject("seller");
                 final String nameOfSeller = sellerObj.optString("nameOfSeller");
                 final String sellerId = sellerObj.optString("seller_id");
 
 
-              //  new GetItemListData().execute();
+                //  new GetItemListData().execute();
 
                 View  viewCategryOfItems = inflater.inflate(R.layout.category_cart_holder, layoutItemList, false);
                 LinearLayout linearLayoutCategryOfItems = (LinearLayout) viewCategryOfItems.findViewById(R.id.prdct_holder);
@@ -226,7 +234,7 @@ boolean enabledBtn= true;
                 getItemsCart(linearLayoutCategryOfItems);
 
 
-                tvCatTotal.setText("Rs "+totpayable);
+                tvCatTotal.setText(""+totpayable);
                 final int totCost = totpayable;
                 buttonPlaceOrdr.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -236,7 +244,7 @@ boolean enabledBtn= true;
                         intent.putExtra("price", ""+totCost);
                         intent.putExtra("sellerId", sellerId);
                         intent.putExtra("sellerName", nameOfSeller);
-
+                        intent.putExtra("invoiceOnly", "no");
                         intent.putExtra("dummycartId",JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
                         intent.putExtra("isDummy", true);
 
@@ -251,9 +259,9 @@ boolean enabledBtn= true;
             }
 
 
-		}
+        }
 
-	}
+    }
 
 
 
@@ -261,7 +269,7 @@ boolean enabledBtn= true;
     void getItemsCart(ViewGroup layoutCategoryHolder)
     {
         if (pDialog.isShowing())
-        pDialog.cancel();
+            pDialog.cancel();
 
         Log.e("arritems", jsonArrayItems.toString());
         JSONArray arritems =jsonArrayItems; // jsonObjAllItems.optJSONArray("results");
@@ -278,7 +286,8 @@ boolean enabledBtn= true;
                 map.put("product", eachItem.optJSONObject("product"));
                 Log.e("product in cart", eachItem.optJSONObject("product").toString());
                 map.put("units", eachItem.optString("qtyInUnits"));
-                map.put("cartItemId", eachItem.optString("cartitem_id"));
+                map.put("cartItemId", eachItem.optString("dummycartitem_id"));
+                map.put("pricePerUnit", eachItem.optString("pricePerUnit"));
 
                 l.add(map);
 
@@ -293,7 +302,7 @@ boolean enabledBtn= true;
         }
 
         DummyCartItemListDTO.getInstance().setItemlist(l);
-       // new GetEachProductData().execute();
+        // new GetEachProductData().execute();
         getEachPrdct(layoutCategoryHolder);
 
 
@@ -305,7 +314,8 @@ boolean enabledBtn= true;
     void getEachPrdct(ViewGroup layoutCatholder)
     {
         Log.e("qty value in list", DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
-        qty = Integer.parseInt(DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
+        qty = Float.parseFloat(DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("units").toString());
+        pricePerUnit = Float.parseFloat(DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("pricePerUnit").toString());
         Log.e("qty in getprdct", "" + qty);
 
 
@@ -326,42 +336,76 @@ boolean enabledBtn= true;
         }
 
 
-        View cartItmView = inflater.inflate(R.layout.cards_cart,null);
+        View cartItmView = inflater.inflate(R.layout.dumy_cards_cart,null);
         TextView tvProductName = (TextView) cartItmView.findViewById(R.id.tvProductName);
-        final TextView tvQuantitySelected = (TextView) cartItmView.findViewById(R.id.tvQuantitySelected);
+
         ImageView productImage = (ImageView)cartItmView.findViewById(R.id.imgProductPhoto);
-        final TextView btnPlusQuantity = (TextView)cartItmView.findViewById(R.id.btnPlusQuantity);
-        final TextView btnMinusQuantity = (TextView)cartItmView.findViewById(R.id.btnMinusQuantity);
-        final TextView tvPrice = (TextView)cartItmView.findViewById(R.id.tvPricePerUnittext);
-        final TextView tvSelectedQuantity =(TextView)cartItmView.findViewById(R.id.tvAvailableQuantity);
-        final TextView tvUnitType =(TextView)cartItmView.findViewById(R.id.tvUnitType);
+        final ImageView deleteItemview = (ImageView) cartItmView.findViewById(R.id.deleteItem);
+        final EditText etPrice = (EditText)cartItmView.findViewById(R.id.etPricePerItemTotal);
+        final EditText etSelectedQuantity =(EditText)cartItmView.findViewById(R.id.editTextQty);
+        final EditText editTextAmount =(EditText)cartItmView.findViewById(R.id.editTextAmount);
+
+
 
 
         //PRODUCTID = itemlist.get(c).get("id").toString();
-        tvQuantitySelected.setText(""+qty);
-        final int ppu = jsonObjEachItems.optInt("pricePerUnit");
-        int totPricePeritem = ppu * qty;
+        etSelectedQuantity.setText(""+qty);
+        etPrice.setText(""+pricePerUnit);
+        editTextAmount.setText(""+ (qty*pricePerUnit));
+        totpayable += (qty*pricePerUnit);
 
-//            final String itemId = jsonObjEachItems.optString("product_id").toString();
 
-        //...
-        Log.e("loading nm", ""+loadingprdctnmbr);
-        //..
+
+       // predefined ppu for each product
+        final float ppu = jsonObjEachItems.optInt("pricePerUnit");
+
+
+
+
+
+
         if(loadingprdctnmbr >=sizeofcartlist)
             return;
         //...
 
         final String itemId = DummyCartItemListDTO.getInstance().getItemlist().get(loadingprdctnmbr).get("cartItemId").toString();
-        Log.e("cart item id", itemId);
-        //
-        final List<HashMap> l = DummyCartItemListDTO.getInstance().getItemlist();
-        //l.get(loadingprdctnmbr).put("itemId",jsonObjEachItems.optInt("product_id"));
-        l.get(loadingprdctnmbr).put("itemId",itemId);
 
-        tvPrice.setText("Rs. "+totPricePeritem);
-        totpayable +=totPricePeritem;
+        HashMap<String , String> map = new HashMap<String, String>();
+        map.put("productId", "" + itemId);
+        map.put("pricePerUnit", "" + pricePerUnit);
+        map.put("qty", "" + qty);
 
-        tvtotal.setText("Rs. "+totpayable);
+        listofItems.add(map);
+
+        deleteItemview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+               /* listofItems.get(loadingprdctnmbr).put("qty", ""+0);
+                new SendUpdateDataAddToCart().execute();*/
+                Log.e("list of items before" , listofItems.toString());
+
+
+                for (int i =0; i< listofItems.size(); i++)
+                {
+                    String tmpitemid = listofItems.get(i).get("productId").toString();
+                    if(itemId.equals(tmpitemid))
+                    {
+                        listofItems.get(i).put("qty",""+0);
+                    }
+                }
+                Log.e("listofitems delete" , listofItems.toString());
+
+                new SendUpdateDataAddToCart().execute();
+            }
+        });
+
+        setTextListeners(etSelectedQuantity, etPrice, editTextAmount, itemId);
+
+        //tvPrice.setText("Rs. "+totPricePeritem);
+
+
+
 
         tvProductName.setText(jsonObjEachItems.optString("name"));
         int loader = R.drawable.tomato;
@@ -369,92 +413,7 @@ boolean enabledBtn= true;
         imgLoader.DisplayImage("http://www.mive.in/" + jsonObjEachItems.optString("coverphotourl"), loader, productImage);
 
 
-        tvP = btnPlusQuantity;
-        tvM =btnMinusQuantity;
 
-        btnPlusQuantity.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            { if(!enabledBtn)
-            {
-                //btnPlusQuantity.setAlpha(0.5F);
-
-
-                return;
-            }
-
-                enabledBtn = false;
-                //btnPlusQuantity.setAlpha(1);
-
-                boolean flagSame = false;
-                int qnt = Integer.parseInt(tvQuantitySelected.getText().toString());
-                qnt++;
-
-                tvQuantitySelected.setText("" + qnt);
-                // check if itemList has a map that alredy has a value of "id" same as current id.
-                // If yes then just add the units else create new map and add in list
-                //Log.e("real size", ""+realS);
-
-                updateCart(itemId, "" + qnt);
-                int totPricePeritem = ppu * qnt;
-                tvPrice.setText("Rs. "+totPricePeritem);
-                totpayable +=ppu;
-
-
-                tvtotal.setText("Rs. " + totpayable);
-
-                new GetseeCartData().execute();
-
-
-
-            }
-        });
-        btnMinusQuantity.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-
-                if(!enabledBtn)
-                {
-                    //    btnMinusQuantity.setAlpha(0.5F);
-                    return;
-                }
-
-                enabledBtn = false;
-                //  btnMinusQuantity.setAlpha(1);
-
-
-                boolean flagRemove = true;
-                int qnt = Integer.parseInt(tvQuantitySelected.getText().toString());
-
-                if (qnt >= 1)
-                { qnt--;
-
-                    tvQuantitySelected.setText("" + qnt);
-
-                    updateCart(itemId,""+qnt);
-                    int totPricePeritem = ppu * qnt;
-                    tvPrice.setText("Rs. "+totPricePeritem);
-                    totpayable -=ppu;
-
-                    if(totpayable <= 0 )
-                    {
-                        btnSubmitCart.setEnabled(false);
-                        btnSubmitCart.setAlpha(0.6F);
-                    }
-                    tvtotal.setText("Rs. "+totpayable);
-                }
-                else if(qnt == 0)
-                {
-                    // recreate();
-                }
-                new GetseeCartData().execute();
-
-            }
-
-
-        });
 
 
 
@@ -466,18 +425,208 @@ boolean enabledBtn= true;
         if(loadingprdctnmbr < sizeofcartlist)
         {
 
-           getEachPrdct(layoutCatholder);
+            getEachPrdct(layoutCatholder);
         }
         else
         {
-           loadingprdctnmbr = 0;
+            loadingprdctnmbr = 0;
             return; // CartItemListDTO.getInstance().setProductMap(new ArrayList<HashMap>());
         }
     }
-	//see item api
+    private void setTextListeners(final EditText editTextQty, final EditText editTextPPU,final EditText editTextAmount, final String productId)
+    {
 
-    TextView tvP , tvM;
-    // Async class to get data from server
+
+
+        editTextQty.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    if (editTextPPU.getText() != null && editTextPPU.getText().length() > 0)
+                    {
+                        float ppu = Float.parseFloat(editTextPPU.getText().toString());
+
+                        if(editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
+                        {
+                            float oldamt = Float.parseFloat(editTextAmount.getText().toString());
+                            totalAmount = totalAmount - oldamt;
+                        }
+                        if(editTextQty.getText().length() > 0)
+                            editTextAmount.setText("" + (ppu * Float.parseFloat(editTextQty.getText().toString())));
+
+                        Log.e("Mive: ", "EdittextAmount " + editTextAmount.getText().toString());
+                        Log.e("Mive: ", "Var Total Amount "+totalAmount);
+
+
+  /*                      totalAmount = totalAmount + Integer.parseInt(editTextAmount.getText().toString());
+                        tvtotal.setText(""+totalAmount);
+*/
+                        HashMap<String , String> map = new HashMap<String, String>();
+                        map.put("productId", "" + productId);
+                        map.put("pricePerUnit", "" + ppu);
+                        map.put("qty", editTextQty.getText().toString());
+                        removePrevious(listofItems, productId);
+                        listofItems.add(map);
+                        Log.e("List of items", listofItems.toString());
+
+
+                    }
+                    else if (editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
+                    {
+                        float amount = Float.parseFloat(editTextAmount.getText().toString());
+                        editTextPPU.setText("" + (amount / Float.parseFloat(editTextQty.getText().toString())));
+
+                        HashMap<String , String> map = new HashMap<String, String>();
+                        map.put("productId", "" + productId);
+                        map.put("pricePerUnit", "" + editTextPPU.getText().toString());
+                        map.put("qty", editTextQty.getText().toString());
+                        removePrevious(listofItems, productId);
+                        listofItems.add(map);
+                        Log.e("List of items", listofItems.toString());
+
+                    }
+                }
+            }
+        });
+
+        editTextPPU.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if ( !b) {
+                    if (editTextQty.getText() != null && editTextQty.getText().length() > 0)
+                    {
+                        float qty = Float.parseFloat(editTextQty.getText().toString());
+
+                        if(editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
+                        {
+                            float oldamt = Float.parseFloat(editTextAmount.getText().toString());
+                            totalAmount = totalAmount - oldamt;
+                        }
+                        if(editTextPPU.getText().length() > 0)
+                            editTextAmount.setText("" + (qty * Float.parseFloat(editTextPPU.getText().toString())));
+
+                        Log.e("Mive: ", "EdittextAmount " + editTextAmount.getText().toString());
+                        Log.e("Mive: ", "Var Total Amount " + totalAmount);
+
+
+                        /*totalAmount = totalAmount + Float.parseFloat(editTextAmount.getText().toString());
+                        tvtotal.setText("" + totalAmount);
+*/
+                        HashMap<String , String> map = new HashMap<String, String>();
+                        map.put("productId", "" + productId);
+                        map.put("pricePerUnit", "" + editTextPPU.getText().toString());
+                        map.put("qty", editTextQty.getText().toString());
+                        removePrevious(listofItems, productId);
+                        listofItems.add(map);
+                        Log.e("List of items", listofItems.toString());
+
+
+                    }
+                    else if (editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
+                    {
+                        float amount = Float.parseFloat(editTextAmount.getText().toString());
+                        editTextQty.setText("" + (amount / Float.parseFloat(editTextPPU.getText().toString())));
+
+                        HashMap<String , String> map = new HashMap<String, String>();
+                        map.put("productId", "" + productId);
+                        map.put("pricePerUnit", "" + editTextPPU.getText().toString());
+                        map.put("qty", editTextQty.getText().toString());
+                        removePrevious(listofItems, productId);
+                        listofItems.add(map);
+                        Log.e("List of items", listofItems.toString());
+                    }
+                }
+            }
+        });
+
+        editTextAmount.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+
+                if (b)
+                {
+                    if(editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
+                    {
+
+                        float oldamt = Float.parseFloat(editTextAmount.getText().toString());
+                        Log.e("Mive: ", "Var Old Amount "+oldamt);
+
+                        totalAmount = totalAmount - oldamt;
+                    }
+                }
+                else if ( !b) {
+
+
+
+                    if (editTextQty.getText() != null && editTextQty.getText().length() > 0 )
+                    {
+                        if(editTextAmount.getText().length()>0) {
+                            float qty = Float.parseFloat(editTextQty.getText().toString());
+
+                            if(qty != 0)
+                            {
+                                editTextPPU.setText("" + (Float.parseFloat(editTextAmount.getText().toString()) / qty));
+                                HashMap<String , String> map = new HashMap<String, String>();
+                                map.put("productId", "" + productId);
+                                map.put("pricePerUnit", "" + editTextPPU.getText().toString());
+                                map.put("qty", editTextQty.getText().toString());
+                                removePrevious(listofItems, productId);
+                                listofItems.add(map);
+                                Log.e("List of items", listofItems.toString());
+                            }
+                        }
+                    }
+                    else if (editTextPPU.getText() != null && editTextPPU.getText().length() > 0)
+                    {
+                        if(editTextAmount.getText().length()>0)
+                        {
+                            float ppu = Float.parseFloat(editTextPPU.getText().toString());
+                            if(ppu != 0)
+                            {
+                                editTextQty.setText("" + (Float.parseFloat(editTextAmount.getText().toString()) / ppu));
+                                HashMap<String , String> map = new HashMap<String, String>();
+                                map.put("productId", "" + productId);
+                                map.put("pricePerUnit", "" + editTextPPU.getText().toString());
+                                map.put("qty", editTextQty.getText().toString());
+                                removePrevious(listofItems, productId);
+                                listofItems.add(map);
+                                Log.e("List of items", listofItems.toString());
+                            }
+                        }
+                    }
+
+
+
+
+
+                  /*  Log.e("Mive: ", "Var Total Amount "+totalAmount);
+                    Log.e("Mive: ", "EdittextAmount " + editTextAmount.getText().toString());
+
+
+                    totalAmount = totalAmount + Float.parseFloat(editTextAmount.getText().toString());
+                    tvtotal.setText(""+totalAmount);*/
+
+
+                }
+
+            }
+        });
+
+    }
+
+    private void removePrevious(List<HashMap<String, String>> listofItems, String productId)
+    {
+      for (int i = 0; i< listofItems.size(); i++)
+      {
+          String tmpprdctid = listofItems.get(i).get("productId").toString();
+          if(productId.equals(tmpprdctid))
+          {
+              listofItems.remove(i);
+              return;
+          }
+      }
+    }
+
 
     // update the cart in background
     private class SendUpdateDataAddToCart extends AsyncTask<Void, Void, Void>
@@ -512,29 +661,28 @@ boolean enabledBtn= true;
             // Making a request to urlupdatecart and getting response
             // get he list fo items here and put it in json
             itemsList = UpdateItemListDTO.getInstance().getItemlist();
-            Log.e("list update",itemsList.toString());
+            Log.e("list update", itemsList.toString());
 
 
             // Building Parameters
-            JSONObject params= null;
+            JSONObject params = null;
             params = new JSONObject();
             try {
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
-                int restoreduserid = prefs.getInt("userId",0);
+                int restoreduserid = prefs.getInt("userId", 0);
                 Log.e("retrieved id", "" + restoreduserid);
 
 
-                params.put("dummycartId",JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
-                params.put("userId",""+restoreduserid);
+                params.put("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
+                params.put("userId", "" + restoreduserid);
                 JSONObject jsonItems = new JSONObject();
-                for (int i = 0; i < itemsList.size(); i++)
+                for (int i = 0; i < listofItems.size(); i++)
                 {
                     HashMap<String,String> hashMap = new HashMap();
-
-                    hashMap.put("qty", "" + itemsList.get(i).get("qty").toString());
-
-                    if(itemsList.get(i).get("itemId") != null)
-                    hashMap.put("itemId",""+itemsList.get(i).get("itemId").toString());
+                    hashMap.put("qty",listofItems.get(i).get("qty").toString());
+                    hashMap.put("itemId",listofItems.get(i).get("productId").toString());
+                    hashMap.put("itemId",listofItems.get(i).get("productId").toString());
+                    hashMap.put("pricePerUnit", listofItems.get(i).get("pricePerUnit").toString());
 
 
                     JSONObject objOneItem = new JSONObject(hashMap.toString());
@@ -542,7 +690,6 @@ boolean enabledBtn= true;
 
                 }
 
-                Log.e("json update", jsonItems.toString());
                 params.put("items",jsonItems);
 
 
@@ -565,15 +712,15 @@ boolean enabledBtn= true;
             if (pDialog.isShowing())
                 pDialog.dismiss();
             if(jsonObjectresult != null)
-            Log.e("result", jsonObjectresult.toString());
+                Log.e("result", jsonObjectresult.toString());
             UpdateDummyItemListDTO.getInstance().setItemlist(new ArrayList<HashMap>());
 
             enabledBtn=true;
+            listofItems = new ArrayList<>();
+            new GetseeCartData().execute();
 
 
 
-          /*  btnPlusQuantity.setEnabled(true);
-            btnMinusQuantity.setEnabled(true);*/
         }
 
     }
@@ -595,7 +742,7 @@ boolean enabledBtn= true;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-       finish();
+        finish();
     }
 
     @Override
@@ -613,9 +760,9 @@ boolean enabledBtn= true;
         {
             String id = l.get(i).get("itemId").toString();
             if(id.trim().equalsIgnoreCase(itemId.trim())) {Log.e("inside check", "true");
-                 l.get(i).put("units",updatedQty);
-                    break;
-                }
+                l.get(i).put("units",updatedQty);
+                break;
+            }
 
         }
         CartItemListDTO.getInstance().setItemlist(l);
@@ -636,11 +783,11 @@ boolean enabledBtn= true;
             listUpdate.add(map);
         }
         UpdateDummyItemListDTO.getInstance().setItemlist(listUpdate);
-         if(updatetsk != null)
-         {  updatetsk.cancel(true);
+        if(updatetsk != null)
+        {  updatetsk.cancel(true);
             // UpdateDummyItemListDTO.getInstance().setProductMap(new ArrayList<HashMap>());
-         }
-          updatetsk = new SendUpdateDataAddToCart();
+        }
+        updatetsk = new SendUpdateDataAddToCart();
         updatetsk.execute();
     }
 

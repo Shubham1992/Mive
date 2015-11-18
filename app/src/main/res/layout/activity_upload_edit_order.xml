@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="horizontal"
+        android:background="#21bdba">
+
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bckarrowwhite"
+            android:id="@+id/imgbckHome"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="17dp"
+            android:text="Update Order"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/titleActionBar"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imgbckHome"
+            android:layout_toEndOf="@+id/imgbckHome" />
+
+        <Button
+            android:id="@+id/btnCrt"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shopping232"
+            android:layout_gravity="right|center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="0"
+            android:visibility="gone"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"
+            android:paddingLeft="3dp"
+            android:gravity="center"
+            android:textColor="#21bdba"/>
+
+
+
+    </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:layout_marginBottom="50dp"
+    android:layout_marginTop="?android:attr/actionBarSize">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <!-- To display picture taken -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/frameImageContainer">
+            <ImageView
+                android:id="@+id/imgPreview"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:visibility="visible"
+
+                android:background="@drawable/userbck"/>
+
+            <!-- Videoview to preview recorded video -->
+
+
+
+            <TextView
+                android:id="@+id/txtPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="%"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:layout_marginBottom="45dp"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+
+                android:layout_height="10dp"
+
+
+                android:visibility="visible"
+                android:layout_gravity="bottom"/>
+
+            <ImageView
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imageViewInvoiceUpload"
+
+
+                android:src="@drawable/camera"
+               android:layout_margin="20dp"
+
+                android:layout_gravity="right|bottom" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/tvDate"
+                android:background="@drawable/bck_invooice_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+
+
+                android:text="Pick A Date"
+               android:textSize="15dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                android:textStyle="normal"
+                android:layout_marginTop="20dp"
+                />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/calendar"
+                android:padding="5dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="9dp"
+                android:layout_gravity="right|center"/>
+        </FrameLayout>
+            <EditText
+                android:id="@+id/etOrderMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bck_invooice_buttons"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+               android:hint="Comments (optional)" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bck_invooice_buttons"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/ettotal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+
+                    android:hint="Amount"
+                    android:inputType="numberDecimal"
+
+                    android:textColor="#000000"
+                    android:background="#e8e8e8"
+                    android:gravity="left|center"
+
+                    android:padding="10dp"
+                    android:textSize="16dp"
+                    android:textStyle="normal"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+               android:background="#c8c8c8"
+                android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/unpaid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Un-Paid"
+                android:padding="12dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#21bdba"
+                android:background="@drawable/greyselectorborder"
+                android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/paid"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Paid"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:layout_weight="1"
+                    android:textColor="#21bdba"
+                    android:background="@drawable/greyselectorborder"
+                    android:textStyle="bold"/>
+        </LinearLayout>
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Payment Status: "
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="#808080"
+        android:textOff="Unpaid"
+        android:textOn="Paid"
+        android:layout_marginTop="20dp"
+        android:id="@+id/switchPaymntstatus"
+        android:layout_gravity="right|bottom" />
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flag: "
+        android:textOff="    Off   "
+        android:textOn="   On    "
+        android:textColor="#808080"
+        android:paddingLeft="20dp"
+       android:layout_marginTop="20dp"
+        android:id="@+id/switchflag"
+        android:paddingRight="21dp"
+        android:layout_gravity="right|bottom" />
+
+        </LinearLayout>
+</ScrollView>
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#21bdba"
+        android:gravity="center"
+
+        android:text="Update Order"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        />
+
+
+
+
+</FrameLayout>

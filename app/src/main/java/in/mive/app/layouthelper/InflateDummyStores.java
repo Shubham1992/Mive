@@ -143,6 +143,8 @@ public class InflateDummyStores {
         }
 
         SavedSellerIds.getInstance().setList(list);
-        SavedSellerProductsMap.getInstance().setProductMap(map);
+       /* if(SavedSellerProductsMap.getInstance().getProductMap() !=  null
+                && SavedSellerProductsMap.getInstance().getProductMap().size() < 1)*/
+            SavedSellerProductsMap.getInstance().setProductMap(map);
     }
 }

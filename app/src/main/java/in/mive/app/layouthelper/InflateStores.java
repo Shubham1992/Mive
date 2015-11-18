@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mive.R;
 
@@ -32,6 +33,11 @@ public class InflateStores {
     {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         map = new HashMap();
+        if(jsonObject== null)
+        {
+            Toast.makeText(context, "No Data Retrieved. Try again", Toast.LENGTH_SHORT).show();
+            return;
+        }
         JSONArray jsonArray = jsonObject.optJSONArray("categories");
 
         for (int i = 0; i < jsonArray.length(); i++) {

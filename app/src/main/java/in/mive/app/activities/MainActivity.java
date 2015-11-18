@@ -119,9 +119,11 @@ public class MainActivity extends FragmentActivity
     private String sellerId;
     private LinearLayoutManager layoutManager, layoutManager2;
     private TextView totalAmountFinal;
-    private TextView skipbutton;
+    private TextView skipbutton, nextbutton;
+             private Button btnPaymntHistry;
 
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+
+             @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 
 
     @Override
@@ -138,6 +140,8 @@ public class MainActivity extends FragmentActivity
         layoutManager2 = new LinearLayoutManager(MainActivity.this);
         totalAmountFinal = (TextView) findViewById(R.id.totalAmountFinal);
         skipbutton = (TextView) findViewById(R.id.skipbutton);
+        nextbutton = (TextView) findViewById(R.id.tvnxt);
+
 
 
         rvSearch.setLayoutManager(layoutManager);
@@ -172,6 +176,7 @@ public class MainActivity extends FragmentActivity
                 intent.putExtra("userId", restoreduserid);
                 intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
                 intent.putExtra("sellerId", sellerId);
+                intent.putExtra("invoiceOnly", "yes");
 
 
                 intent.putExtra("sellerName", sellername);
@@ -206,6 +211,9 @@ public class MainActivity extends FragmentActivity
         //ab.setSubtitle("sub-title");
 
         GetProductsComponentFromJsonArray fromJsonArray = new GetProductsComponentFromJsonArray();
+        Log.e("Cat id selected", catId);
+        Log.e("saved prdcts", SavedSellerProductsMap.getInstance().getProductMap().get(catId).toString());
+
         products = fromJsonArray.getComponent(MainActivity.this, SavedSellerProductsMap.getInstance().getProductMap().get(catId));
 
 
@@ -213,7 +221,7 @@ public class MainActivity extends FragmentActivity
         {
 
             RecyclerViewProductsInflator  viewProductsInflator = new RecyclerViewProductsInflator();
-            viewProductsInflator.inflateProducts(products, MainActivity.this , rvProducts, totalAmountFinal);
+            viewProductsInflator.inflateProducts(products, MainActivity.this , rvProducts, totalAmountFinal, nextbutton);
 
 
         }
@@ -229,9 +237,7 @@ public class MainActivity extends FragmentActivity
             // we have internet connection, so it is save to connect to the internet here
 
 
-
-
-            new GetCartData().execute();
+           // new GetCartData().execute();
             setUserInDrawer(JSONDTO.getInstance().getJsonUser());
         }
 
@@ -376,7 +382,7 @@ void hideFragments()
                    // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
                    hideFragments();
-                  new GetSearchedData().execute();
+                 // new GetSearchedData().execute();
                     //..........
                     return false;
                 }
@@ -867,43 +873,39 @@ void hideFragments()
 
                 rvSearch.setVisibility(View.GONE);}
         });*/
-        btnInvoiceSubmit = (Button) findViewById(R.id.btInvoiceupload);
-        btnInvoiceSubmit.setOnClickListener(new View.OnClickListener() {
+        btnPaymntHistry = (Button) findViewById(R.id.btPaymntHistory);
+        btnPaymntHistry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rvSearch.setVisibility(View.GONE);
 
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
+
+                if (fragmentFAQ != null) {
+                    Fragment fr = fragmentFAQ;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
+                if (fragmentContact != null) {
+                    Fragment fr = fragmentContact;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-                if(fragmenthelp !=null)
-                {
-                    Fragment fr=fragmenthelp;
+                if (fragmenthelp != null) {
+                    Fragment fr = fragmenthelp;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-                Intent intent =new Intent(MainActivity.this, InvoiceUploadActivity.class);
+                Intent  intent = new Intent(MainActivity.this, PaymentHistory.class);
+
+
                 mDrawerLayout.closeDrawers();
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                 int restoreduserid = prefs.getInt("userId", 0);
                 intent.putExtra("userId", restoreduserid);
-                intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
-                intent.putExtra("sellerId", sellerId);
                 mDrawerLayout.closeDrawers();
                 startActivity(intent);
 
             }
         });
-
 
         btnPrevOrders = (Button) findViewById(R.id.btPreviousOrders);
         btnPrevOrders.setOnClickListener(new View.OnClickListener() {

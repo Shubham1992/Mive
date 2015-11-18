@@ -24,42 +24,45 @@ import java.util.Map;
 
 public class GetProductsComponentFromJsonArray
 {
-	public List<Map> getComponent(Context context, JSONArray jsonObject)
+	public List<Map> getComponent(Context context, JSONArray jsonArray)
 	{List<Map> productList=new ArrayList();
 
-		JSONArray productResults = jsonObject;
+		JSONArray productResults = jsonArray;
 		JSONObject productObj = null;
-		for (int i = 0; i < jsonObject.length(); i++)
-		{
 
-			try
+
+
+			for (int i = 0; i < jsonArray.length(); i++)
 			{
-				productObj = productResults.getJSONObject(i);
-			} catch (JSONException e)
-			{
-				e.printStackTrace();
+
+				try
+				{
+					productObj = productResults.getJSONObject(i);
+				} catch (JSONException e)
+				{
+					e.printStackTrace();
+				}
+
+				String productName = productObj.optString("name");
+				String productRate = productObj.optString("pricePerUnit");
+				String coverPhotoUrl = productObj.optString("coverphotourl");
+				int productId = productObj.optInt("product_id");
+				int priceperunit =productObj.optInt("pricePerUnit");
+				String availableQty = productObj.optString("unit");
+
+				HashMap productMap=new HashMap();
+				productMap.put("productName",productName);
+				productMap.put("productRate",productRate);
+				productMap.put("productImage",coverPhotoUrl);
+				productMap.put("productId",productId);
+				productMap.put("pricePerUnit",priceperunit);
+				productMap.put("availableQty",availableQty);
+
+
+
+				productList.add(productMap);
+				//Log.e("Product map", productMap.toString());
 			}
-
-			String productName = productObj.optString("name");
-			String productRate = productObj.optString("pricePerUnit");
-			String coverPhotoUrl = productObj.optString("coverphotourl");
-			int productId = productObj.optInt("product_id");
-			int priceperunit =productObj.optInt("pricePerUnit");
-			String availableQty = productObj.optString("unit");
-
-			HashMap productMap=new HashMap();
-			productMap.put("productName",productName);
-			productMap.put("productRate",productRate);
-			productMap.put("productImage",coverPhotoUrl);
-			productMap.put("productId",productId);
-			productMap.put("pricePerUnit",priceperunit);
-			productMap.put("availableQty",availableQty);
-
-
-
-			productList.add(productMap);
-			//Log.e("Product map", productMap.toString());
-		}
 
 
 

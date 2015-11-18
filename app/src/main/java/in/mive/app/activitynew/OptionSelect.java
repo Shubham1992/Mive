@@ -43,6 +43,7 @@ import in.mive.app.activities.FAQFragment;
 import in.mive.app.activities.HelpNSupport;
 import in.mive.app.activities.LoginActivity;
 import in.mive.app.activities.MainActivity;
+import in.mive.app.activities.PaymentHistory;
 import in.mive.app.activities.PreviousDummyOrders;
 import in.mive.app.activities.PreviousOrders;
 import in.mive.app.helperclasses.ServiceHandler;
@@ -73,6 +74,7 @@ public class OptionSelect extends Activity {
     private ActionBarDrawerToggle mDrawerToggle;
     private AlertDialog progressDialog;
     private JSONObject sellerIds;
+    private Button btnPaymntHistry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,9 +139,9 @@ public class OptionSelect extends Activity {
         layoutMive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OptionSelect.this, StoreselectionActivity.class);
+                /*Intent intent = new Intent(OptionSelect.this, StoreselectionActivity.class);
                 intent.putExtra("userId", userId);
-                startActivity(intent);
+                startActivity(intent);*/
             }
         });
         layoutAnalytics.setOnClickListener(new View.OnClickListener() {
@@ -209,7 +211,6 @@ public class OptionSelect extends Activity {
             public void onClick(View view) {
 
 
-
                 if (fragmentFAQ != null) {
                     Fragment fr = fragmentFAQ;
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -230,7 +231,6 @@ public class OptionSelect extends Activity {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.remove(fr).commit();
                 }
-
 
 
             }
@@ -331,8 +331,42 @@ public class OptionSelect extends Activity {
                     }
                 });
 
+        btnPaymntHistry = (Button) findViewById(R.id.btPaymntHistory);
+        btnPaymntHistry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                btHelp = (Button) findViewById(R.id.btHelp);
+
+                if (fragmentFAQ != null) {
+                    Fragment fr = fragmentFAQ;
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(fr).commit();
+                }
+                if (fragmentContact != null) {
+                    Fragment fr = fragmentContact;
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(fr).commit();
+                }
+                if (fragmenthelp != null) {
+                    Fragment fr = fragmenthelp;
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(fr).commit();
+                }
+                Intent  intent = new Intent(OptionSelect.this, PaymentHistory.class);
+
+
+                mDrawerLayout.closeDrawers();
+                SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
+                int restoreduserid = prefs.getInt("userId", 0);
+                intent.putExtra("userId", restoreduserid);
+                mDrawerLayout.closeDrawers();
+                startActivity(intent);
+
+            }
+        });
+
+
+        btHelp = (Button) findViewById(R.id.btHelp);
                 btHelp.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

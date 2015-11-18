@@ -252,6 +252,36 @@
 
                 </FrameLayout>
 
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment History"
+                        android:textSize="16dp"
+                        android:padding="18dp"
+                        android:textColor="#000000"
+
+                        android:id="@+id/btPaymntHistory"
+                        android:background="#ffffff"
+                        android:gravity="left"/>
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="7dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/arrow"
+                        android:layout_gravity="right|center_vertical" />
+
+
+                </FrameLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -37,12 +37,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import dmax.dialog.SpotsDialog;
@@ -83,6 +85,7 @@ public class PreviousDummyOrders extends Activity {
 
 
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -269,12 +272,20 @@ public class PreviousDummyOrders extends Activity {
             if(jsonArrayDummyOrders.length() <= 0)
             {
                 TextView tvNoPrev = new TextView(PreviousDummyOrders.this);
-                tvNoPrev.setText("No Orders Yet");
+                tvNoPrev.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                tvNoPrev.setText("No Orders to display");
+
+                layout.addView(tvNoPrev);
                 return;
             }
 
             for (int i= 0; i < jsonArrayDummyOrders.length() ; i++)
             {   View prevOrderTab = inflater.inflate(R.layout.previous_dummy_order_tab, null);
+                LinearLayout linearLayout = (LinearLayout) prevOrderTab.findViewById(R.id.lineartoprowheader);
+                if(i%2 != 0)
+                 linearLayout.setBackgroundColor(Color.parseColor("#f1f1f1"));
+
 
                 TextView tvOrderId = (TextView) prevOrderTab.findViewById(R.id.tvOrderId);
                 TextView tvOrderDate = (TextView) prevOrderTab.findViewById(R.id.tvOrderDate);
@@ -295,16 +306,17 @@ public class PreviousDummyOrders extends Activity {
                 }
 
                 final String orderId = objectOrder.optString("order_id");
-                String orderDate = objectOrder.optString("deliveryTime");
+                final String orderDate = objectOrder.optString("deliveryTime");
+                Log.e("date", orderDate);
 
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-mm");
-                String dateInString = orderDate;
-                Date date = null;
+
+
+                DateFormat format = new SimpleDateFormat("yyyy-dd-mm", Locale.ENGLISH);
                 try {
-
-                    date = formatter.parse(dateInString);
-                  /*  System.out.println(date);
-                    System.out.println(formatter.format(date));*/
+                    Date date = format.parse(orderDate);
+                    SimpleDateFormat shortFormat = new SimpleDateFormat("dd-mm");
+                    String shortdate = shortFormat.format(date);
+                    tvOrderDate.setText(shortdate);
 
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -326,7 +338,7 @@ public class PreviousDummyOrders extends Activity {
                     tvPaymentStatus.setTextColor(Color.parseColor("#000000"));
 
                 tvOrderId.setText(orderId);
-                tvOrderDate.setText(formatter.format(date));
+
                 tvOrderAmount.setText(""+orderAmount);
                 tvPaymentMode.setText(paymntMode);
 

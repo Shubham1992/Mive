@@ -98,6 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Skip"
+        android:gravity="center"
         android:textSize="20dp"
         android:textStyle="bold"
         android:padding="15dp"
@@ -111,8 +112,8 @@
         android:id="@+id/textView29"
         android:background="#d3d3d3"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/textView27"
-        android:layout_toStartOf="@+id/textView27" />
+        android:layout_toLeftOf="@+id/tvnxt"
+        android:layout_toStartOf="@+id/tvnxt" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -123,10 +124,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Total:"
+        android:text="\u20B9 "
         android:textStyle="normal"
         android:gravity="right|center"
-        android:textSize="15dp"
+        android:textSize="20dp"
 
         android:id="@+id/textView6"
         android:paddingTop="16dp"
@@ -150,7 +151,7 @@
 
         android:id="@+id/textView28"
         android:background="#d3d3d3"
-        android:layout_alignTop="@+id/textView27"
+        android:layout_alignTop="@+id/tvnxt"
         android:layout_toLeftOf="@+id/textView6"
         android:layout_toStartOf="@+id/textView6" />
 
@@ -160,10 +161,11 @@
         android:text="Next"
         android:layout_weight="1"
         android:textSize="20dp"
+        android:gravity="center"
         android:textStyle="bold"
         android:padding="15dp"
         android:textColor="#008000"
-        android:id="@+id/textView27"
+        android:id="@+id/tvnxt"
        />
 </LinearLayout>
 
@@ -286,6 +288,8 @@
 
 
         </FrameLayout>
+
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -294,12 +298,12 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Upload Invoice"
+                android:text="Previous Orders"
                 android:textSize="16dp"
                 android:padding="18dp"
                 android:textColor="#000000"
 
-                android:id="@+id/btInvoiceupload"
+                android:id="@+id/btPreviousOrders"
                 android:background="#ffffff"
                 android:gravity="left"/>
 
@@ -323,12 +327,12 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Previous Orders"
+                android:text="Payment History"
                 android:textSize="16dp"
                 android:padding="18dp"
                 android:textColor="#000000"
 
-                android:id="@+id/btPreviousOrders"
+                android:id="@+id/btPaymntHistory"
                 android:background="#ffffff"
                 android:gravity="left"/>
 

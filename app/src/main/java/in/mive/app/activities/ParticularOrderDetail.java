@@ -32,6 +32,7 @@ import java.util.Map;
 import in.mive.app.adapter.PArticularImagesCustomPagerAdapter;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.imageloader.ImageLoader;
+import in.mive.app.imageupload.EditOrderUploadActivity;
 import in.mive.app.savedstates.JSONDTO;
 
 /**
@@ -44,6 +45,8 @@ public class ParticularOrderDetail extends Activity {
     ViewPager layoutInvoiceImages;
     ImageView viewBckPress;
     LinearLayout linearLayoutItemsCnt;
+    TextView updateOrder;
+
 
     PArticularImagesCustomPagerAdapter customPagerAdapter;
     @Override
@@ -56,6 +59,10 @@ public class ParticularOrderDetail extends Activity {
         layoutInvoiceImages = (ViewPager) findViewById(R.id.imgContainer);
         viewBckPress = (ImageView) findViewById(R.id.imgbckHome);
         linearLayoutItemsCnt = (LinearLayout) findViewById(R.id.orderItemsContainer);
+        updateOrder = (TextView) findViewById(R.id.updateorder);
+
+
+
         viewBckPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,6 +154,16 @@ public class ParticularOrderDetail extends Activity {
             setOrderItemslayout(objectOrderItems);
 
 
+            updateOrder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ParticularOrderDetail.this, EditOrderUploadActivity.class);
+                    intent.putExtra("orderId", orderId);
+                    startActivity(intent);
+                    finish();
+
+                }
+            });
 
 
 

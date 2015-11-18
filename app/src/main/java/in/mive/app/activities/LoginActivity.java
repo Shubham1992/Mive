@@ -31,6 +31,7 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 
+import in.mive.app.activitynew.DummyStoreSelectionActivity;
 import in.mive.app.activitynew.OptionSelect;
 import in.mive.app.helperclasses.JSONParser;
 import in.mive.app.activitynew.StoreselectionActivity;
@@ -68,7 +69,7 @@ public class LoginActivity extends Activity {
 
         if(restoreduserid != 0)
         {
-            Intent intent=new Intent(LoginActivity.this, OptionSelect.class);
+            Intent intent=new Intent(LoginActivity.this, DummyStoreSelectionActivity.class);
             intent.putExtra("id",restoreduserid);
             intent.putExtra("loggedIn", true);
 
@@ -88,7 +89,7 @@ public class LoginActivity extends Activity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(LoginActivity.this, OptionSelect.class);
+                        Intent intent = new Intent(LoginActivity.this, DummyStoreSelectionActivity.class);
 
                         startActivity(intent);
 
@@ -205,7 +206,7 @@ public class LoginActivity extends Activity {
 
             if(strReslt.equals("true"))
             {
-                Intent intent=new Intent(LoginActivity.this, OptionSelect.class);
+                Intent intent=new Intent(LoginActivity.this, DummyStoreSelectionActivity.class);
                 intent.putExtra("id",intUser);
                 intent.putExtra("loggedIn", true);
 

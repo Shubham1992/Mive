@@ -56,7 +56,7 @@ public class RecyclerViewProductsInflator {
     TextView tvtotal;
 
 
-    public  void inflateProducts(List<Map> products, final Context context, ViewGroup layout ,TextView tvTotal)
+    public  void inflateProducts(List<Map> products, final Context context, ViewGroup layout ,TextView tvTotal, TextView nxt)
     {
         this.context = context;
         this.tvtotal =tvTotal;
@@ -87,7 +87,7 @@ public class RecyclerViewProductsInflator {
 
             layout.addView(itemView);
         }
-        tvtotal.setOnClickListener(new View.OnClickListener() {
+        nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -106,23 +106,39 @@ public class RecyclerViewProductsInflator {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (!hasFocus) {
+
+                    if(editTextPPU.getText().length()>0 && editTextAmount.getText().length()>0)
+                    {
+
+                        if(editTextQty.getText().length()>0 )
+                        {
+                            editTextAmount.setText(""+(Float.parseFloat(editTextQty.getText().toString()) * Float.parseFloat(editTextPPU.getText().toString() )));
+
+                            return;
+                        }
+                        editTextQty.setText(""+(Float.parseFloat(editTextAmount.getText().toString()) / Float.parseFloat(editTextPPU.getText().toString() )));
+
+                        return;
+                    }
+
+
                     if (editTextPPU.getText() != null && editTextPPU.getText().length() > 0)
                     {
-                        int ppu = Integer.parseInt(editTextPPU.getText().toString());
+                        float ppu = Float.parseFloat(editTextPPU.getText().toString());
 
                         if(editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
                         {
-                           int oldamt = Integer.parseInt(editTextAmount.getText().toString());
+                           float oldamt = Float.parseFloat(editTextAmount.getText().toString());
                             totalAmount = totalAmount - oldamt;
                         }
                         if(editTextQty.getText().length() > 0)
-                        editTextAmount.setText("" + (ppu * Integer.parseInt(editTextQty.getText().toString())));
+                        editTextAmount.setText("" + (ppu * Float.parseFloat(editTextQty.getText().toString())));
 
                         Log.e("Mive: ", "EdittextAmount " + editTextAmount.getText().toString());
                         Log.e("Mive: ", "Var Total Amount "+totalAmount);
 
 
-                        totalAmount = totalAmount + Integer.parseInt(editTextAmount.getText().toString());
+                        totalAmount = totalAmount + Float.parseFloat(editTextAmount.getText().toString());
                         tvtotal.setText(""+totalAmount);
 
                         HashMap<String , String> map = new HashMap<String, String>();
@@ -136,16 +152,19 @@ public class RecyclerViewProductsInflator {
                     }
                     else if (editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
                     {
-                        int amount = Integer.parseInt(editTextAmount.getText().toString());
-                        editTextPPU.setText("" + (amount / Integer.parseInt(editTextQty.getText().toString())));
+                        float amount = Float.parseFloat(editTextAmount.getText().toString());
+                        if(editTextQty.getText() != null && editTextQty.getText().length() > 0)
+                        {
+                            editTextPPU.setText("" + (amount / Float.parseFloat(editTextQty.getText().toString())));
 
+//..........
                         HashMap<String , String> map = new HashMap<String, String>();
                         map.put("productId", "" + productId);
                         map.put("pricePerUnit", "" + editTextPPU.getText().toString());
                         map.put("qty", editTextQty.getText().toString());
                         listofItems.add(map);
                         Log.e("List of items", listofItems.toString());
-
+                        }
                     }
                 }
             }
@@ -155,6 +174,20 @@ public class RecyclerViewProductsInflator {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if ( !b) {
+
+                    if(editTextQty.getText().length()>0 && editTextAmount.getText().length()>0)
+                    {
+                        if(editTextPPU.getText().length()>0 )
+                        {
+                            editTextAmount.setText(""+(Float.parseFloat(editTextQty.getText().toString()) * Float.parseFloat(editTextPPU.getText().toString() )));
+
+                            return;
+                        }
+                        editTextPPU.setText(""+(Float.parseFloat(editTextAmount.getText().toString()) / Float.parseFloat(editTextQty.getText().toString() )));
+
+                        return;
+                    }
+
                     if (editTextQty.getText() != null && editTextQty.getText().length() > 0)
                     {
                         float qty = Float.parseFloat(editTextQty.getText().toString());
@@ -205,6 +238,20 @@ public class RecyclerViewProductsInflator {
 
                 if (b)
                 {
+                    if(editTextQty.getText().length()>0 && editTextPPU.getText().length()>0)
+                    {
+                        if(editTextAmount.getText().length()>0 )
+                        {
+                            editTextPPU.setText(""+(Float.parseFloat(editTextAmount.getText().toString()) / Float.parseFloat(editTextPPU.getText().toString() )));
+
+                            return;
+                        }
+                        editTextAmount.setText(""+(Float.parseFloat(editTextQty.getText().toString()) * Float.parseFloat(editTextPPU.getText().toString() )));
+
+                        return;
+                    }
+
+
                     if(editTextAmount.getText() != null && editTextAmount.getText().length() > 0)
                     {
 
@@ -260,9 +307,11 @@ public class RecyclerViewProductsInflator {
                     Log.e("Mive: ", "Var Total Amount "+totalAmount);
                     Log.e("Mive: ", "EdittextAmount " + editTextAmount.getText().toString());
 
-
-                    totalAmount = totalAmount + Float.parseFloat(editTextAmount.getText().toString());
-                    tvtotal.setText(""+totalAmount);
+                    if(editTextAmount.getText().length() >0)
+                    {
+                        totalAmount = totalAmount + Float.parseFloat(editTextAmount.getText().toString());
+                        tvtotal.setText(""+totalAmount);
+                    }
 
 
                 }
@@ -289,12 +338,13 @@ public class RecyclerViewProductsInflator {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+
             // Showing progress dialog
             pDialog = new SpotsDialog(context);
-            pDialog.setMessage("Getting Products...");
+            pDialog.setMessage("Processing...");
             pDialog.setCancelable(false);
-
+            pDialog.show();
+            super.onPreExecute();
 
         }
 
@@ -361,7 +411,7 @@ public class RecyclerViewProductsInflator {
                 pDialog.dismiss();
             Log.e("result", jsonObjectresult.toString());
 
-
+             listofItems = new ArrayList<>();
             ItemListDTO.getInstance().setItemlist(new ArrayList<Map>());
 
 
@@ -370,7 +420,7 @@ public class RecyclerViewProductsInflator {
 
             intent.putExtra("isDummy", true);
             context.startActivity(intent);
-            ((Activity)context).finish();
+            //((Activity)context).finish();
 
         }
 

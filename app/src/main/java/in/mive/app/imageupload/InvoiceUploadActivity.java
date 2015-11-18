@@ -42,6 +42,7 @@ public class InvoiceUploadActivity extends Activity {
     
     private Button btnCapturePicture, btnRecordVideo;
     private String sellerName;
+    private String invoiceOnly;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class InvoiceUploadActivity extends Activity {
         dummyCartId = intent.getStringExtra("dummycartId");
         int uIdint = intent.getIntExtra("userId",0);
         sellerName = intent.getStringExtra("sellername");
+        invoiceOnly = intent.getStringExtra("invoiceOnly");
         userId =""+ uIdint;
 
         getActionBar().setTitle(sellerName);
@@ -230,6 +232,7 @@ public class InvoiceUploadActivity extends Activity {
         i.putExtra("userId", userId);
         i.putExtra("sellerName",sellerName);
         i.putExtra("dummycartId", dummyCartId);
+        i.putExtra("invoiceOnly", invoiceOnly);
 
 
         startActivity(i);

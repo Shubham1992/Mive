@@ -84,8 +84,8 @@ boolean enabledBtn= true;
         JSONObject jsonProduct = JSONDTO.getInstance().getJsonProductscat1();
 //        JSONArray jsonArrayProducts = jsonProduct.optJSONArray("results");
         jsonParser =new JSONParser();
-        btnSubmitCart = (Button) findViewById(R.id.btnSubmitCart);
-        tvtotal = (TextView) findViewById(R.id.tvtotal);
+
+
 
         btnSubmitCart.setOnClickListener(new View.OnClickListener() {
             @Override

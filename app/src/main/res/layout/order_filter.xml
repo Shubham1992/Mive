@@ -1,45 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="match_parent"
+<FrameLayout  android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<ScrollView
+<LinearLayout android:layout_width="match_parent"
+	android:layout_height="match_parent"
+
+	android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2"
+       >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seller"
+            android:padding="12dp"
+            android:id="@+id/toggleseller"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Days"
+            android:id="@+id/toggledays"
+            android:textStyle="bold"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:id="@+id/togglestatus"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sort By"
+            android:id="@+id/togglesortby"
+            android:padding="10dp"
+            android:textStyle="bold"
+
+            />
+
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <ScrollView
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginBottom="50dp">
+    android:layout_marginBottom="50dp"
+            android:background="#ffffff">
 
 	<LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:orientation="vertical"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="Select Seller"
-			android:padding="12dp"
-            android:elevation="5dp"
-			android:textStyle="bold"/>
+
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/storeFilterContainer"
-			android:orientation="vertical">
+			android:orientation="vertical"
+            >
 
 		</LinearLayout>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:layout_margin="10dp">
-			<TextView
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:text="Number Of Days:"
-				android:textStyle="bold"
-				android:padding="10dp"
-				android:layout_weight="1"/>
+
+
 			<EditText
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
@@ -48,18 +95,19 @@
 				android:layout_weight="2"
 				android:gravity="center"
 				android:text="7"
+                android:visibility="gone"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+				/>
 
-				android:background="@drawable/dayselectorborder"/>
-		</LinearLayout>
 
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:layout_marginTop="23dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp"
+			android:orientation="vertical"
+			android:id="@+id/statuscontainer"
+            android:visibility="gone"
 			>
 			<TextView
 				android:id="@+id/paid"
@@ -69,9 +117,11 @@
 				android:gravity="center"
 				android:padding="10dp"
 				android:layout_weight="1"
-				android:textColor="#21bdba"
-				android:background="@drawable/dayselectorborder"
-				android:textStyle="bold"/>
+				android:textStyle="normal"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d3d3d3"/>
 
 			<TextView
 				android:id="@+id/unpaid"
@@ -80,10 +130,12 @@
 				android:text="Un-Paid"
 				android:padding="10dp"
 				android:gravity="center"
-				android:textStyle="bold"
-				android:textColor="#21bdba"
-				android:background="@drawable/dayselectorborder"
+				android:textStyle="normal"
 				android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d3d3d3"/>
             <TextView
                 android:id="@+id/all"
                 android:layout_width="fill_parent"
@@ -91,29 +143,22 @@
                 android:text="All"
                 android:padding="10dp"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="#21bdba"
-                android:background="@drawable/dayselectorborder"
+                android:textStyle="normal"
+
+
                 android:layout_weight="1"/>
 		</LinearLayout>
 
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="Sort By"
-			android:padding="10dp"
-			android:textStyle="bold"
-            android:elevation="5dp"
-			android:layout_marginTop="18dp"
-            />
+
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/sortbyoptnscntainer"
 			android:orientation="vertical"
-			android:background="#d3d3d3">
+			android:background="#d3d3d3"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -157,25 +202,31 @@
 		</LinearLayout>
 	</LinearLayout>
 </ScrollView>
+
+    </FrameLayout>
+
+</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:layout_gravity="bottom"
         android:elevation="5dp">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Clear Filter"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:elevation="8dp"
-        android:background="#ffffff"
-        android:textColor="#808080"
-        android:textStyle="bold"
-        />
         <Button
-			android:id="@+id/applyfilter"
+            android:id="@+id/clearfilter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Clear Filter"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:elevation="8dp"
+            android:background="#ffffff"
+            android:textColor="#808080"
+            android:textStyle="bold"
+            android:visibility="visible"
+            />
+        <Button
+            android:id="@+id/applyfilter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Apply Filter"
