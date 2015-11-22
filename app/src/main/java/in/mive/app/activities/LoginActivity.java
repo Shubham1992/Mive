@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mive.R;
@@ -51,6 +52,7 @@ public class LoginActivity extends Activity {
     public static final String prefUserId = "userIdPref";
     HttpResponse response;
     private Button btnSkip;
+    private TextView frgtpwd , signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,8 @@ public class LoginActivity extends Activity {
         etPassword= (EditText) findViewById(R.id.etLoginPassword);
         btnLogin=(Button)findViewById(R.id.btnLogin);
         btnSkip= (Button) findViewById(R.id.btnskip);
-
+        frgtpwd = (TextView) findViewById(R.id.frgtpwd);
+        signup = (TextView) findViewById(R.id.signup);
 
 
         SharedPreferences prefs = getSharedPreferences(prefUserId , MODE_PRIVATE);
