@@ -10,11 +10,13 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.text.Editable;
 import android.text.InputType;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +25,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mive.R;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * Created by Shubham on 11/21/2015.
@@ -69,13 +74,15 @@ public class PaymentHistory extends Activity {
     }
 
     private void createDialog(final TextView tvprvout) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
         /*final EditText edittext = new EditText(PaymentHistory.this);
         edittext.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);*/
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View alrteditview = inflater.inflate(R.layout.edittextalert, null);
         final EditText editText = (EditText) alrteditview.findViewById(R.id.editalert);
+
         alert.setView(alrteditview);
+        alert.setCancelable(true);
 
 
 
@@ -83,15 +90,32 @@ public class PaymentHistory extends Activity {
 
 
         alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
+            public void onClick(final DialogInterface dialog, int whichButton) {
                 //What ever you want to do with the value
 
+
                 String YouEditTextValue = editText.getText().toString();
-                if (editText.getText() != null && editText.getText().length() > 0)
-                    tvprvout.setText("Rs. " + YouEditTextValue);
+                if (editText.getText() != null && editText.getText().length() > 0) {
+                    tvprvout.setText(NumberFormat.getNumberInstance(new Locale("en", "in")).format(Float.parseFloat(YouEditTextValue)));
+                }
             }
         });
 
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    String YouEditTextValue = editText.getText().toString();
+                    if (editText.getText() != null && editText.getText().length() > 0) {
+                        tvprvout.setText(NumberFormat.getNumberInstance(Locale.UK).format(Float.parseFloat(YouEditTextValue)));
+
+                    }
+                    handled = true;
+                }
+                return handled;
+            }
+        });
 
         alert.show();
         (new Handler()).postDelayed(new Runnable() {

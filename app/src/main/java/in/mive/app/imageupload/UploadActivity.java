@@ -47,9 +47,11 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import in.mive.app.activitynew.DummyStoreSelectionActivity;
 import in.mive.app.activitynew.OptionSelect;
@@ -160,10 +162,10 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // The toggle is enabled
-                    paymentStatus = "paid";
+                    paymentStatus = "on";
                     flagPaymntStatus.setTextOn("Paid");
                 } else {
-                    paymentStatus = "unpaid";
+                    paymentStatus = "off";
                     flagPaymntStatus.setTextOn("Unpaid");
                     // The toggle is disabled
                 }
@@ -255,32 +257,6 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
             }
         });
 
-        paid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                paymentStatus = "paid";
-                paid.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                paid.setTextColor(Color.BLACK);
-
-                unpaid.setBackgroundResource(R.drawable.greyselectorborder);
-                unpaid.setTextColor(Color.parseColor("#e8e8e8"));
-            }
-        });
-
-
-        unpaid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                paymentStatus = "unpaid";
-                unpaid.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                unpaid.setTextColor(Color.BLACK);
-
-                paid.setBackgroundResource(R.drawable.greyselectorborder);
-                paid.setTextColor(Color.parseColor("#e8e8e8"));
-            }
-        });
-        //by default unpaid
-        unpaid.performClick();
 
 	}
 
@@ -296,10 +272,24 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
         //get current date time with Calendar()
         Calendar cal = Calendar.getInstance();
         System.out.println(dateFormat.format(cal.getTime()));
-        orderDate.setText(dateFormat.format(cal.getTime()));
+        //orderDate.setText(dateFormat.format(cal.getTime()));
         dateSelected = dateFormat.format(cal.getTime());
 
-    }
+
+
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+		try {
+			Date dateText = format.parse(dateSelected);
+			SimpleDateFormat shortFormat = new SimpleDateFormat("dd/MM/yyyy");
+			String shortdate = shortFormat.format(dateText);
+			orderDate.setText(shortdate);
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+
+	}
 	/**
 	 * Displaying captured image/video on the screen
 	 * */
@@ -376,7 +366,19 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
 
         dateSelected = date;
 
-       orderDate.setText(date);
+
+
+
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+		try {
+			Date dateText = format.parse(dateSelected);
+			SimpleDateFormat shortFormat = new SimpleDateFormat("dd/MM/yyyy");
+			String shortdate = shortFormat.format(dateText);
+			orderDate.setText(shortdate);
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 
     }
 
@@ -456,8 +458,10 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
                 if(ettotal.getText() != null)
                   totalOfInvoice = ettotal.getText().toString();
                 entity.addPart("total", new StringBody(totalOfInvoice));
+                entity.addPart("flag", new StringBody((flag)));
 
 
+                Log.e("dummycartId", dummyCartId);
                 Log.e("dummycartId", dummyCartId);
 				Log.e("userId", userId);
 				Log.e("sellerId", sellerId);
@@ -468,6 +472,8 @@ public class UploadActivity extends Activity implements DatePickerDialog.OnDateS
                 Log.e("total", totalOfInvoice);
                 if(filePath != null)
                 Log.e("image", filePath);
+                Log.e("flag", flag);
+
 
 
                 totalSize = entity.getContentLength();

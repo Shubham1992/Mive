@@ -2,9 +2,64 @@
 <FrameLayout  android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="horizontal"
+        android:background="#21bdba">
+
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bckarrowwhite"
+            android:id="@+id/imgbckHome"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="17dp"
+            android:text="Filter"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/titleActionBar"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imgbckHome"
+            android:layout_toEndOf="@+id/imgbckHome" />
+
+        <Button
+            android:id="@+id/btnCrt"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shopping232"
+            android:layout_gravity="right|center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="0"
+            android:visibility="gone"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"
+            android:paddingLeft="3dp"
+            android:gravity="center"
+            android:textColor="#21bdba"/>
+
+
+
+    </RelativeLayout>
+
 <LinearLayout android:layout_width="match_parent"
 	android:layout_height="match_parent"
-
+    android:layout_marginTop="?android:attr/actionBarSize"
 	android:orientation="horizontal">
 
     <LinearLayout
@@ -12,12 +67,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="2"
+        android:background="#403c3c"
        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seller"
             android:padding="12dp"
+            android:textColor="#ffffff"
             android:id="@+id/toggleseller"
             android:textStyle="bold"/>
         <TextView
@@ -31,6 +88,7 @@
             android:id="@+id/toggledays"
             android:textStyle="bold"
             android:padding="10dp"
+            android:textColor="#ffffff"
             />
         <TextView
             android:layout_width="match_parent"
@@ -42,6 +100,7 @@
             android:text="Status"
             android:id="@+id/togglestatus"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:padding="10dp"/>
         <TextView
             android:layout_width="match_parent"
@@ -50,10 +109,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sort By"
+            android:text="Sort by"
             android:id="@+id/togglesortby"
             android:padding="10dp"
             android:textStyle="bold"
+            android:textColor="#ffffff"
 
             />
 
@@ -95,6 +155,7 @@
 				android:layout_weight="2"
 				android:gravity="center"
 				android:text="7"
+                android:inputType="number"
                 android:visibility="gone"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
@@ -109,6 +170,17 @@
 			android:id="@+id/statuscontainer"
             android:visibility="gone"
 			>
+            <TextView
+                android:id="@+id/all"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="All"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textStyle="normal"
+
+
+                android:layout_weight="1"/>
 			<TextView
 				android:id="@+id/paid"
 				android:layout_width="fill_parent"
@@ -127,7 +199,7 @@
 				android:id="@+id/unpaid"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:text="Un-Paid"
+				android:text="Unpaid"
 				android:padding="10dp"
 				android:gravity="center"
 				android:textStyle="normal"
@@ -136,17 +208,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#d3d3d3"/>
-            <TextView
-                android:id="@+id/all"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="All"
-                android:padding="10dp"
-                android:gravity="center"
-                android:textStyle="normal"
 
-
-                android:layout_weight="1"/>
 		</LinearLayout>
 
 

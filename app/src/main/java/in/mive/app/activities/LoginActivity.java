@@ -12,7 +12,11 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -64,7 +68,23 @@ public class LoginActivity extends Activity {
         btnSkip= (Button) findViewById(R.id.btnskip);
         frgtpwd = (TextView) findViewById(R.id.frgtpwd);
         signup = (TextView) findViewById(R.id.signup);
-
+        frgtpwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(LoginActivity.this, ContactActivity.class);
+                //intent.putExtra("frgtpwdtxt", "");
+                startActivity(intent);
+            }
+        });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(LoginActivity.this, ContactActivity.class);
+                startActivity(intent);
+            }
+        });
 
         SharedPreferences prefs = getSharedPreferences(prefUserId , MODE_PRIVATE);
         int restoreduserid = prefs.getInt("userId",0);
@@ -80,51 +100,71 @@ public class LoginActivity extends Activity {
             finish();
         }
 
-        btnLogin.setOnClickListener(new View.OnClickListener()
-        {
+        etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onClick(View v)
-            {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
                     btnLogin.setText("Logging in...");
                     btnLogin.setEnabled(false);
                     btnLogin.setAlpha((float) 0.5);
 
-        btnSkip.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(LoginActivity.this, DummyStoreSelectionActivity.class);
 
-                        startActivity(intent);
 
-                    }
-                });
-        if(!isConnected(LoginActivity.this)) buildDialog(LoginActivity.this).show();
-        else {
+                    new GetData().execute();
+
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                btnLogin.setText("Logging in...");
+                btnLogin.setEnabled(false);
+                btnLogin.setAlpha((float) 0.5);
+
+
+
+
                     // we have internet connection, so it is save to connect to the internet here
                     new GetData().execute();
-                }
 
 
-        //        new GetData().execute();
+
+                //        new GetData().execute();
+
+            }
+        });
+
+        btnSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, DummyStoreSelectionActivity.class);
+
+                startActivity(intent);
 
             }
         });
 
 
     }
-    public boolean isConnected(Context context) {
 
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netinfo = cm.getActiveNetworkInfo();
-
-        if (netinfo != null && netinfo.isConnectedOrConnecting()) {
-            android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-            android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-
-            if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) return true;
-            else return false;
-        } else return false;
+    public static void hide_keyboard(Activity activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if(view == null) {
+            view = new View(activity);
+        }
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+
 
     public AlertDialog.Builder buildDialog(Context c) {
 
@@ -132,7 +172,7 @@ public class LoginActivity extends Activity {
         builder.setTitle("No Internet connection.");
         builder.setMessage("You have no internet connection");
 
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -160,8 +200,9 @@ public class LoginActivity extends Activity {
             super.onPreExecute();
             // Showing progress dialog
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("Getting Products...");
+            pDialog.setMessage("Logging in...");
             pDialog.setCancelable(false);
+            pDialog.show();
 
 
         }
@@ -203,6 +244,12 @@ public class LoginActivity extends Activity {
                 pDialog.dismiss();
 
 
+            if(json == null)
+
+            {
+                buildDialog(LoginActivity.this).show();
+                return;
+            }
 
             String strReslt=json.optString("result");
             int intUser=json.optInt("user");

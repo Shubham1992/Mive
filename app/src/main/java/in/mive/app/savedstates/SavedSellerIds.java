@@ -26,6 +26,16 @@ public class SavedSellerIds {
 
     private List<HashMap<String, String>> list = new ArrayList<>();
 
+    public List<HashMap<String, String>> getListComplete() {
+        return listComplete;
+    }
+
+    public void setListComplete(List<HashMap<String, String>> listComplete) {
+        this.listComplete = listComplete;
+    }
+
+    private List<HashMap<String, String>> listComplete = new ArrayList<>();
+
     public static SavedSellerIds getInstance()
     {
         return  savedSellerIds;

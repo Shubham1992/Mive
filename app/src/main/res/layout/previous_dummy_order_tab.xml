@@ -66,7 +66,7 @@
 
                 android:padding="5dp"
                 android:gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:id="@+id/tvOrderDate"
                  />
             <TextView
@@ -105,12 +105,13 @@
                 android:layout_height="match_parent"
                 android:background="#d3d3d3"/>
 
-            <TextView
+            <ImageView
 
                 android:text="Inv"
                 android:textSize="14dp"
-
+                android:src="@drawable/invoiceicon"
                 android:id="@+id/tvOrderInvoice"
+
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
 

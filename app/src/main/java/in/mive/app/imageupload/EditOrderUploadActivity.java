@@ -47,11 +47,14 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import in.mive.app.activities.ParticularOrderDetail;
+import in.mive.app.activitynew.DummyStoreSelectionActivity;
 import in.mive.app.activitynew.OptionSelect;
 import in.mive.app.savedstates.JSONDTO;
 
@@ -283,6 +286,17 @@ public class EditOrderUploadActivity extends Activity implements DatePickerDialo
         orderDate.setText(dateFormat.format(cal.getTime()));
         dateSelected = dateFormat.format(cal.getTime());
 
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        try {
+            Date dateText = format.parse(dateSelected);
+            SimpleDateFormat shortFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String shortdate = shortFormat.format(dateText);
+            orderDate.setText(shortdate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 	/**
 	 * Displaying captured image/video on the screen
@@ -360,7 +374,16 @@ public class EditOrderUploadActivity extends Activity implements DatePickerDialo
 
         dateSelected = date;
 
-       orderDate.setText(date);
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        try {
+            Date dateText = format.parse(dateSelected);
+            SimpleDateFormat shortFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String shortdate = shortFormat.format(dateText);
+            orderDate.setText(shortdate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -502,7 +525,7 @@ public class EditOrderUploadActivity extends Activity implements DatePickerDialo
 
             Toast.makeText(EditOrderUploadActivity.this, "Response from server: " + result, Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(EditOrderUploadActivity.this, OptionSelect.class);
+            Intent intent = new Intent(EditOrderUploadActivity.this, DummyStoreSelectionActivity.class);
             intent.putExtra("id", Integer.parseInt(userId));
             startActivity(intent);
 

@@ -64,7 +64,8 @@ public class JSONDTO {
 
     public void setJsonUser(JSONObject jsonUser) {
         this.jsonUser = jsonUser;
-        Log.e("user", jsonUser.toString());
+        if(jsonUser != null)
+            Log.e("user", jsonUser.toString());
     }
 
 

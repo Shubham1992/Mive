@@ -15,6 +15,7 @@
 
     <!-- Network State Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
 
     <application
@@ -92,6 +93,19 @@
         </activity>
 
         <activity
+            android:name="in.mive.app.activities.ContactActivity"
+            android:label="Contact"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowContentOverlay="@drawable/ab_solid_dark_holo">
+            <intent-filter>
+                <action android:name="android.intent.action.CONTACT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name="in.mive.app.activities.Store1"
             android:label="Store"
             android:screenOrientation="portrait"
@@ -148,6 +162,7 @@
 			android:name="in.mive.app.activities.DummyOrderFilterActivity"
 			android:label="Filters"
 			android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
 
 
 			>

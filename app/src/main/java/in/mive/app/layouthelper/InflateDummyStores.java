@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +45,37 @@ public class InflateDummyStores {
         JSONArray jsonArray = jsonObject.optJSONArray("dummyvendors");
 
         List<HashMap<String, String>> list = new ArrayList();
+
+        if(jsonArray.length() <= 0)
+        {
+            TextView tvNoPrev = new TextView(context);
+            tvNoPrev.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT));
+            tvNoPrev.setText("No vendors added yet.");
+            tvNoPrev.setGravity(Gravity.CENTER | Gravity.TOP);
+
+            layout.addView(tvNoPrev);
+
+            TextView tvNoPrevBtn = new TextView(context);
+            tvNoPrevBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT));
+            tvNoPrevBtn.setText("Go to: www.mive.in");
+            tvNoPrevBtn.setGravity(Gravity.CENTER | Gravity.TOP);
+            tvNoPrevBtn.setPadding(0,10,0,0);
+            tvNoPrevBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    String url = "http://www.mive.in/main";
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    context.startActivity(i);
+                }
+            });
+
+            layout.addView(tvNoPrevBtn);
+            return;
+        }
 
         for (int i = 0; i < jsonArray.length(); i++) {
 

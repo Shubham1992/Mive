@@ -38,6 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ import java.util.Map;
 import dmax.dialog.SpotsDialog;
 import in.mive.app.helperclasses.JSONParser;
 import in.mive.app.helperclasses.JSONParserStringReturn;
+import in.mive.app.savedstates.SavedOrderId;
 import in.mive.app.savedstates.SavedSellerIds;
 import in.mive.app.savedstates.UpdateDummyItemListDTO;
 
@@ -71,6 +73,7 @@ public class PreviousDummyOrders extends Activity {
     private String sortby;
     Button filterBtn;
     private ImageView bckHome;
+    private List<HashMap<String, String >> listOfOrderId = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,12 +90,14 @@ public class PreviousDummyOrders extends Activity {
                 startActivity(intent);
                 finish();
 
+
             }
         });
         bckHome = (ImageView) findViewById(R.id.imgbckHome);
         bckHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SavedSellerIds.getInstance().setList(SavedSellerIds.getInstance().getListComplete());
                 finish();
             }
         });
@@ -306,15 +311,21 @@ public class PreviousDummyOrders extends Activity {
                 }
 
                 final String orderId = objectOrder.optString("order_id");
+                HashMap hashMap = new HashMap();
+                hashMap.put("orderId", orderId);
+
+                listOfOrderId.add(hashMap);
+
+
                 final String orderDate = objectOrder.optString("deliveryTime");
                 Log.e("date", orderDate);
 
 
 
-                DateFormat format = new SimpleDateFormat("yyyy-dd-mm", Locale.ENGLISH);
+                DateFormat format = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
                 try {
                     Date date = format.parse(orderDate);
-                    SimpleDateFormat shortFormat = new SimpleDateFormat("dd-mm");
+                    SimpleDateFormat shortFormat = new SimpleDateFormat("dd/mm");
                     String shortdate = shortFormat.format(date);
                     tvOrderDate.setText(shortdate);
 
@@ -330,17 +341,22 @@ public class PreviousDummyOrders extends Activity {
 
                 String sellername = jsonObjectSeller.optString("nameOfSeller");
                 tvSellerName.setText(sellername);
-                tvPaymentStatus.setText(paymentStatus);
+                //tvPaymentStatus.setText(paymentStatus);
 
                 if(paymentStatus.equalsIgnoreCase("paid"))
+                {
                     tvPaymentStatus.setTextColor(Color.parseColor("#808080"));
-                else
+                    tvPaymentStatus.setText("Paid");
+                }
+                else {
                     tvPaymentStatus.setTextColor(Color.parseColor("#000000"));
-
+                    tvPaymentStatus.setText("Unpaid");
+                }
                 tvOrderId.setText(orderId);
 
-                tvOrderAmount.setText(""+orderAmount);
-                tvPaymentMode.setText(paymntMode);
+                tvOrderAmount.setText(NumberFormat.getNumberInstance(new Locale("en", "in")).format(Float.parseFloat(orderAmount)));
+
+               // tvPaymentMode.setText(paymntMode);
 
 
                 prevOrderTab.setOnClickListener(new View.OnClickListener() {
@@ -359,6 +375,7 @@ public class PreviousDummyOrders extends Activity {
                 layout.addView(prevOrderTab);
 
             }
+                SavedOrderId.getInstance().setListOfOrderId(listOfOrderId);
 
 
         }
@@ -371,7 +388,10 @@ public class PreviousDummyOrders extends Activity {
     public void onBackPressed() {
         super.onBackPressed();
 
+        SavedSellerIds.getInstance().setList(SavedSellerIds.getInstance().getListComplete());
 /*Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);*/
     finish();}
+
+
 }

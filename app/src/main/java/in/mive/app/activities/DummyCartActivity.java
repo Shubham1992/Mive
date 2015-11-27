@@ -2,7 +2,10 @@ package in.mive.app.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -31,6 +34,7 @@ import org.apache.http.params.HttpParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -148,16 +152,19 @@ public class DummyCartActivity extends Activity {
     {
 
 
+        private String jsonStr;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(DummyCartActivity.this);
-            pDialog.setMessage("Creating your Cart...");
-            pDialog.setCancelable(false);
-            pDialog.show();
-
+            if(pDialog == null || !pDialog.isShowing())
+            {
+                pDialog = new ProgressDialog(DummyCartActivity.this);
+                pDialog.setMessage("Loading...");
+                pDialog.setCancelable(false);
+                pDialog.show();
+            }
         }
 
         @Override
@@ -176,11 +183,32 @@ public class DummyCartActivity extends Activity {
 
             String urlseecrt = "http://www.mive.in/api/seedummycart/?userId="+userId;
 
-            String jsonStr = sh.makeServiceCall(urlseecrt, ServiceHandler.GET);
+             jsonStr = sh.makeServiceCall(urlseecrt, ServiceHandler.GET);
 
 
 
             // Log.d("Response cartitems: ", "> " + jsonStr);
+
+
+
+
+            return null;
+        }
+        List<Map> resultList;
+        @Override
+        protected void onPostExecute(Void result)
+        {
+            super.onPostExecute(result);
+            layoutItemList.removeAllViews();
+
+            if (pDialog.isShowing())
+                pDialog.cancel();
+            if(jsonStr == null)
+
+            {
+                buildDialog(DummyCartActivity.this).show();
+                return;
+            }
 
             if (jsonStr != null) {
                 try {
@@ -198,19 +226,6 @@ public class DummyCartActivity extends Activity {
                 Log.e("ServiceHandler", "Couldn't get any data from the url");
             }
 
-
-            return null;
-        }
-        List<Map> resultList;
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            layoutItemList.removeAllViews();
-
-            if (pDialog.isShowing())
-                pDialog.cancel();
-
-
             for (int i= 0; i <jsonArraySeecrt.length(); i++)
             {
                 JSONObject jsonObject = jsonArraySeecrt.optJSONObject(i);
@@ -227,6 +242,7 @@ public class DummyCartActivity extends Activity {
                 Button buttonPlaceOrdr = (Button)viewCategryOfItems.findViewById(R.id.btnPlcOrdr);
                 TextView textViewStoreTitle = (TextView) viewCategryOfItems.findViewById(R.id.storetitle);
                 TextView tvCatTotal = (TextView)viewCategryOfItems.findViewById(R.id.textViewSubtotalCat);
+                final TextView tvUpdate = (TextView) viewCategryOfItems.findViewById(R.id.tvUpdate);
                 textViewStoreTitle.setText(nameOfSeller);
 
 
@@ -234,23 +250,32 @@ public class DummyCartActivity extends Activity {
                 getItemsCart(linearLayoutCategryOfItems);
 
 
-                tvCatTotal.setText(""+totpayable);
+                tvCatTotal.setText("" + totpayable);
                 final int totCost = totpayable;
                 buttonPlaceOrdr.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(DummyCartActivity.this, UploadActivity.class);
                         intent.putExtra("userId", userId);
-                        intent.putExtra("price", ""+totCost);
+                        intent.putExtra("price", "" + totCost);
                         intent.putExtra("sellerId", sellerId);
                         intent.putExtra("sellerName", nameOfSeller);
                         intent.putExtra("invoiceOnly", "no");
-                        intent.putExtra("dummycartId",JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
+                        intent.putExtra("dummycartId", JSONDTO.getInstance().getJsonUser().optJSONObject("dummycart").optString("dummycart_id"));
                         intent.putExtra("isDummy", true);
 
-                        Log.e("Mive: ", "total "+totCost);
+                        Log.e("Mive: ", "total " + totCost);
 
                         startActivity(intent);
+                    }
+                });
+
+                tvUpdate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tvUpdate.setEnabled(false);
+                        tvUpdate.setAlpha(0.5F);
+                        new SendUpdateDataAddToCart().execute();
                     }
                 });
                 totpayable=0;
@@ -263,7 +288,24 @@ public class DummyCartActivity extends Activity {
 
     }
 
+    public AlertDialog.Builder buildDialog(Context c) {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("No Internet connection.");
+        builder.setMessage("You have no internet connection");
+
+        builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+                recreate();
+            }
+        });
+
+        return builder;
+    }
 
 
     void getItemsCart(ViewGroup layoutCategoryHolder)
@@ -649,6 +691,7 @@ public class DummyCartActivity extends Activity {
             pDialog = new ProgressDialog(DummyCartActivity.this);
             pDialog.setMessage("Updating...");
             pDialog.setCancelable(false);
+            pDialog.show();
 
 
         }
@@ -709,8 +752,9 @@ public class DummyCartActivity extends Activity {
         {
             super.onPostExecute(result);
             // Dismiss the progress dialog
-            if (pDialog.isShowing())
-                pDialog.dismiss();
+
+
+
             if(jsonObjectresult != null)
                 Log.e("result", jsonObjectresult.toString());
             UpdateDummyItemListDTO.getInstance().setItemlist(new ArrayList<HashMap>());

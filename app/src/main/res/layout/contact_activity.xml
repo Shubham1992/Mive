@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center|top"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="horizontal"
+        android:background="#21bdba">
+
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bckarrowwhite"
+            android:id="@+id/imgbckHome"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="17dp"
+            android:text="Contact"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/titleActionBar"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imgbckHome"
+            android:layout_toEndOf="@+id/imgbckHome" />
+
+        <Button
+            android:id="@+id/btnCrt"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shopping232"
+            android:layout_gravity="right|center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="0"
+            android:visibility="gone"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"
+            android:paddingLeft="3dp"
+            android:gravity="center"
+            android:textColor="#21bdba"/>
+
+
+
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/mive_icon"
+        android:layout_marginTop="50dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mive\u2122 Technologies Pvt Ltd"
+        android:gravity="center"
+        android:layout_margin="30dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvfrgtpwd"
+        android:text="Some text"
+        android:gravity="center"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Please write to us at"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="info@mive.in"
+            android:layout_margin="5dp"
+            android:layout_weight="1.3"
+            android:textStyle="bold|italic"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Or"
+        android:padding="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="You can contact us at"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="(+91) 9555666059"
+            android:layout_margin="5dp"
+            android:layout_weight="1.1"
+            android:textStyle="bold|italic"
+            />
+    </LinearLayout>
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <Button
+            android:id="@+id/mailus"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="#e8e8e8"
+            android:layout_weight="1"
+            android:alpha=".7"
+            android:text="Mail us"
+            android:textSize="15dp"
+            android:layout_marginRight="3dp"/>
+
+        <Button
+            android:id="@+id/callus"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="#e8e8e8"
+            android:layout_weight="1"
+            android:alpha=".7"
+            android:textSize="15dp"
+            android:text="Call us"
+            android:layout_marginLeft="3dp"/>
+
+    </LinearLayout>
+</FrameLayout>

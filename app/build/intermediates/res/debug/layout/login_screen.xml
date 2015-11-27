@@ -82,12 +82,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etLoginPassword"
-
+            android:inputType="textPassword"
             android:paddingLeft="60dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:hint="Password"
-            android:textSize="17dp"
+            android:textSize="16dp"
+            android:imeOptions="actionDone"
             android:layout_gravity="center_horizontal"
             />
     <TextView
@@ -143,6 +144,7 @@
         android:paddingRight="45dp"
         android:layout_marginTop="20dp">
     <TextView
+        android:id="@+id/frgtpwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password?"
@@ -150,6 +152,7 @@
         android:textStyle="italic"/>
 
         <TextView
+            android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up"

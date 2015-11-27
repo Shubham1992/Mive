@@ -41,7 +41,7 @@ public class DummyOrderFilterActivity extends Activity
 	// userId dayFilter  paymentFilter  sortBy
 	String userId ;
 	String days;
-	private String paymentFilter;
+	private String paymentFilter = "all";
 	private String sortBy = "date";
 	TextView tvall , tvpaid , tvunpaid;
 	TextView tvdate, tvSeller, tvSubTotal, tvStatus;
@@ -49,6 +49,7 @@ public class DummyOrderFilterActivity extends Activity
 	Button apply, clear;
 	TextView toggleseller, toggledays, togglestatus, togglesortby;
     List<HashMap<String,String>> listToSubmit = new ArrayList<>();
+	ImageView imageViewbck;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -62,7 +63,23 @@ public class DummyOrderFilterActivity extends Activity
 		sellerContainer = (ViewGroup) findViewById(R.id.storeFilterContainer);
 		statuscontainer = (ViewGroup) findViewById(R.id.statuscontainer);
 		sortbyoptncontainer = (ViewGroup) findViewById(R.id.sortbyoptnscntainer);
+		imageViewbck = (ImageView) findViewById(R.id.imgbckHome);
+		imageViewbck.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent(DummyOrderFilterActivity.this, PreviousDummyOrders.class);
+				SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
+				int restoreduserid = prefs.getInt("userId", 0);
+				intent.putExtra("userId", restoreduserid);
+				intent.putExtra("sortBy", sortBy);
+				intent.putExtra("paymentFilter", paymentFilter);
 
+
+				intent.putExtra("dayFilter", Integer.parseInt(etDays.getText().toString()));
+				startActivity(intent);
+				finish();
+			}
+		});
 
 		JSONObject jsonObject = JSONDTO.getInstance().getJsonUser();
 
@@ -129,11 +146,11 @@ public class DummyOrderFilterActivity extends Activity
                 statuscontainer.setVisibility(View.GONE);
                 etDays.setVisibility(View.GONE);
 
-                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+                setBackColorAll();
                 view.setBackgroundColor(Color.WHITE);
+				setTextColorWhite();
+				toggleseller.setTextColor(Color.BLACK);
+
             }
 		});
 		toggledays.setOnClickListener(new View.OnClickListener() {
@@ -144,11 +161,10 @@ public class DummyOrderFilterActivity extends Activity
                 statuscontainer.setVisibility(View.GONE);
                 etDays.setVisibility(View.VISIBLE);
 
-                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+				setBackColorAll();
                 view.setBackgroundColor(Color.WHITE);
+				setTextColorWhite();
+				toggledays.setTextColor(Color.BLACK);
 
 			}
 		});
@@ -160,11 +176,10 @@ public class DummyOrderFilterActivity extends Activity
                 statuscontainer.setVisibility(View.VISIBLE);
                 etDays.setVisibility(View.GONE);
 
-                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+				setBackColorAll();
                 view.setBackgroundColor(Color.WHITE);
+				setTextColorWhite();
+				togglestatus.setTextColor(Color.BLACK);
 			}
 		});
 
@@ -176,14 +191,13 @@ public class DummyOrderFilterActivity extends Activity
                 statuscontainer.setVisibility(View.GONE);
                 etDays.setVisibility(View.GONE);
 
-                togglesortby.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggleseller.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                toggledays.setBackgroundColor(Color.parseColor("#e8e8e8"));
-                togglestatus.setBackgroundColor(Color.parseColor("#e8e8e8"));
+				setBackColorAll();
                 view.setBackgroundColor(Color.WHITE);
-
+				setTextColorWhite();
+				togglesortby.setTextColor(Color.BLACK);
 			}
 		});
+
 
 		tvall.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -214,9 +228,11 @@ public class DummyOrderFilterActivity extends Activity
 			}
 		});
 
-		tvdate.setOnClickListener(new View.OnClickListener() {
+		tvdate.setOnClickListener(new View.OnClickListener()
+		{
 			@Override
-			public void onClick(View view) {
+			public void onClick(View view)
+			{
 				sortBy = "date";
 				tvdate.setBackgroundColor(Color.parseColor("#e8e8e8"));
 				tvSubTotal.setBackgroundColor(Color.WHITE);
@@ -225,15 +241,17 @@ public class DummyOrderFilterActivity extends Activity
 
 			}
 		});
-		tvSeller.setOnClickListener(new View.OnClickListener() {
+		tvSeller.setOnClickListener(new View.OnClickListener()
+		{
 			@Override
-			public void onClick(View view) {
+			public void onClick(View view)
+			{
 				sortBy = "seller";
 				tvdate.setBackgroundColor(Color.WHITE);
 				tvSubTotal.setBackgroundColor(Color.WHITE);
 				tvSeller.setBackgroundColor(Color.parseColor("#e8e8e8"));
 				tvStatus.setBackgroundColor(Color.WHITE);
-				}
+			}
 		});
 		tvStatus.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -255,6 +273,23 @@ public class DummyOrderFilterActivity extends Activity
 				tvSeller.setBackgroundColor(Color.WHITE);
 				tvStatus.setBackgroundColor(Color.WHITE);}
 		});
+	}
+
+	private void setTextColorWhite()
+	{
+		togglesortby.setTextColor(Color.parseColor("#ffffff"));
+		toggleseller.setTextColor(Color.parseColor("#ffffff"));
+		toggledays.setTextColor(Color.parseColor("#ffffff"));
+		togglestatus.setTextColor(Color.parseColor("#ffffff"));
+	}
+
+	private void setBackColorAll()
+	{
+		togglesortby.setBackgroundColor(Color.parseColor("#403c3c"));
+		toggleseller.setBackgroundColor(Color.parseColor("#403c3c"));
+		toggledays.setBackgroundColor(Color.parseColor("#403c3c"));
+		togglestatus.setBackgroundColor(Color.parseColor("#403c3c"));
+
 	}
 
 	private void inflateSellers(JSONObject jsonObject)
@@ -296,6 +331,23 @@ public class DummyOrderFilterActivity extends Activity
 
 			sellerContainer.addView(viewStoreTab);
 		}
+
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		Intent intent = new Intent(DummyOrderFilterActivity.this, PreviousDummyOrders.class);
+		SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
+		int restoreduserid = prefs.getInt("userId", 0);
+		intent.putExtra("userId", restoreduserid);
+		intent.putExtra("sortBy", sortBy);
+		intent.putExtra("paymentFilter", paymentFilter);
+
+
+		intent.putExtra("dayFilter", Integer.parseInt(etDays.getText().toString()));
+		startActivity(intent);
+		finish();
 
 	}
 }

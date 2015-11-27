@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -25,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mive.R;
 
@@ -45,6 +48,7 @@ import in.mive.app.activities.HelpNSupport;
 import in.mive.app.activities.LoginActivity;
 import in.mive.app.activities.PaymentHistory;
 import in.mive.app.activities.PreviousDummyOrders;
+import in.mive.app.activities.PrivacyPolicyFragment;
 import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.imageloader.ImageLoader;
 import in.mive.app.layouthelper.InflateDummyStores;
@@ -71,7 +75,7 @@ public class DummyStoreSelectionActivity extends Activity {
     private JSONObject jsonObjuser;
     TextView tvusername;
     Button btnHome, btFruits, btVeg, btHelp, btContact, btnPrevOrders, btnCustCat, btFaq;
-    ImageView imguser , userSetting;
+    ImageView imguser ;TextView userSetting;
     LinearLayout layoutStoreList;
     private Button btnInvoiceSubmit;
     private DrawerLayout mDrawerLayout;
@@ -79,6 +83,8 @@ public class DummyStoreSelectionActivity extends Activity {
     private AlertDialog progressDialog;
     private JSONObject sellerIds;
     private Button btnPaymntHistry;
+    private Button btPrivPolicy;
+    private Fragment fragmentPrivPol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,6 +201,7 @@ public class DummyStoreSelectionActivity extends Activity {
     {
 
         private String urlUser="http://www.mive.in/api/user/";
+        private String jsonStrUser;
         //private String urlCart = "http://www.mive.in/api/cart/cartitems/"+id+"/?format=json";
 
 
@@ -217,8 +224,7 @@ public class DummyStoreSelectionActivity extends Activity {
 
 
             sh = new ServiceHandler();
-            String jsonStrUser = sh.makeServiceCall(urlUser + userId, ServiceHandler.GET);
-
+            jsonStrUser = sh.makeServiceCall(urlUser + userId, ServiceHandler.GET);
 
 
 
@@ -227,6 +233,27 @@ public class DummyStoreSelectionActivity extends Activity {
             Log.d("Response User: ", "> " + jsonStrUser);
             //          Log.d("Response cart: ", "> " + jsonStrCart);
 
+
+
+
+
+            return null;
+        }
+        List<Map> resultListcat1;
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            if(jsonStrUser == null)
+
+            {
+                if(progressDialog.isShowing())
+                {
+                    progressDialog.dismiss();
+                }
+                buildDialog(DummyStoreSelectionActivity.this).show();
+                return;
+            }
 
             if (jsonStrUser != null) {
                 try {
@@ -243,14 +270,6 @@ public class DummyStoreSelectionActivity extends Activity {
             }
 
 
-            return null;
-        }
-        List<Map> resultListcat1;
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
             JSONDTO.getInstance().setJsonUser(jsonObjuser);
 
             setUserInDrawer(jsonObjuser);
@@ -262,10 +281,33 @@ public class DummyStoreSelectionActivity extends Activity {
 
     }
 
+    public AlertDialog.Builder buildDialog(Context c) {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("Couldn't load data.");
+        builder.setMessage("Check internet connection");
+
+        builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+                recreate();
+            }
+        });
+
+        return builder;
+    }
 
     void setUserInDrawer(JSONObject objuser)
     {
+        if(objuser ==  null)
+        {
+            Toast.makeText(DummyStoreSelectionActivity.this, "Couldn't load data. Retry", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         tvusername = (TextView) findViewById(R.id.tvUserName);
         tvusername.setText(objuser.optString("nameOfInstitution"));
         imguser = (ImageView) findViewById(R.id.imguser);
@@ -280,72 +322,10 @@ public class DummyStoreSelectionActivity extends Activity {
         InflateStoresintoDrawer inflateStoresintoDrawer = new InflateStoresintoDrawer();
         inflateStoresintoDrawer.inflateStoreTabs(DummyStoreSelectionActivity.this, layoutStoreList, JSONDTO.getInstance().getJsonUser());
 
-        btnCustCat= (Button) findViewById(R.id.btCustCat);
-        btnCustCat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
 
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentCstm != null) {
-                    Fragment fr = fragmentCstm;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
 
 
-            }
-        });
-
-
-        btFruits= (Button) findViewById(R.id.btFruits);
-        btFruits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(fragmenthelp !=null)
-                {
-                    Fragment fr=fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentCstm !=null)
-                {
-                    Fragment fr=fragmentCstm;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                //  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-
-            }
-        });
 
 
 /*
@@ -356,14 +336,18 @@ public class DummyStoreSelectionActivity extends Activity {
 
                 rvSearch.setVisibility(View.GONE);}
         });*/
-        btnInvoiceSubmit = (Button) findViewById(R.id.btInvoiceupload);
-        btnInvoiceSubmit.setOnClickListener(new View.OnClickListener() {
+
+        btnHome = (Button) findViewById(R.id.btHome);
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
+                clearFragments();
+                layoutContainerstore.setVisibility(View.VISIBLE);
 
 
+                mDrawerLayout.closeDrawers();
 
 
             }
@@ -375,24 +359,8 @@ public class DummyStoreSelectionActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
+                clearFragments();
                 Intent  intent = new Intent(DummyStoreSelectionActivity.this, PreviousDummyOrders.class);
-
 
                 mDrawerLayout.closeDrawers();
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
@@ -400,7 +368,7 @@ public class DummyStoreSelectionActivity extends Activity {
                 intent.putExtra("userId", restoreduserid);
                 intent.putExtra("sortBy", "date");
                 intent.putExtra("paymentFilter", "all");
-                mDrawerLayout.closeDrawers();
+
                 startActivity(intent);
 
             }
@@ -412,29 +380,13 @@ public class DummyStoreSelectionActivity extends Activity {
             public void onClick(View view) {
 
 
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
+                clearFragments();
                 Intent  intent = new Intent(DummyStoreSelectionActivity.this, PaymentHistory.class);
-
 
                 mDrawerLayout.closeDrawers();
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                 int restoreduserid = prefs.getInt("userId", 0);
                 intent.putExtra("userId", restoreduserid);
-                mDrawerLayout.closeDrawers();
                 startActivity(intent);
 
             }
@@ -446,22 +398,9 @@ public class DummyStoreSelectionActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                fragmenthelp = new HelpNSupport();
+                clearFragments();
+                layoutContainerstore.setVisibility(View.GONE);
+                fragmenthelp = new FAQFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmenthelp).commit();
 
@@ -477,22 +416,8 @@ public class DummyStoreSelectionActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-
+                clearFragments();
+                layoutContainerstore.setVisibility(View.GONE);
                 fragmentContact = new ContactFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmentContact).commit();
@@ -509,23 +434,8 @@ public class DummyStoreSelectionActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
+              clearFragments();
+                layoutContainerstore.setVisibility(View.GONE);
                 fragmentFAQ = new FAQFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmentFAQ).commit();
@@ -536,37 +446,85 @@ public class DummyStoreSelectionActivity extends Activity {
 
             }
         });
-        userSetting = (ImageView) findViewById(R.id.setting);
+        btPrivPolicy = (Button) findViewById(R.id.btPrivPolicy);
+        btPrivPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                clearFragments();
+                layoutContainerstore.setVisibility(View.GONE);
+                fragmentPrivPol = new PrivacyPolicyFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.mainframe, fragmentPrivPol).commit();
+
+                mDrawerLayout.closeDrawers();
+                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+
+
+            }
+        });
+        userSetting = (TextView) findViewById(R.id.setting);
         userSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                PopupMenu popupMenu = new PopupMenu(DummyStoreSelectionActivity.this, view);
+                SharedPreferences.Editor editor = getSharedPreferences("userIdPref", MODE_PRIVATE).edit();
+                editor.putInt("userId", 0);
+                editor.commit();
+
+                Intent intent = new Intent(DummyStoreSelectionActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+
+                /*PopupMenu popupMenu = new PopupMenu(DummyStoreSelectionActivity.this, view);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
                             case R.id.item_logout:
-                                SharedPreferences.Editor editor = getSharedPreferences("userIdPref", MODE_PRIVATE).edit();
-                                editor.putInt("userId", 0);
-                                editor.commit();
 
-                                Intent intent = new Intent(DummyStoreSelectionActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
                                 return true;
                         }
                         return false;
                     }
                 });
                 popupMenu.inflate(R.menu.popup_menu);
-                popupMenu.show();
+                popupMenu.show();*/
 
             }
         });
 
     }
 
+    void clearFragments()
+    {
+        if (fragmenthelp != null) {
+            Fragment fr = fragmenthelp;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmenthelp =  null;
+        }
+
+        if (fragmentFAQ != null) {
+            Fragment fr = fragmentFAQ;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmentFAQ =  null;
+        }
+
+        if (fragmentContact != null) {
+            Fragment fr = fragmentContact;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmentContact =  null;
+        }
+        if (fragmentPrivPol != null) {
+            Fragment fr = fragmentPrivPol;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmentPrivPol =  null;
+        }
+    }
     public void setSellerIds(JSONObject jsonObject)
     {
 
@@ -590,6 +548,7 @@ public class DummyStoreSelectionActivity extends Activity {
         }
 
         SavedSellerIds.getInstance().setList(list);
+        SavedSellerIds.getInstance().setListComplete(list);
 
     }
 
@@ -656,10 +615,50 @@ public class DummyStoreSelectionActivity extends Activity {
     }
 
 
-    /*@Override
-    protected void onRestart() {
-      super.onRestart();
-        recreate();
+    @Override
+    public void onBackPressed()
+    {
+        if (fragmenthelp != null)
+        {
+        Fragment fr = fragmenthelp;
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.remove(fr).commit();
+            fragmenthelp= null;
+        layoutContainerstore.setVisibility(View.VISIBLE);
+            return;
+        }
 
-    }*/
+        if (fragmentFAQ != null) {
+            Fragment fr = fragmentFAQ;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            layoutContainerstore.setVisibility(View.VISIBLE);
+            fragmentFAQ = null;
+            return;
+        }
+
+        if (fragmentContact != null) {
+            Fragment fr = fragmentContact;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmentContact = null;
+            layoutContainerstore.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        if (fragmentPrivPol != null) {
+            Fragment fr = fragmentPrivPol;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmentPrivPol = null;
+            layoutContainerstore.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        else if(layoutContainerstore.getVisibility() == View.VISIBLE)
+        {
+            finish();
+        }
+
+    }
 }

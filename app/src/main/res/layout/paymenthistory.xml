@@ -89,12 +89,27 @@
                 android:text="Current Balance:"
                 android:layout_weight="1"
                 android:textSize="16dp"/>
-            <TextView
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Rs. 20,000"
                 android:layout_weight="1"
-                />
+                android:id="@+id/currbalance">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="\u20B9 "
+                    android:padding="1dp"
+                    android:id="@+id/rssymbol1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20,000"
+                    android:layout_toRightOf="@id/rssymbol1"
+                    android:layout_marginLeft="3dp"
+                    android:id="@+id/tvcurrblnc" />
+
+            </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout
@@ -115,9 +130,17 @@
                 android:id="@+id/editablePrvOut">
                 <TextView
                     android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="\u20B9 "
+                    android:padding="1dp"
+                    android:id="@+id/rssymbol"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rs. 20,000"
-
+                    android:text="20,000"
+                    android:layout_toRightOf="@id/rssymbol"
+                    android:layout_marginLeft="3dp"
                     android:id="@+id/tvprvout" />
                 <ImageView
                     android:layout_width="13dp"
@@ -142,12 +165,27 @@
                 android:layout_height="wrap_content"
                 android:text="Total Outstanding:"
                 android:layout_weight="1"/>
-            <TextView
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Rs. 20,000"
                 android:layout_weight="1"
-                />
+                android:id="@+id/outstndngblnc">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="\u20B9 "
+                    android:padding="1dp"
+                    android:id="@+id/rssymbol2"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20,000"
+                    android:layout_toRightOf="@id/rssymbol2"
+                    android:layout_marginLeft="3dp"
+                    android:id="@+id/tvoutstnd" />
+
+            </RelativeLayout>
 
         </LinearLayout>
     </LinearLayout>

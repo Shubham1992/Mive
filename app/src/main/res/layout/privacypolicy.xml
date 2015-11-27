@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+
+    android:layout_marginTop="20dp">
+
+   <ImageView
+       android:layout_width="120dp"
+       android:layout_height="120dp"
+       android:src="@drawable/mive_icon"
+       android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:padding="10dp"
+        android:text="Mive is a cloud based procurement management platform and a tech-enabled sourcing solution for restaurants. You can place your order online and we will deliver it at your doorstep as per your convenience."/>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="#d3d3d3"
+    android:layout_marginTop="10dp">
+    <TextView
+        android:id="@+id/privpoltoggle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Privacy Policy"
+        android:textStyle="normal"
+        android:padding="10dp"
+        android:background="#ffffff"
+        android:gravity="center|left"
+        android:layout_margin="1dp"
+       />
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/arrowdwn"
+        android:layout_gravity="right"
+        android:padding="12dp"/>
+</FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/privpolcntnr"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy policy text here"/>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#d3d3d3"
+        >
+        <TextView
+            android:id="@+id/termcondtoggle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Terms and Conditions"
+            android:textStyle="normal"
+            android:padding="10dp"
+            android:background="#ffffff"
+            android:gravity="center|left"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/arrowdwn"
+            android:layout_gravity="right"
+            android:padding="12dp"/>
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/termcondcntnr"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms and conditions text here"/>
+    </LinearLayout>
+</LinearLayout>

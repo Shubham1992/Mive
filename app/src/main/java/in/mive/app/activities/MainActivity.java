@@ -72,6 +72,7 @@ import com.mive.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -121,6 +122,9 @@ public class MainActivity extends FragmentActivity
     private TextView totalAmountFinal;
     private TextView skipbutton, nextbutton;
              private Button btnPaymntHistry;
+             private Fragment fragmentPrivPol;
+             private Button btPrivPolicy;
+             private LinearLayout bottomlayout;
 
 
              @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -136,6 +140,7 @@ public class MainActivity extends FragmentActivity
 
         rvSearch = (RecyclerView) findViewById(R.id.rvsearch);
         rvProducts = (LinearLayout) findViewById(R.id.rvProduct);
+                 bottomlayout = (LinearLayout) findViewById(R.id.bottomlayout);
         layoutManager = new LinearLayoutManager(MainActivity.this);
         layoutManager2 = new LinearLayoutManager(MainActivity.this);
         totalAmountFinal = (TextView) findViewById(R.id.totalAmountFinal);
@@ -741,7 +746,7 @@ void hideFragments()
 
    TextView tvusername;
    Button btnHome, btFruits, btVeg, btHelp, btContact, btnPrevOrders, btnCustCat, btFaq;
-    ImageView imguser , userSetting;
+    ImageView imguser ; TextView userSetting;
     LinearLayout layoutStoreList;
 
     //userSetting the details of user in the drawer
@@ -761,147 +766,39 @@ void hideFragments()
         InflateStoresintoDrawer inflateStoresintoDrawer = new InflateStoresintoDrawer();
         inflateStoresintoDrawer.inflateStoreTabs(MainActivity.this, layoutStoreList, JSONDTO.getInstance().getJsonUser());
 
-        btnCustCat= (Button) findViewById(R.id.btCustCat);
-        btnCustCat.setOnClickListener(new View.OnClickListener() {
+        btnHome = (Button) findViewById(R.id.btHome);
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                rvSearch.setVisibility(View.GONE);
 
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentCstm != null) {
-                    Fragment fr = fragmentCstm;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
+                clearFragments();
+                rvProducts.setVisibility(View.VISIBLE);
+                bottomlayout.setVisibility(View.VISIBLE);
 
-                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-                viewPager.setCurrentItem(3);
 
                 mDrawerLayout.closeDrawers();
+
+
 
             }
         });
 
-
-        btFruits= (Button) findViewById(R.id.btFruits);
-        btFruits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rvSearch.setVisibility(View.GONE);
-                if(fragmenthelp !=null)
-                {
-                    Fragment fr=fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentCstm !=null)
-                {
-                    Fragment fr=fragmentCstm;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-              //  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-                viewPager.setCurrentItem(2);
-
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        btVeg= (Button) findViewById(R.id.btVegetables);
-        btVeg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rvSearch.setVisibility(View.GONE);
-                if(fragmenthelp !=null)
-                {
-                    Fragment fr=fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-               // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-                viewPager.setCurrentItem(1);
-
-                mDrawerLayout.closeDrawers();     }
-        });
-
-
-/*
-        btElse= (Button) findViewById(R.id.btelse);
-        btElse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                rvSearch.setVisibility(View.GONE);}
-        });*/
         btnPaymntHistry = (Button) findViewById(R.id.btPaymntHistory);
         btnPaymntHistry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                if (fragmentFAQ != null) {
-                    Fragment fr = fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmentContact != null) {
-                    Fragment fr = fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                Intent  intent = new Intent(MainActivity.this, PaymentHistory.class);
+               clearFragments();
+                Intent intent = new Intent(MainActivity.this, PaymentHistory.class);
 
 
                 mDrawerLayout.closeDrawers();
                 SharedPreferences prefs = getSharedPreferences("userIdPref", MODE_PRIVATE);
                 int restoreduserid = prefs.getInt("userId", 0);
                 intent.putExtra("userId", restoreduserid);
-                mDrawerLayout.closeDrawers();
+
                 startActivity(intent);
 
             }
@@ -913,24 +810,7 @@ void hideFragments()
             public void onClick(View view) {
                 rvSearch.setVisibility(View.GONE);
 
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmenthelp !=null)
-                {
-                    Fragment fr=fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
+               clearFragments();
 
                 Intent intent =new Intent(MainActivity.this, PreviousOrders.class);
                 if(isUrlDummy)
@@ -943,7 +823,7 @@ void hideFragments()
                 intent.putExtra("userId", restoreduserid);
                 intent.putExtra("sortBy", "date");
                 intent.putExtra("paymentFilter", "all");
-                mDrawerLayout.closeDrawers();
+
                 startActivity(intent);
 
             }
@@ -951,70 +831,39 @@ void hideFragments()
 
 
 
-        btHelp= (Button) findViewById(R.id.btHelp);
+        btHelp = (Button) findViewById(R.id.btHelp);
         btHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rvSearch.setVisibility(View.GONE);
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                fragmenthelp = new HelpNSupport();
+
+                clearFragments();
+                rvProducts.setVisibility(View.GONE);
+                bottomlayout.setVisibility(View.GONE);
+                fragmenthelp = new FAQFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmenthelp).commit();
-                rvProducts.setVisibility(View.GONE);
+
                 mDrawerLayout.closeDrawers();
                 //..
-              //  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+                //  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
             }
         });
 
-        btContact= (Button) findViewById(R.id.btContact);
+        btContact = (Button) findViewById(R.id.btContact);
         btContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rvSearch.setVisibility(View.GONE);
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmenthelp !=null)
-                {
-                    Fragment fr=fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
 
+                clearFragments();
+                rvProducts.setVisibility(View.GONE);
+                bottomlayout.setVisibility(View.GONE);
                 fragmentContact = new ContactFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmentContact).commit();
-                rvProducts.setVisibility(View.GONE);
-                mDrawerLayout.closeDrawers();
-               // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
+                mDrawerLayout.closeDrawers();
+                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
 
             }
@@ -1024,86 +873,154 @@ void hideFragments()
         btFaq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rvSearch.setVisibility(View.GONE);
-                if (fragmenthelp != null) {
-                    Fragment fr = fragmenthelp;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
 
-                if(fragmentFAQ !=null)
-                {
-                    Fragment fr=fragmentFAQ;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
-
-                if(fragmentContact !=null)
-                {
-                    Fragment fr=fragmentContact;
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(fr).commit();
-                }
+                clearFragments();
+                rvProducts.setVisibility(View.GONE);
+                bottomlayout.setVisibility(View.GONE);
                 fragmentFAQ = new FAQFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.mainframe, fragmentFAQ).commit();
-                rvProducts.setVisibility(View.GONE);
+
                 mDrawerLayout.closeDrawers();
-               // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
 
             }
         });
-        userSetting = (ImageView) findViewById(R.id.setting);
+        btPrivPolicy = (Button) findViewById(R.id.btPrivPolicy);
+        btPrivPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                clearFragments();
+                rvProducts.setVisibility(View.GONE);
+                bottomlayout.setVisibility(View.GONE);
+                fragmentPrivPol = new PrivacyPolicyFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.mainframe, fragmentPrivPol).commit();
+
+                mDrawerLayout.closeDrawers();
+                // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+
+
+            }
+        });
+        userSetting = (TextView) findViewById(R.id.setting);
         userSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
+                SharedPreferences.Editor editor = getSharedPreferences("userIdPref", MODE_PRIVATE).edit();
+                editor.putInt("userId", 0);
+                editor.commit();
+
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+
+                /*PopupMenu popupMenu = new PopupMenu(DummyStoreSelectionActivity.this, view);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
                             case R.id.item_logout:
-                                SharedPreferences.Editor editor = getSharedPreferences("userIdPref", MODE_PRIVATE).edit();
-                                editor.putInt("userId", 0);
-                                editor.commit();
 
-                                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
                                 return true;
                         }
                         return false;
                     }
                 });
                 popupMenu.inflate(R.menu.popup_menu);
-                popupMenu.show();
+                popupMenu.show();*/
 
             }
         });
-
     }
 
+             void clearFragments()
+             {
+                 if (fragmenthelp != null) {
+                     Fragment fr = fragmenthelp;
+                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                     fragmentTransaction.remove(fr).commit();
+                     fragmenthelp =  null;
+                 }
+
+                 if (fragmentFAQ != null) {
+                     Fragment fr = fragmentFAQ;
+                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                     fragmentTransaction.remove(fr).commit();
+                     fragmentFAQ =  null;
+                 }
+
+                 if (fragmentContact != null) {
+                     Fragment fr = fragmentContact;
+                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                     fragmentTransaction.remove(fr).commit();
+                     fragmentContact =  null;
+                 }
+                 if (fragmentPrivPol != null) {
+                     Fragment fr = fragmentPrivPol;
+                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                     fragmentTransaction.remove(fr).commit();
+                     fragmentPrivPol =  null;
+                 }
+             }
 
 
     @Override
     public void onBackPressed()
     {
-        //super.onBackPressed();
-
-        /*if(vpContainer.getVisibility() == View.GONE)
-        {vpContainer.setVisibility(View.VISIBLE);
-            tvNoreslt.setVisibility(View.GONE);
-           // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        rvSearch.setVisibility(View.GONE);
-
-
-            rvSearch.removeAllViews();
+        if (fragmenthelp != null)
+        {
+            Fragment fr = fragmenthelp;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmenthelp= null;
+            rvProducts.setVisibility(View.VISIBLE);
+            bottomlayout.setVisibility(View.VISIBLE);
+            return;
         }
-        else {
+
+        if (fragmentFAQ != null) {
+            Fragment fr = fragmentFAQ;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            rvProducts.setVisibility(View.VISIBLE);
+            bottomlayout.setVisibility(View.VISIBLE);
+            fragmentFAQ = null;
+            return;
+        }
+
+        if (fragmentContact != null) {
+            Fragment fr = fragmentContact;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmentContact = null;
+            rvProducts.setVisibility(View.VISIBLE);
+            bottomlayout.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        if (fragmentPrivPol != null) {
+            Fragment fr = fragmentPrivPol;
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.remove(fr).commit();
+            fragmentPrivPol = null;
+            rvProducts.setVisibility(View.VISIBLE);
+            bottomlayout.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        else if(rvProducts.getVisibility() == View.VISIBLE)
+        {
             finish();
-        }*/
-        finish();
+        }
     }
-}
+
+             @Override
+             protected void onRestart() {
+                 super.onRestart();
+                 recreate();
+             }
+         }

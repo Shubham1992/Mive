@@ -101,7 +101,7 @@
         android:choiceMode="singleChoice"
         android:background="#ffffff">
 
-
+      <!--  -->
 
 
         <RelativeLayout
@@ -147,17 +147,19 @@
                 android:layout_below="@+id/imguser"
                 android:layout_centerHorizontal="true" />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/setting"
-                android:src="@drawable/usersetting"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="5dp"
-                android:alpha=".8"
-                />
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/setting"
+            android:text="Logout"
+            android:padding="5dp"
+            android:textColor="#ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"
+
+            />
 
 
         </RelativeLayout>
@@ -222,6 +224,34 @@
                         android:textColor="#000000"
 
                         android:id="@+id/btInvoiceupload"
+                        android:background="#ffffff"
+                        android:gravity="left"/>
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="7dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/arrow"
+                        android:layout_gravity="right|center_vertical" />
+
+
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Home"
+                        android:textSize="16dp"
+                        android:padding="18dp"
+                        android:textColor="#000000"
+
+                        android:id="@+id/btHome"
                         android:background="#ffffff"
                         android:gravity="left"/>
 
@@ -394,7 +424,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Contact"
+                    android:text="Contact us"
                     android:textSize="16dp"
                     android:padding="15dp"
                     android:textColor="#000000"
@@ -417,18 +447,19 @@
 
                     android:id="@+id/btFAQ"
                     android:background="#ffffff"
-                    android:gravity="left"/>
+                    android:gravity="left"
+                    android:visibility="gone"/>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="About Us"
+                    android:text="About Mive"
                     android:textSize="16dp"
                     android:padding="15dp"
                     android:textColor="#000000"
                     android:textStyle="normal"
 
 
-                    android:id="@+id/btAboutUs"
+                    android:id="@+id/btPrivPolicy"
                     android:background="#ffffff"
                     android:gravity="left"/>
 

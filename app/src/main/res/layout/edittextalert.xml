@@ -12,10 +12,11 @@
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:inputType="numberDecimal"
+    android:inputType="numberDecimal|numberSigned"
     android:id="@+id/editalert"
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
+    android:imeOptions="actionDone"
 
     />
 </LinearLayout>

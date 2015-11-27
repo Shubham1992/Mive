@@ -1,7 +1,10 @@
 package in.mive.app.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -14,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -26,7 +30,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import in.mive.app.adapter.PArticularImagesCustomPagerAdapter;
@@ -34,6 +44,7 @@ import in.mive.app.helperclasses.ServiceHandler;
 import in.mive.app.imageloader.ImageLoader;
 import in.mive.app.imageupload.EditOrderUploadActivity;
 import in.mive.app.savedstates.JSONDTO;
+import in.mive.app.savedstates.SavedOrderId;
 
 /**
  * Created by Shubham on 11/4/2015.
@@ -46,7 +57,9 @@ public class ParticularOrderDetail extends Activity {
     ImageView viewBckPress;
     LinearLayout linearLayoutItemsCnt;
     TextView updateOrder;
-
+    int currentPosition;
+    List<HashMap<String, String>> orderIdslist;
+    Button previous, next;
 
     PArticularImagesCustomPagerAdapter customPagerAdapter;
     @Override
@@ -55,14 +68,65 @@ public class ParticularOrderDetail extends Activity {
         setContentView(R.layout.particular_order_details);
         Intent intent = getIntent();
         orderId = intent.getStringExtra("orderId");
+
+
+        orderIdslist =  SavedOrderId.getInstance().getListOfOrderId();
+        for (int i = 0; i< orderIdslist.size(); i++)
+        {
+            String tmpcurrntOrderId = orderIdslist.get(i).get("orderId");
+            if(tmpcurrntOrderId.equals(orderId))
+            {
+                currentPosition = i;
+                break;
+            }
+        }
+
+
+        previous = (Button) findViewById(R.id.previous);
+        next = (Button) findViewById(R.id.next);
         layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         layoutInvoiceImages = (ViewPager) findViewById(R.id.imgContainer);
         viewBckPress = (ImageView) findViewById(R.id.imgbckHome);
         linearLayoutItemsCnt = (LinearLayout) findViewById(R.id.orderItemsContainer);
         updateOrder = (TextView) findViewById(R.id.updateorder);
 
+        next.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+             if(currentPosition < orderIdslist.size()-1)
+             {
+                 Intent intent1 = new Intent(ParticularOrderDetail.this, ParticularOrderDetail.class);
+                 intent1.putExtra("orderId", SavedOrderId.getInstance().getListOfOrderId().get(++currentPosition).get("orderId").toString());
+                 startActivity(intent1);
+                 finish();
+             }
+             else
+             {
+                 Toast.makeText(ParticularOrderDetail.this, "No More Orders", Toast.LENGTH_SHORT).show();
+             }
+            }
+        });
 
-
+        previous.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if(currentPosition != 0)
+                {
+                    Intent intent1 = new Intent(ParticularOrderDetail.this, ParticularOrderDetail.class);
+                    intent1.putExtra("orderId", SavedOrderId.getInstance().getListOfOrderId().get(--currentPosition).get("orderId").toString());
+                    startActivity(intent1);
+                    finish();
+                }
+                else
+                {
+                 Toast.makeText(ParticularOrderDetail.this, "No More Orders", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         viewBckPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,6 +164,7 @@ public class ParticularOrderDetail extends Activity {
         String jsonOrderDetail;
         private JSONObject objectOrder;
         private JSONObject objectOrderItems;
+        private String jsonOrderItemDetail;
 
         @Override
         protected void onPreExecute() {
@@ -122,22 +187,8 @@ public class ParticularOrderDetail extends Activity {
             urlOrders = "http://www.mive.in/api/order/"+ orderId;
             String urlItemsInOrder = "http://www.mive.in/api/order/items/" + orderId + "/";
 
-
-
             jsonOrderDetail = sh.makeServiceCall(urlOrders, ServiceHandler.GET);
-            try {
-                objectOrder = new JSONObject(jsonOrderDetail);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            String jsonOrderItemDetail = sh.makeServiceCall(urlItemsInOrder, ServiceHandler.GET);
-            try {
-                objectOrderItems = new JSONObject(jsonOrderItemDetail);
-                Log.e("Particular Order items",objectOrderItems.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            jsonOrderItemDetail = sh.makeServiceCall(urlItemsInOrder, ServiceHandler.GET);
 
 
             return null;
@@ -149,6 +200,26 @@ public class ParticularOrderDetail extends Activity {
             // Dismiss the progress dialog
             if (pDialog.isShowing())
                 pDialog.dismiss();
+            if(jsonOrderDetail == null )
+
+            {
+                buildDialog(ParticularOrderDetail.this).show();
+                return;
+            }
+
+            try {
+                objectOrder = new JSONObject(jsonOrderDetail);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                objectOrderItems = new JSONObject(jsonOrderItemDetail);
+                Log.e("Particular Order items",objectOrderItems.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
             setOrderlayout(objectOrder);
             setOrderItemslayout(objectOrderItems);
@@ -169,7 +240,24 @@ public class ParticularOrderDetail extends Activity {
 
         }
     }
+    public AlertDialog.Builder buildDialog(Context c) {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("No Internet connection.");
+        builder.setMessage("You have no internet connection");
+
+        builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+                recreate();
+            }
+        });
+
+        return builder;
+    }
     private void setOrderItemslayout(JSONObject objectOrderItems) {
         JSONArray jsonArray = objectOrderItems.optJSONArray("results");
 
@@ -281,7 +369,19 @@ public class ParticularOrderDetail extends Activity {
 
         tvPaymentStatus.setText(paymentStatus);
         tvOrderId.setText(orderId);
-        tvOrderDate.setText(orderDate);
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        try {
+            Date dateText = format.parse(orderDate);
+            SimpleDateFormat shortFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String shortdate = shortFormat.format(dateText);
+
+            tvOrderDate.setText(shortdate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         tvOrderAmount.setText("Rs. "+orderAmount);
     }
 
